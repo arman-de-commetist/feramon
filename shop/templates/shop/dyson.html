@@ -1,0 +1,154 @@
+{% extends "shop/base.html" %}
+{% load static i18n tenge %}
+{% block title %}Dyson Airwrap {% translate "в подарок" %} | MONA Perfume{% endblock %}
+{% block description %}{% translate "Dyson Airwrap Styler в подарок при покупке MONA 100 мл: 6 насадок, имя на корпусе бесплатно, гарантия 1 год." %}{% endblock %}
+{% block og_title %}Dyson Airwrap {% translate "в подарок" %} — MONA Perfume{% endblock %}
+{% block og_image %}{% static 'shop/img/promo-dyson.webp' as img %}{% absolute img %}{% endblock %}
+{% block content %}
+{% with v100=dyson_variants.0 %}
+<header class="dyson-hero">
+  <div class="container dh-grid">
+    <div class="dh-text">
+      <div class="crumbs light"><a href="{% url 'index' %}">{% translate "Главная" %}</a> / <a href="{% url 'promotions' %}">{% translate "Подарки" %}</a> / <span>Dyson Airwrap</span></div>
+      <div class="promo-kicker">{% translate "Подарок к MONA 100 мл" %}</div>
+      <h1>✨ Dyson Airwrap <i>Styler</i></h1>
+      <p class="lead">{% translate "Ваша красота — в деталях, а идеальная укладка начинается с Dyson! Подарите себе возможность создавать роскошные укладки каждый день, не выходя из дома." %}</p>
+      <div class="dh-colors">
+        <span class="opt-title gold-t">{% translate "4 цвета на выбор" %}</span>
+        <div class="dh-thumbs">{% for c in dyson_colors %}<a href="#colors" title="{{ c.label }}"><img src="{% static c.img %}" alt="{{ c.label }}"></a>{% endfor %}</div>
+      </div>
+      <div class="hero-actions">
+        <a href="#colors" class="btn gold">🎁 {% translate "Получить в подарок" %}</a>
+        <a href="#video" class="btn ghost light-ghost">▶ {% translate "Смотреть распаковку" %}</a>
+      </div>
+    </div>
+    <div class="dh-img">
+      <img src="{% static 'shop/img/dyson/color-pink.webp' %}" alt="Dyson Airwrap" class="dh-main white">
+      <img src="{% static 'shop/img/promo-box.webp' %}" alt="{% translate "Именная коробка" %}" class="dh-box">
+    </div>
+  </div>
+</header>
+
+<!-- COLOURS -->
+<section class="dyson-colors" id="colors">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">🎨 {% translate "Цвета" %}</div>
+      <h2>{% translate "Выберите <i>свой цвет</i>" %}</h2>
+      <p>{% translate "Цвет выбираете при заказе аромата 100 мл — Dyson приедет вместе с ним." %}</p>
+    </div>
+    <div class="color-grid">
+      {% for c in dyson_colors %}
+      <div class="color-card reveal">
+        <div class="cc-img"><img src="{% static c.img %}" alt="Dyson Airwrap — {{ c.label }}" loading="lazy"></div>
+        <div class="cc-body">
+          <span class="cc-num">0{{ forloop.counter }}</span>
+          <h3>{{ c.label }}</h3>
+          <small class="cc-model">{{ c.model }}</small>
+          <p>{{ c.desc }}</p>
+          {% if v100 %}<a href="{% url 'order' %}?v={{ v100.pk }}&amp;color={{ c.key }}#buy" class="btn">{% translate "Выбрать этот цвет" %} →</a>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ATTACHMENTS -->
+<section class="dyson-atts" id="attachments">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">✅ {% translate "Комплект" %}</div>
+      <h2>{% translate "6 насадок <i>в комплекте</i>" %}</h2>
+      <p>{% translate "Локоны, волны, гладкость и объём — одним стайлером." %}</p>
+    </div>
+    <div class="att-grid">
+      {% for a in attachments %}
+      <article class="att reveal">
+        <div class="att-img"><img src="{% static a.img %}" alt="{{ a.title }}" loading="lazy"><span class="att-num">{{ forloop.counter }}</span></div>
+        <div class="att-body">
+          <h3>{{ a.title }}</h3>
+          <div class="att-sub">{{ a.sub }}</div>
+          <ul>{% for p in a.points %}<li>{{ p }}</li>{% endfor %}</ul>
+          <div class="att-result"><b>{% translate "Результат" %}:</b> {{ a.result }}</div>
+        </div>
+      </article>
+      {% if forloop.counter == 2 %}
+      <div class="att-compare reveal">
+        <h4>{% translate "В чём разница?" %}</h4>
+        <div class="ac-row"><span class="ac-tag">30 {% translate "мм" %}</span><p>{% translate "Завиток мельче и выраженнее." %}</p></div>
+        <div class="ac-row"><span class="ac-tag">40 {% translate "мм" %}</span><p>{% translate "Завиток крупнее и свободнее." %}</p></div>
+        <small>{% translate "Стойкость зависит от типа волос, их длины и техники укладки." %}</small>
+      </div>
+      {% elif forloop.counter == 4 %}
+      <div class="att-compare reveal">
+        <h4>{% translate "Мягкая или жёсткая?" %}</h4>
+        <p>{% translate "Эти щётки похожи по назначению, но мягкая рассчитана на более деликатное разглаживание, а жёсткая — на более сильный контроль непослушных волос." %}</p>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="dyson-video" id="video">
+  <div class="container dv-grid">
+    <div class="phone-frame reveal">
+      <video src="{% static 'shop/video/dyson-unboxing.mp4' %}" poster="{% static 'shop/video/dyson-unboxing.jpg' %}" controls playsinline muted loop preload="metadata" id="dysonVideo"></video>
+    </div>
+    <div class="reveal">
+      <div class="promo-kicker">▶ {% translate "Видео" %}</div>
+      <h2>{% translate "Распаковка <i>Dyson Airwrap</i>" %}</h2>
+      <p>{% translate "Посмотрите, что лежит в коробке: стайлер, насадки и фирменный футляр." %}</p>
+      <div class="hero-actions">
+        {% if v100 %}<a href="{% url 'order' %}?v={{ v100.pk }}#buy" class="btn gold">🎁 {% translate "Хочу такой в подарок" %}</a>{% endif %}
+        <a href="{% url 'write' %}?topic=dyson" target="_blank" rel="noopener" class="btn wa-btn">{% include "shop/icons/whatsapp.html" %} {% translate "Спросить в WhatsApp" %}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="dyson-why">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">🎀 {% translate "Почему вы влюбитесь" %}</div>
+      <h2>{% translate "Почему вы влюбитесь <i>в свой Dyson?</i>" %}</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why reveal"><div class="why-ic">✅</div><h5>{% translate "6 насадок в комплекте" %}</h5><p>{% translate "Для создания разнообразных укладок, объёма, красивых локонов и идеально гладких волос." %}</p></div>
+      <div class="why reveal"><div class="why-ic">💎</div><h5>{% translate "Персонализация бесплатно" %}</h5><p>{% translate "Нанесём ваше имя на корпус Dyson, чтобы он стал по-настоящему вашим." %}</p></div>
+      <div class="why reveal"><div class="why-ic">🛍️</div><h5>{% translate "Фирменная упаковка" %}</h5><p>{% translate "Стильная брендированная подача, достойная особенного подарка." %}</p></div>
+      <div class="why reveal"><div class="why-ic">🇰🇷</div><h5>{% translate "Корейский оригинал" %}</h5><p>{% translate "Устройство сопровождается официальным чеком." %}</p></div>
+      <div class="why reveal"><div class="why-ic">🤍</div><h5>{% translate "Гарантия 1 год" %}</h5><p>{% translate "Ваша красота и уверенность в каждой детали." %}</p></div>
+      <div class="why reveal"><div class="why-ic">🎨</div><h5>{% translate "4 цвета" %}</h5><p>{% translate "Бежево-розовый, тёмно-синий, бархатно-красный или розовый — выбираете вы." %}</p></div>
+    </div>
+    <p class="dyson-quote reveal">✨ {% translate "Dyson — это не просто стайлер. Это ваш личный инструмент для безупречного образа каждый день." %}</p>
+  </div>
+</section>
+
+<!-- TAKE -->
+<section class="dyson-take" id="take">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Как получить" %}</div>
+      <h2>{% translate "Выберите аромат <i>100 мл</i>" %}</h2>
+      <p>{% translate "Dyson Airwrap идёт в подарок к любому аромату MONA объёмом 100 мл." %}</p>
+    </div>
+    <div class="take-grid">
+      {% for v in dyson_variants %}
+      <a href="{% url 'order' %}?v={{ v.pk }}#buy" class="take-card theme-{{ v.product.theme }} reveal">
+        {% if v.product.image %}<img src="{{ v.product.image.url }}" alt="MONA {{ v.product|tr:'name' }}" loading="lazy">{% endif %}
+        <div class="tc-body">
+          <b>MONA {{ v.product|tr:"name" }}</b><small>{{ v.label|vol }} · {{ v.product|tr:"tagline" }}</small>
+          {% include "shop/_price.html" with v=v %}
+          <span class="tc-gift">+ 🎁 Dyson Airwrap</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endwith %}
+{% endblock %}

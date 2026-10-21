@@ -1,0 +1,1812 @@
+# MONA Perfume — English translation. Edit msgstr lines, then run: python manage.py compiletranslations
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Страница не найдена"
+msgstr "Page not found"
+
+msgid "Ошибка 404"
+msgstr "Error 404"
+
+msgid "Аромат <i>ускользнул</i>"
+msgstr "The scent <i>slipped away</i>"
+
+msgid "Такой страницы нет — но ваш аромат точно ждёт вас в коллекции."
+msgstr "This page does not exist — but your scent is surely waiting for you in the collection."
+
+msgid "К ароматам"
+msgstr "To the scents"
+
+msgid "На главную"
+msgstr "Home page"
+
+msgid "Заказ"
+msgstr "Order"
+
+msgid "Подарите себе <i>MONA</i>"
+msgstr "Treat yourself to <i>MONA</i>"
+
+msgid "Выберите аромат, объём и подарок — и добавьте в корзину."
+msgstr "Choose a scent, volume and gift — and add it to your cart."
+
+msgid "отзывы"
+msgstr "reviews"
+
+msgid "Extrait de parfum · 35%% феромонов"
+msgstr "Extrait de parfum · 35%% pheromones"
+
+msgid "Аромат"
+msgstr "Scent"
+
+msgid "Объём"
+msgstr "Volume"
+
+msgid "мл"
+msgstr "ml"
+
+msgid "Выберите аромат и объём"
+msgstr "Choose a scent and volume"
+
+msgid "Подарок"
+msgstr "Gift"
+
+msgid "Выберите"
+msgstr "Choose"
+
+msgid "выбрано"
+msgstr "selected"
+
+msgid "Подробнее о подарочных парфюмах"
+msgstr "More about the gift perfumes"
+
+msgid "6 насадок · имя на корпусе бесплатно · гарантия 1 год"
+msgstr "6 attachments · free name engraving · 1-year warranty"
+
+msgid "Цвет"
+msgstr "Colour"
+
+msgid "Увеличить"
+msgstr "Zoom in"
+
+msgid "Выбрать этот цвет"
+msgstr "Choose this colour"
+
+msgid "Закрыть"
+msgstr "Close"
+
+msgid "Персонализация"
+msgstr "Personalisation"
+
+msgid "Всё о Dyson Airwrap"
+msgstr "All about Dyson Airwrap"
+
+msgid "В корзину"
+msgstr "Add to cart"
+
+msgid "Купить сейчас"
+msgstr "Buy now"
+
+msgid "Задать вопрос менеджеру в WhatsApp"
+msgstr "Ask a manager on WhatsApp"
+
+msgid "Доставка по Казахстану"
+msgstr "Delivery across Kazakhstan"
+
+msgid "Kaspi перевод / Kaspi QR"
+msgstr "Kaspi transfer / Kaspi QR"
+
+msgid "Подарочная упаковка"
+msgstr "Gift packaging"
+
+msgid "Смайлики"
+msgstr "Emoji"
+
+msgid "Наведите камеру"
+msgstr "Point your camera"
+
+msgid "Оплатить через Kaspi"
+msgstr "Pay with Kaspi"
+
+msgid "Сумма к оплате"
+msgstr "Amount to pay"
+
+msgid "Отсканируйте QR-код камерой телефона или в приложении Kaspi.kz"
+msgstr "Scan the QR code with your phone camera or in the Kaspi.kz app"
+
+msgid "Введите сумму заказа, указанную выше"
+msgstr "Enter the order amount shown above"
+
+msgid "Введите сумму вашего заказа"
+msgstr "Enter your order amount"
+
+msgid "В комментарии укажите номер заказа"
+msgstr "Add your order number in the comment"
+
+msgid "Оплатить в Kaspi"
+msgstr "Pay in Kaspi"
+
+msgid "После оплаты отправьте заказ в WhatsApp — менеджер проверит оплату и подтвердит заказ."
+msgstr "After paying, send your order on WhatsApp — the manager will check the payment and confirm the order."
+
+msgid "В комментарии укажите номер заказа №%(n)s"
+msgstr "Add order No. %(n)s in the comment"
+
+msgid "Удалить"
+msgstr "Remove"
+
+msgid "Личный консультант"
+msgstr "Personal consultant"
+
+msgid "Ваш <i>личный консультант</i>"
+msgstr "Your <i>personal consultant</i>"
+
+msgid "Напишите в WhatsApp — поможем выбрать аромат, объём и подарок."
+msgstr "Message us on WhatsApp — we will help you choose a scent, volume and gift."
+
+msgid "Написать свободному менеджеру"
+msgstr "Message an available manager"
+
+msgid "На связи"
+msgstr "Online"
+
+msgid "Консультант MONA"
+msgstr "MONA consultant"
+
+msgid "Позвонить"
+msgstr "Call"
+
+msgid "Оплата через Kaspi"
+msgstr "Pay with Kaspi"
+
+msgid "Kaspi перевод"
+msgstr "Kaspi transfer"
+
+msgid "Переведите сумму заказа по номеру телефона, который пришлёт менеджер."
+msgstr "Transfer the order amount to the phone number our manager sends you."
+
+msgid "Отсканируйте QR-код в приложении Kaspi.kz — и заказ оплачен."
+msgstr "Scan the QR code in the Kaspi.kz app — and the order is paid."
+
+msgid "При получении"
+msgstr "On delivery"
+
+msgid "Наличными курьеру — для доставки по городу."
+msgstr "Cash to the courier — for delivery within the city."
+
+msgid "Акция"
+msgstr "Special offer"
+
+msgid "Подарок <i>к каждому</i> флакону"
+msgstr "A gift <i>with every</i> bottle"
+
+msgid "Скидка 50%% на все ароматы MONA — и подарок, который зависит от объёма."
+msgstr "50%% off all MONA scents — plus a gift that depends on the volume."
+
+msgid "Хит"
+msgstr "Bestseller"
+
+msgid "6 насадок · имя на корпусе бесплатно · 4 цвета"
+msgstr "6 attachments · free name engraving · 4 colours"
+
+msgid "На выбор: Chanel, Dior, Armani, Tom Ford, YSL"
+msgstr "Choose from: Chanel, Dior, Armani, Tom Ford, YSL"
+
+msgid "Выбрать"
+msgstr "Choose"
+
+msgid "Все подарочные парфюмы"
+msgstr "All gift perfumes"
+
+msgid "Сравнить объёмы"
+msgstr "Compare volumes"
+
+msgid "Количество подарков ограничено."
+msgstr "Limited number of gifts."
+
+msgid "Отзывы"
+msgstr "Reviews"
+
+msgid "Любят <i>с первого вдоха</i>"
+msgstr "Loved <i>from the first breath</i>"
+
+msgid "Покупатель"
+msgstr "Customer"
+
+msgid "Все отзывы и ответы"
+msgstr "All reviews and replies"
+
+msgid "Выбор"
+msgstr "Choice"
+
+msgid "Корзина"
+msgstr "Cart"
+
+msgid "Оформление"
+msgstr "Checkout"
+
+msgid "О бренде"
+msgstr "About us"
+
+msgid "Парфюмерный бренд для женщин, которые ценят женственность, нежность, элегантность и уверенность в себе."
+msgstr "A perfume brand for women who value femininity, tenderness, elegance and self-confidence."
+
+msgid "Наша история"
+msgstr "Our story"
+
+msgid "Аромат — <i>это не просто запах</i>"
+msgstr "A scent is <i>more than a smell</i>"
+
+msgid "Мы верим, что аромат — это часть образа, настроение и способ выразить свою индивидуальность."
+msgstr "We believe a scent is part of your look, a mood and a way to express your individuality."
+
+msgid "Название MONA символизирует нежность и женственность. Наша идея — помочь каждой женщине найти аромат, который соответствует её характеру, подчёркивает её стиль и позволяет чувствовать себя увереннее."
+msgstr "The name MONA stands for tenderness and femininity. Our idea is to help every woman find a scent that matches her character, highlights her style and helps her feel more confident."
+
+msgid "Наша философия"
+msgstr "Our philosophy"
+
+msgid "Аромат должен нравиться прежде всего вам."
+msgstr "A scent should please you first of all."
+
+msgid "Что для нас важно"
+msgstr "What matters to us"
+
+msgid "Три <i>принципа</i> MONA"
+msgstr "Three MONA <i>principles</i>"
+
+msgid "Женственность"
+msgstr "Femininity"
+
+msgid "Аромат, который соответствует вашему характеру и подчёркивает ваш стиль."
+msgstr "A scent that matches your character and highlights your style."
+
+msgid "Для себя"
+msgstr "For yourself"
+
+msgid "Мы хотим, чтобы женщины выбирали аромат для себя: ради хорошего настроения, собственного стиля и уверенности."
+msgstr "We want women to choose a scent for themselves: for a good mood, their own style and confidence."
+
+msgid "Приятно и выгодно"
+msgstr "Pleasant and good value"
+
+msgid "Мы уделяем внимание упаковке, сервису, условиям покупки, акциям и подаркам."
+msgstr "We pay attention to packaging, service, purchase terms, promotions and gifts."
+
+msgid "Что такое <i>MONA PHEROMONE</i>?"
+msgstr "What is <i>MONA PHEROMONE</i>?"
+
+msgid "MONA PHEROMONE — наш парфюмерный продукт, позиционируемый как парфюм с феромонами."
+msgstr "MONA PHEROMONE is our perfume product, positioned as a pheromone perfume."
+
+msgid "Мы не обещаем, что парфюм гарантированно заставит другого человека испытывать влечение или влюбиться. Мы считаем, что индивидуальность, поведение и уверенность важнее любых обещаний."
+msgstr "We do not promise that the perfume will make another person feel attraction or fall in love. We believe individuality, behaviour and confidence matter more than any promises."
+
+msgid "Информацию о составе и свойствах продукта мы предоставляем на основании подтверждённых данных о парфюме."
+msgstr "We provide information about the composition and properties of the product based on confirmed data about the perfume."
+
+msgid "Сертификаты"
+msgstr "Certificates"
+
+msgid "Вопросы и ответы"
+msgstr "Questions & answers"
+
+msgid "Производство"
+msgstr "Production"
+
+msgid "Парфюм производится <i>во Франции</i>"
+msgstr "The perfume is made <i>in France</i>"
+
+msgid "Согласно документации, предоставленной нашим поставщиком, парфюм производится во Франции."
+msgstr "According to the documentation provided by our supplier, the perfume is made in France."
+
+msgid "MONA PHEROMONE закупает готовый парфюм у поставщика. Мы не заявляем о собственном производстве."
+msgstr "MONA PHEROMONE buys the finished perfume from a supplier. We do not claim our own production."
+
+msgid "Главная"
+msgstr "Home"
+
+msgid "Блог"
+msgstr "Blog"
+
+msgid "Готовы выбрать свой аромат?"
+msgstr "Ready to choose your scent?"
+
+msgid "Пройти тест"
+msgstr "Take the quiz"
+
+msgid "Выбрать аромат"
+msgstr "Choose a scent"
+
+msgid "Читайте <i>также</i>"
+msgstr "Read <i>also</i>"
+
+msgid "парфюм с феромонами"
+msgstr "pheromone perfume"
+
+msgid "MONA Perfume — три аромата с 35%% феромонов: нежный, холодный и сладкий. Оплата Kaspi, доставка по Казахстану."
+msgstr "MONA Perfume — three scents with 35%% pheromones: tender, cool and sweet. Kaspi payment, delivery across Kazakhstan."
+
+msgid "Скидка −50%% на все ароматы"
+msgstr "−50%% off all scents"
+
+msgid "Подарок к каждому флакону: французский парфюм или Dyson Airwrap"
+msgstr "A gift with every bottle: a French perfume or a Dyson Airwrap"
+
+msgid "Подарок к каждому флакону"
+msgstr "A gift with every bottle"
+
+msgid "Меню"
+msgstr "Menu"
+
+msgid "Ароматы"
+msgstr "Scents"
+
+msgid "Все ароматы"
+msgstr "All scents"
+
+msgid "Тест: какой аромат ваш?"
+msgstr "Quiz: which scent is yours?"
+
+msgid "Подарки"
+msgstr "Gifts"
+
+msgid "Акции"
+msgstr "Offers"
+
+msgid "Французские парфюмы"
+msgstr "French perfumes"
+
+msgid "Покупателям"
+msgstr "For customers"
+
+msgid "Доставка"
+msgstr "Delivery"
+
+msgid "Оплата Kaspi"
+msgstr "Kaspi payment"
+
+msgid "Гарантия и возврат"
+msgstr "Warranty & returns"
+
+msgid "О нас"
+msgstr "About"
+
+msgid "Что такое феромоны"
+msgstr "What are pheromones"
+
+msgid "Галерея"
+msgstr "Gallery"
+
+msgid "Контакты"
+msgstr "Contacts"
+
+msgid "Язык"
+msgstr "Language"
+
+msgid "Заказать"
+msgstr "Order"
+
+msgid "Парфюм с феромонами для женщин, которые притягивают без слов."
+msgstr "Pheromone perfume for women who attract without words."
+
+msgid "Все контакты"
+msgstr "All contacts"
+
+msgid "Политика конфиденциальности"
+msgstr "Privacy policy"
+
+msgid "Публичная оферта"
+msgstr "Public offer"
+
+msgid "Оплата Kaspi · Доставка по Казахстану"
+msgstr "Kaspi payment · Delivery across Kazakhstan"
+
+msgid "Нижнее меню"
+msgstr "Bottom menu"
+
+msgid "Связь"
+msgstr "Contact"
+
+msgid "Написать в WhatsApp"
+msgstr "Message us on WhatsApp"
+
+msgid "Связаться с нами"
+msgstr "Contact us"
+
+msgid "Написать менеджеру"
+msgstr "Message a manager"
+
+msgid "Напишите нам в WhatsApp"
+msgstr "Message us on WhatsApp"
+
+msgid "Ответим, поможем выбрать аромат и подарок"
+msgstr "We will reply and help you choose a scent and gift"
+
+msgid "Всё об <i>ароматах</i>"
+msgstr "All about <i>scents</i>"
+
+msgid "Советы, секреты стойкости и новости MONA."
+msgstr "Tips, longevity secrets and MONA news."
+
+msgid "Читать"
+msgstr "Read"
+
+msgid "Статьи скоро появятся."
+msgstr "Articles are coming soon."
+
+msgid "Ваша <i>корзина</i>"
+msgstr "Your <i>cart</i>"
+
+msgid "Добавить ещё аромат"
+msgstr "Add another scent"
+
+msgid "Итого"
+msgstr "Summary"
+
+msgid "Товары"
+msgstr "Items"
+
+msgid "Скидка"
+msgstr "Discount"
+
+msgid "бесплатно"
+msgstr "free"
+
+msgid "К оплате"
+msgstr "Total to pay"
+
+msgid "Оформить заказ"
+msgstr "Place order"
+
+msgid "Оплата Kaspi после подтверждения заказа менеджером."
+msgstr "Kaspi payment after the manager confirms your order."
+
+msgid "Есть вопрос? Напишите менеджеру"
+msgstr "Have a question? Message a manager"
+
+msgid "Корзина пока пуста"
+msgstr "Your cart is empty"
+
+msgid "Выберите аромат — и получите подарок: французский парфюм или Dyson Airwrap."
+msgstr "Choose a scent and get a gift: a French perfume or a Dyson Airwrap."
+
+msgid "Ароматы MONA — каталог"
+msgstr "MONA scents — catalogue"
+
+msgid "Коллекция"
+msgstr "Collection"
+
+msgid "Три характера одной женщины."
+msgstr "Three characters of one woman."
+
+msgid "подарок"
+msgstr "gift"
+
+msgid "от"
+msgstr "from"
+
+msgid "Ноты"
+msgstr "Notes"
+
+msgid "Документы на парфюмерную основу MONA: сертификат происхождения, сертификат анализа и сертификат ISO производителя."
+msgstr "Documents for the MONA fragrance base: certificate of origin, certificate of analysis and the manufacturer’s ISO certificate."
+
+msgid "Документы"
+msgstr "Documents"
+
+msgid "Сертификаты <i>и качество</i>"
+msgstr "Certificates <i>and quality</i>"
+
+msgid "Документы на парфюмерную основу, которые предоставил наш поставщик."
+msgstr "Documents for the fragrance base provided by our supplier."
+
+msgid "Производитель парфюмерной основы — Luzi AG, Швейцария. Нажмите на документ, чтобы открыть его полностью."
+msgstr "Manufacturer of the fragrance base: Luzi AG, Switzerland. Tap a document to open it in full."
+
+msgid "Сертификат происхождения"
+msgstr "Certificate of origin"
+
+msgid "Сертификат анализа"
+msgstr "Certificate of analysis"
+
+msgid "Сертификат ISO 9001 и ISO 14001"
+msgstr "ISO 9001 and ISO 14001 certificate"
+
+msgid "Открыть"
+msgstr "Open"
+
+msgid "Выдан"
+msgstr "Issued by"
+
+msgid "Торговая палата Цюриха"
+msgstr "Zurich Chamber of Commerce"
+
+msgid "Страна происхождения"
+msgstr "Country of origin"
+
+msgid "Швейцария"
+msgstr "Switzerland"
+
+msgid "Товар"
+msgstr "Goods"
+
+msgid "Парфюмерные композиции без спирта"
+msgstr "Alcohol-free perfume compounds"
+
+msgid "Номер и дата"
+msgstr "Number and date"
+
+msgid "Подлинность можно проверить на сайте certificates.iccwbo.org по коду безопасности, указанному в документе."
+msgstr "Authenticity can be checked at certificates.iccwbo.org using the security code shown on the document."
+
+msgid "цветочно-фруктовый"
+msgstr "floral-fruity"
+
+msgid "Дата производства"
+msgstr "Production date"
+
+msgid "Лабораторные показатели партии: плотность и показатель преломления — в пределах спецификации."
+msgstr "Batch lab values: density and refractive index are within specification."
+
+msgid "Предприятие"
+msgstr "Company"
+
+msgid "Что подтверждает"
+msgstr "Confirms"
+
+msgid "Систему менеджмента качества и окружающей среды"
+msgstr "Quality and environmental management system"
+
+msgid "Действителен до"
+msgstr "Valid until"
+
+msgid "Нажмите на документ, чтобы увеличить"
+msgstr "Tap the document to zoom in"
+
+msgid "Оформление заказа"
+msgstr "Checkout"
+
+msgid "Оформление <i>заказа</i>"
+msgstr "Order <i>checkout</i>"
+
+msgid "Ваши данные"
+msgstr "Your details"
+
+msgid "Оплата"
+msgstr "Payment"
+
+msgid "Подтвердить заказ"
+msgstr "Confirm order"
+
+msgid "Нажимая кнопку, вы соглашаетесь с условиями оферты и политикой конфиденциальности."
+msgstr "By clicking the button you agree to the offer terms and the privacy policy."
+
+msgid "Оферта"
+msgstr "Offer"
+
+msgid "Ваш заказ"
+msgstr "Your order"
+
+msgid "Без скидки"
+msgstr "Without discount"
+
+msgid "Изменить корзину"
+msgstr "Edit cart"
+
+msgid "Сравнение"
+msgstr "Comparison"
+
+msgid "Какой объём выбрать — и что вы получите в подарок."
+msgstr "Which volume to choose — and what you get as a gift."
+
+msgid "Выгоднее всего"
+msgstr "Best value"
+
+msgid "Экономия"
+msgstr "You save"
+
+msgid "Хватит примерно на"
+msgstr "Lasts about"
+
+msgid "3–4 месяца"
+msgstr "3–4 months"
+
+msgid "5–6 месяцев"
+msgstr "5–6 months"
+
+msgid "10–12 месяцев"
+msgstr "10–12 months"
+
+msgid "Срок использования примерный — при 2–3 нанесениях в день. Цены и подарки одинаковые для всех трёх ароматов."
+msgstr "Usage time is approximate — with 2–3 applications a day. Prices and gifts are the same for all three scents."
+
+msgid "Выберите <i>аромат</i>"
+msgstr "Choose a <i>scent</i>"
+
+msgid "Мы <i>на связи</i>"
+msgstr "We are <i>in touch</i>"
+
+msgid "Поможем выбрать аромат, ответим на вопросы и оформим заказ."
+msgstr "We will help you choose a scent, answer your questions and place your order."
+
+msgid "Самый быстрый способ связаться"
+msgstr "The fastest way to reach us"
+
+msgid "Написать"
+msgstr "Write"
+
+msgid "Подписаться"
+msgstr "Follow"
+
+msgid "Телефон"
+msgstr "Phone"
+
+msgid "Контакты скоро появятся. Владелец сайта: заполните их в админке → «Контакты сайта»."
+msgstr "Contacts will appear soon. Site owner: fill them in the admin → “Контакты сайта”."
+
+msgid "Мы на карте"
+msgstr "Find us on the map"
+
+msgid "Приходите за ароматом лично или заберите заказ самовывозом."
+msgstr "Come and pick your scent in person or collect your order yourself."
+
+msgid "Открыть на карте"
+msgstr "Open on the map"
+
+msgid "Город"
+msgstr "City"
+
+msgid "Часы работы"
+msgstr "Working hours"
+
+msgid "По всему Казахстану"
+msgstr "All over Kazakhstan"
+
+msgid "Хотите <i>заказать</i>?"
+msgstr "Want to <i>order</i>?"
+
+msgid "Оставьте заявку на сайте — мы перезвоним сами."
+msgstr "Leave a request on the website — we will call you back."
+
+msgid "Доставка и оплата Kaspi"
+msgstr "Delivery and Kaspi payment"
+
+msgid "Оплата Kaspi переводом или Kaspi QR, доставка курьером, Казпочтой и СДЭК по всему Казахстану."
+msgstr "Pay by Kaspi transfer or Kaspi QR; delivery by courier, Kazpost and CDEK across Kazakhstan."
+
+msgid "Доставка <i>и оплата</i>"
+msgstr "Delivery <i>& payment</i>"
+
+msgid "Оплата через Kaspi и доставка в любой город Казахстана."
+msgstr "Payment via Kaspi and delivery to any city in Kazakhstan."
+
+msgid "Как заказать"
+msgstr "How to order"
+
+msgid "Четыре <i>простых шага</i>"
+msgstr "Four <i>simple steps</i>"
+
+msgid "Оставьте заявку"
+msgstr "Leave a request"
+
+msgid "Выберите аромат на сайте и заполните форму — это займёт минуту."
+msgstr "Choose a scent on the website and fill in the form — it takes a minute."
+
+msgid "Мы перезвоним"
+msgstr "We call you back"
+
+msgid "Менеджер подтвердит заказ, адрес и способ доставки."
+msgstr "Our manager will confirm the order, address and delivery method."
+
+msgid "Пришлём реквизиты для перевода или Kaspi QR."
+msgstr "We send the transfer details or a Kaspi QR code."
+
+msgid "Получите аромат"
+msgstr "Receive your scent"
+
+msgid "Отправляем в подарочной упаковке и присылаем трек-номер."
+msgstr "We ship in gift packaging and send you a tracking number."
+
+msgid "Оплата производится только после подтверждения заказа менеджером."
+msgstr "Payment is made only after the manager confirms the order."
+
+msgid "Самый удобный способ для Казахстана — без комиссии и за пару секунд."
+msgstr "The most convenient way in Kazakhstan — no fees and in a couple of seconds."
+
+msgid "Привезём <i>в любой город</i>"
+msgstr "We deliver <i>to any city</i>"
+
+msgid "Стоимость и точный срок доставки менеджер сообщит при подтверждении заказа."
+msgstr "The manager will tell you the delivery cost and exact time when confirming the order."
+
+msgid "Экспресс"
+msgstr "Express"
+
+msgid "Курьер по городу"
+msgstr "City courier"
+
+msgid "Привезём прямо до двери — без долгого ожидания."
+msgstr "Right to your door — no long wait."
+
+msgid "1–2 часа"
+msgstr "1–2 hours"
+
+msgid "Казпочта"
+msgstr "Kazpost"
+
+msgid "В любой населённый пункт Казахстана."
+msgstr "To any town or village in Kazakhstan."
+
+msgid "3–7 дней"
+msgstr "3–7 days"
+
+msgid "СДЭК"
+msgstr "CDEK"
+
+msgid "До пункта выдачи или курьером до двери."
+msgstr "To a pick-up point or by courier to your door."
+
+msgid "2–5 дней"
+msgstr "2–5 days"
+
+msgid "Самовывоз"
+msgstr "Pick-up"
+
+msgid "Заберите заказ сами — адрес сообщим при подтверждении."
+msgstr "Pick up your order yourself — we will give you the address when confirming."
+
+msgid "Открыть в 2GIS"
+msgstr "Open in 2GIS"
+
+msgid "в день заказа"
+msgstr "same day"
+
+msgid "Алматы"
+msgstr "Almaty"
+
+msgid "Астана"
+msgstr "Astana"
+
+msgid "Шымкент"
+msgstr "Shymkent"
+
+msgid "Караганда"
+msgstr "Karaganda"
+
+msgid "Актобе"
+msgstr "Aktobe"
+
+msgid "Тараз"
+msgstr "Taraz"
+
+msgid "Павлодар"
+msgstr "Pavlodar"
+
+msgid "Усть-Каменогорск"
+msgstr "Ust-Kamenogorsk"
+
+msgid "Семей"
+msgstr "Semey"
+
+msgid "Атырау"
+msgstr "Atyrau"
+
+msgid "Костанай"
+msgstr "Kostanay"
+
+msgid "Кызылорда"
+msgstr "Kyzylorda"
+
+msgid "Уральск"
+msgstr "Uralsk"
+
+msgid "Петропавловск"
+msgstr "Petropavlovsk"
+
+msgid "Актау"
+msgstr "Aktau"
+
+msgid "Туркестан"
+msgstr "Turkestan"
+
+msgid "Талдыкорган"
+msgstr "Taldykorgan"
+
+msgid "Кокшетау"
+msgstr "Kokshetau"
+
+msgid "и другие города"
+msgstr "and other cities"
+
+msgid "Готовы выбрать <i>свой аромат</i>?"
+msgstr "Ready to choose <i>your scent</i>?"
+
+msgid "в подарок"
+msgstr "as a gift"
+
+msgid "Dyson Airwrap Styler в подарок при покупке MONA 100 мл: 6 насадок, имя на корпусе бесплатно, гарантия 1 год."
+msgstr "Dyson Airwrap Styler as a gift with MONA 100 ml: 6 attachments, free name engraving, 1-year warranty."
+
+msgid "Подарок к MONA 100 мл"
+msgstr "Gift with MONA 100 ml"
+
+msgid "Ваша красота — в деталях, а идеальная укладка начинается с Dyson! Подарите себе возможность создавать роскошные укладки каждый день, не выходя из дома."
+msgstr "Your beauty is in the details, and the perfect hairstyle starts with Dyson! Treat yourself to luxurious styling every day without leaving home."
+
+msgid "4 цвета на выбор"
+msgstr "4 colours to choose from"
+
+msgid "Получить в подарок"
+msgstr "Get it as a gift"
+
+msgid "Смотреть распаковку"
+msgstr "Watch the unboxing"
+
+msgid "Именная коробка"
+msgstr "Personalised box"
+
+msgid "Цвета"
+msgstr "Colours"
+
+msgid "Выберите <i>свой цвет</i>"
+msgstr "Choose <i>your colour</i>"
+
+msgid "Цвет выбираете при заказе аромата 100 мл — Dyson приедет вместе с ним."
+msgstr "You choose the colour when ordering a 100 ml scent — the Dyson arrives together with it."
+
+msgid "Комплект"
+msgstr "In the box"
+
+msgid "6 насадок <i>в комплекте</i>"
+msgstr "6 attachments <i>included</i>"
+
+msgid "Локоны, волны, гладкость и объём — одним стайлером."
+msgstr "Curls, waves, smoothness and volume — with one styler."
+
+msgid "Результат"
+msgstr "Result"
+
+msgid "В чём разница?"
+msgstr "What is the difference?"
+
+msgid "мм"
+msgstr "mm"
+
+msgid "Завиток мельче и выраженнее."
+msgstr "Smaller, more defined curl."
+
+msgid "Завиток крупнее и свободнее."
+msgstr "Bigger, looser curl."
+
+msgid "Стойкость зависит от типа волос, их длины и техники укладки."
+msgstr "How long it holds depends on hair type, length and styling technique."
+
+msgid "Мягкая или жёсткая?"
+msgstr "Soft or firm?"
+
+msgid "Эти щётки похожи по назначению, но мягкая рассчитана на более деликатное разглаживание, а жёсткая — на более сильный контроль непослушных волос."
+msgstr "These brushes have a similar purpose, but the soft one is for gentler smoothing, while the firm one gives stronger control of unruly hair."
+
+msgid "Видео"
+msgstr "Video"
+
+msgid "Распаковка <i>Dyson Airwrap</i>"
+msgstr "<i>Dyson Airwrap</i> unboxing"
+
+msgid "Посмотрите, что лежит в коробке: стайлер, насадки и фирменный футляр."
+msgstr "See what is inside the box: the styler, attachments and the signature case."
+
+msgid "Хочу такой в подарок"
+msgstr "I want one as a gift"
+
+msgid "Спросить в WhatsApp"
+msgstr "Ask on WhatsApp"
+
+msgid "Почему вы влюбитесь"
+msgstr "Why you will love it"
+
+msgid "Почему вы влюбитесь <i>в свой Dyson?</i>"
+msgstr "Why you will fall in love <i>with your Dyson</i>"
+
+msgid "6 насадок в комплекте"
+msgstr "6 attachments included"
+
+msgid "Для создания разнообразных укладок, объёма, красивых локонов и идеально гладких волос."
+msgstr "For all kinds of hairstyles, volume, beautiful curls and perfectly smooth hair."
+
+msgid "Персонализация бесплатно"
+msgstr "Free personalisation"
+
+msgid "Нанесём ваше имя на корпус Dyson, чтобы он стал по-настоящему вашим."
+msgstr "We put your name on the Dyson so it is truly yours."
+
+msgid "Фирменная упаковка"
+msgstr "Signature packaging"
+
+msgid "Стильная брендированная подача, достойная особенного подарка."
+msgstr "Stylish branded presentation worthy of a special gift."
+
+msgid "Корейский оригинал"
+msgstr "Korean original"
+
+msgid "Устройство сопровождается официальным чеком."
+msgstr "The device comes with an official receipt."
+
+msgid "Гарантия 1 год"
+msgstr "1-year warranty"
+
+msgid "Ваша красота и уверенность в каждой детали."
+msgstr "Your beauty and confidence in every detail."
+
+msgid "4 цвета"
+msgstr "4 colours"
+
+msgid "Бежево-розовый, тёмно-синий, бархатно-красный или розовый — выбираете вы."
+msgstr "Blush pink, Prussian blue, red velvet or ceramic pink — you choose."
+
+msgid "Dyson — это не просто стайлер. Это ваш личный инструмент для безупречного образа каждый день."
+msgstr "Dyson is not just a styler. It is your personal tool for a flawless look every day."
+
+msgid "Как получить"
+msgstr "How to get it"
+
+msgid "Выберите аромат <i>100 мл</i>"
+msgstr "Choose a <i>100 ml</i> scent"
+
+msgid "Dyson Airwrap идёт в подарок к любому аромату MONA объёмом 100 мл."
+msgstr "Dyson Airwrap comes as a gift with any 100 ml MONA scent."
+
+msgid "Вопросы <i>и ответы</i>"
+msgstr "Questions <i>& answers</i>"
+
+msgid "Всё, что нужно знать об ароматах MONA, оплате и доставке."
+msgstr "Everything you need to know about MONA scents, payment and delivery."
+
+msgid "Об ароматах"
+msgstr "About the scents"
+
+msgid "Какой аромат выбрать?"
+msgstr "Which scent should I choose?"
+
+msgid "<b>Нежный</b> — цветочно-фруктовый, на каждый день. <b>Холодный</b> — свежий и чистый, для тех, кто любит лёгкость. <b>Сладкий</b> — десертный и шлейфовый, для вечера и особых моментов. Если сомневаетесь — напишите нам, поможем выбрать."
+msgstr "<b>Tender</b> — floral and fruity, for every day. <b>Cool</b> — fresh and clean, for those who love lightness. <b>Sweet</b> — dessert-like with a rich trail, for evenings and special moments. Not sure? Write to us and we will help you choose."
+
+msgid "Сколько держится аромат?"
+msgstr "How long does the scent last?"
+
+msgid "MONA — это extrait de parfum, самая концентрированная форма парфюма. На коже аромат держится до 8–12 часов, на одежде и волосах — ещё дольше. Стойкость зависит от типа кожи."
+msgstr "MONA is an extrait de parfum, the most concentrated form of perfume. It lasts up to 8–12 hours on the skin and even longer on clothes and hair. Longevity depends on your skin type."
+
+msgid "Что значит «35%% феромонов»?"
+msgstr "What does “35%% pheromones” mean?"
+
+msgid "Это доля феромонового комплекса в композиции. Он делает аромат более тёплым, чувственным и близким к запаху кожи, а шлейф — глубже. Каждый человек воспринимает аромат по-своему."
+msgstr "It is the share of the pheromone complex in the composition. It makes the scent warmer, more sensual and closer to the scent of skin, and the trail deeper. Everyone perceives a scent in their own way."
+
+msgid "Как правильно наносить?"
+msgstr "How should I apply it?"
+
+msgid "На чистую увлажнённую кожу: запястья, шея, за ушами. Не растирайте — дайте аромату высохнуть самому. Для мягкого шлейфа можно нанести немного на расчёску."
+msgstr "On clean, moisturised skin: wrists, neck, behind the ears. Do not rub — let the scent dry on its own. For a soft trail, spray a little on your hairbrush."
+
+msgid "Как хранить парфюм?"
+msgstr "How should I store the perfume?"
+
+msgid "В тёмном прохладном месте, подальше от солнца и ванной комнаты. Так аромат сохранит свою красоту надолго."
+msgstr "In a dark, cool place, away from sunlight and the bathroom. That way the scent keeps its beauty for a long time."
+
+msgid "Оплата и доставка"
+msgstr "Payment and delivery"
+
+msgid "Как оплатить заказ?"
+msgstr "How do I pay for my order?"
+
+msgid "Kaspi переводом или Kaspi QR после подтверждения заказа менеджером. При доставке курьером по городу можно оплатить наличными при получении."
+msgstr "By Kaspi transfer or Kaspi QR after the manager confirms your order. With city courier delivery you can also pay cash on delivery."
+
+msgid "Подробнее об оплате"
+msgstr "More about payment"
+
+msgid "Доставляете ли вы в мой город?"
+msgstr "Do you deliver to my city?"
+
+msgid "Да, мы отправляем по всему Казахстану: курьером, Казпочтой или СДЭК."
+msgstr "Yes, we ship all over Kazakhstan: by courier, Kazpost or CDEK."
+
+msgid "Все способы доставки"
+msgstr "All delivery options"
+
+msgid "Сколько стоит доставка?"
+msgstr "How much does delivery cost?"
+
+msgid "Стоимость зависит от города и способа доставки — менеджер сообщит её при подтверждении заказа."
+msgstr "The cost depends on the city and delivery method — the manager will tell you when confirming the order."
+
+msgid "Можно ли заказать в подарок?"
+msgstr "Can I order it as a gift?"
+
+msgid "Конечно! Каждый аромат приходит в подарочной упаковке. Напишите в комментарии к заказу, если нужна открытка или доставка получателю."
+msgstr "Of course! Every scent comes in gift packaging. Mention in the order comment if you need a card or delivery to the recipient."
+
+msgid "Как отследить заказ?"
+msgstr "How can I track my order?"
+
+msgid "После отправки мы пришлём трек-номер в WhatsApp или по SMS."
+msgstr "After shipping we will send you a tracking number via WhatsApp or SMS."
+
+msgid "Подарки и акции"
+msgstr "Gifts and offers"
+
+msgid "Какой подарок я получу?"
+msgstr "Which gift will I get?"
+
+msgid "К флакону 30 мл — один французский парфюм 100 мл на выбор, к 50 мл — два парфюма, к 100 мл — стайлер Dyson Airwrap."
+msgstr "With a 30 ml bottle — one 100 ml French perfume of your choice, with 50 ml — two perfumes, with 100 ml — a Dyson Airwrap styler."
+
+msgid "Какие парфюмы можно выбрать в подарок?"
+msgstr "Which perfumes can I choose as a gift?"
+
+msgid "Bleu de Chanel, Dior Sauvage, Armani Stronger With You Absolutely, Tom Ford Lost Cherry, YSL Libre и Miss Dior."
+msgstr "Bleu de Chanel, Dior Sauvage, Armani Stronger With You Absolutely, Tom Ford Lost Cherry, YSL Libre and Miss Dior."
+
+msgid "Можно ли нанести имя на Dyson?"
+msgstr "Can my name be put on the Dyson?"
+
+msgid "Да, бесплатно. Впишите имя при выборе подарка — мы нанесём его на корпус."
+msgstr "Yes, for free. Enter the name when choosing your gift and we will put it on the body."
+
+msgid "Если купить несколько флаконов?"
+msgstr "What if I buy several bottles?"
+
+msgid "Подарок положен к каждому флакону. Добавьте несколько ароматов в корзину — и выберите подарок для каждого."
+msgstr "Every bottle comes with a gift. Add several scents to your cart and choose a gift for each."
+
+msgid "Остались <i>вопросы</i>?"
+msgstr "Still have <i>questions</i>?"
+
+msgid "Напишите нам — ответим быстро и поможем выбрать аромат."
+msgstr "Write to us — we will reply quickly and help you choose a scent."
+
+msgid "в кадре"
+msgstr "in frame"
+
+msgid "Ароматы, подарки и настроение MONA."
+msgstr "MONA scents, gifts and mood."
+
+msgid "Больше фото в Instagram"
+msgstr "More photos on Instagram"
+
+msgid "Спросить менеджера о подарке"
+msgstr "Ask a manager about the gift"
+
+msgid "Как получить бесплатно"
+msgstr "How to get it for free"
+
+msgid "Другие <i>подарки</i>"
+msgstr "Other <i>gifts</i>"
+
+msgid "Французские парфюмы в подарок"
+msgstr "French perfumes as a gift"
+
+msgid "Подарки к 30 и 50 мл"
+msgstr "Gifts with 30 and 50 ml"
+
+msgid "Французские <i>парфюмы</i>"
+msgstr "French <i>perfumes</i>"
+
+msgid "Покупаете MONA 30 мл — выбираете 1 парфюм 100 мл в подарок. Покупаете 50 мл — выбираете 2."
+msgstr "Buy MONA 30 ml — choose one 100 ml perfume as a gift. Buy 50 ml — choose two."
+
+msgid "Все"
+msgstr "All"
+
+msgid "Женские"
+msgstr "Women"
+
+msgid "Мужские"
+msgstr "Men"
+
+msgid "Подробнее"
+msgstr "More"
+
+msgid "Помочь выбрать подарок"
+msgstr "Help me choose a gift"
+
+msgid "Сколько парфюмов <i>в подарок</i>"
+msgstr "How many perfumes <i>as a gift</i>"
+
+msgid "Добавьте парфюмы в админке"
+msgstr "Add perfumes in the admin"
+
+msgid "Три аромата — три настроения"
+msgstr "Three scents — three moods"
+
+msgid "Нежный цветочный, кристально-холодный и сладкий десертный. Каждый аромат с 35%% феромонов — чтобы притягивать взгляды и оставаться в памяти."
+msgstr "Tender floral, crystal-cool and sweet dessert. Every scent has 35%% pheromones — to catch eyes and stay in memory."
+
+msgid "Найдите <i>свой</i> аромат"
+msgstr "Find <i>your</i> scent"
+
+msgid "Три характера одной женщины: нежность, свежесть и сладкое искушение."
+msgstr "Three characters of one woman: tenderness, freshness and sweet temptation."
+
+msgid "ноты аромата"
+msgstr "fragrance notes"
+
+msgid "Феромоны"
+msgstr "Pheromones"
+
+msgid "Высокая концентрация для притягательного, чувственного шлейфа"
+msgstr "High concentration for an alluring, sensual trail"
+
+msgid "ч"
+msgstr "h"
+
+msgid "Стойкость"
+msgstr "Longevity"
+
+msgid "Extrait de parfum держится на коже и одежде весь день"
+msgstr "Extrait de parfum lasts on skin and clothes all day"
+
+msgid "Аромата"
+msgstr "Scents"
+
+msgid "Нежный, холодный и сладкий — на каждое настроение"
+msgstr "Tender, cool and sweet — for every mood"
+
+msgid "Отправляем по всему Казахстану"
+msgstr "We ship all over Kazakhstan"
+
+msgid "Помощь в выборе"
+msgstr "Help choosing"
+
+msgid "Не знаете, <i>что выбрать?</i>"
+msgstr "Not sure <i>what to choose?</i>"
+
+msgid "4 вопроса — и мы подскажем ваш аромат."
+msgstr "4 questions — and we will suggest your scent."
+
+msgid "30, 50 или 100 мл — цены, экономия и подарки."
+msgstr "30, 50 or 100 ml — prices, savings and gifts."
+
+msgid "Сравнить"
+msgstr "Compare"
+
+msgid "Выберите аромат и подарок"
+msgstr "Choose a scent and a gift"
+
+msgid "Выберите <i>аромат и подарок</i>"
+msgstr "Choose a <i>scent and a gift</i>"
+
+msgid "Ваш <i>аромат</i>"
+msgstr "Your <i>scent</i>"
+
+msgid "Оплата <i>Kaspi</i>"
+msgstr "<i>Kaspi</i> payment"
+
+msgid "Как это работает"
+msgstr "How it works"
+
+msgid "Оплата <i>шаг за шагом</i>"
+msgstr "Payment <i>step by step</i>"
+
+msgid "Оформите заказ"
+msgstr "Place your order"
+
+msgid "Выберите аромат и подарок, заполните форму."
+msgstr "Choose a scent and gift, fill in the form."
+
+msgid "Безопасно"
+msgstr "Secure"
+
+msgid "Мы не просим данные карты на сайте — оплата проходит только в приложении Kaspi."
+msgstr "We never ask for card details on the website — payment happens only in the Kaspi app."
+
+msgid "С чеком"
+msgstr "With a receipt"
+
+msgid "После оплаты вы получаете подтверждение заказа и трек-номер."
+msgstr "After payment you receive an order confirmation and a tracking number."
+
+msgid "Без комиссии"
+msgstr "No fees"
+
+msgid "Переводы Kaspi внутри Казахстана — без доплат."
+msgstr "Kaspi transfers within Kazakhstan — no extra charges."
+
+msgid "Что такое феромоны в парфюме"
+msgstr "What are pheromones in perfume"
+
+msgid "Что такое <i>35%% феромонов</i>?"
+msgstr "What does <i>35%% pheromones</i> mean?"
+
+msgid "Разбираемся, как работают парфюмы с феромонами — без мифов."
+msgstr "How pheromone perfumes work — without the myths."
+
+msgid "феромонового комплекса"
+msgstr "pheromone complex"
+
+msgid "Простыми словами"
+msgstr "In simple words"
+
+msgid "Аромат <i>притяжения</i>"
+msgstr "A scent of <i>attraction</i>"
+
+msgid "Феромон-парфюм — это аромат, который ассоциируется с чувственностью, привлекательностью и притяжением между мужчиной и женщиной."
+msgstr "A pheromone perfume is a scent associated with sensuality, attractiveness and the attraction between a man and a woman."
+
+msgid "Феромоны — это химические сигналы, которые у некоторых живых организмов участвуют во взаимодействии между особями. В парфюмерии их часто связывают с идеей усиления привлекательности и создания особого впечатления."
+msgstr "Pheromones are chemical signals that some living organisms use to interact with each other. In perfumery they are often linked to the idea of enhancing attractiveness and creating a special impression."
+
+msgid "Для женщин, которые хотят чувствовать себя привлекательными, желанными и уверенными в себе."
+msgstr "For women who want to feel attractive, desired and confident."
+
+msgid "Ведь притяжение — это не только внешность. Это твой аромат, взгляд, улыбка и то особенное впечатление, которое ты оставляешь."
+msgstr "After all, attraction is not only about looks. It is your scent, your gaze, your smile and the special impression you leave."
+
+msgid "Мифы и факты"
+msgstr "Myths and facts"
+
+msgid "Честно о <i>феромонах</i>"
+msgstr "The truth about <i>pheromones</i>"
+
+msgid "Миф"
+msgstr "Myth"
+
+msgid "«Феромоны действуют как магия»"
+msgstr "“Pheromones work like magic”"
+
+msgid "Феромоны не заставляют никого влюбиться. Они делают ваш аромат более тёплым и запоминающимся — а остальное делаете вы."
+msgstr "Pheromones do not make anyone fall in love. They make your scent warmer and more memorable — the rest is up to you."
+
+msgid "«Чем больше нанести, тем лучше»"
+msgstr "“The more you apply, the better”"
+
+msgid "Достаточно 2–4 нажатий на точки пульса. Избыток делает аромат резким и навязчивым."
+msgstr "2–4 sprays on pulse points are enough. Too much makes the scent harsh and overpowering."
+
+msgid "Факт"
+msgstr "Fact"
+
+msgid "На каждой коже звучит по-своему"
+msgstr "Sounds different on every skin"
+
+msgid "Аромат смешивается с естественным запахом кожи, поэтому MONA на вас будет звучать по-особенному."
+msgstr "The scent blends with the natural scent of your skin, so MONA will sound special on you."
+
+msgid "Extrait держится дольше"
+msgstr "Extrait lasts longer"
+
+msgid "Высокая концентрация масел — до 8–12 часов на коже и ещё дольше на одежде."
+msgstr "A high concentration of oils — up to 8–12 hours on skin and even longer on clothes."
+
+msgid "Ритуал"
+msgstr "Ritual"
+
+msgid "Как наносить, <i>чтобы держался весь день</i>"
+msgstr "How to apply it <i>so it lasts all day</i>"
+
+msgid "На чистую кожу"
+msgstr "On clean skin"
+
+msgid "После душа, на увлажнённую кожу — так аромат раскроется ярче и продержится дольше."
+msgstr "After a shower, on moisturised skin — this way the scent opens up brighter and lasts longer."
+
+msgid "Точки пульса"
+msgstr "Pulse points"
+
+msgid "Запястья, шея, за ушами и сгибы локтей — там кожа теплее, и шлейф звучит сильнее."
+msgstr "Wrists, neck, behind the ears and inner elbows — the skin is warmer there and the trail sounds stronger."
+
+msgid "Не растирайте"
+msgstr "Do not rub"
+
+msgid "Дайте аромату высохнуть самому: трение разрушает верхние ноты."
+msgstr "Let the scent dry on its own: rubbing destroys the top notes."
+
+msgid "Немного на волосы"
+msgstr "A little on your hair"
+
+msgid "Один пшик на расчёску — и аромат будет мягко звучать при каждом движении."
+msgstr "One spritz on your hairbrush — and the scent will softly follow every movement."
+
+msgid "Спросить менеджера об этом аромате"
+msgstr "Ask a manager about this scent"
+
+msgid "Пирамида аромата"
+msgstr "Fragrance pyramid"
+
+msgid "Другие <i>ароматы</i>"
+msgstr "Other <i>scents</i>"
+
+msgid "Как <i>раскрывается</i> «%(name)s»"
+msgstr "How “%(name)s” <i>unfolds</i>"
+
+msgid "Заказать <i>«%(name)s»</i>"
+msgstr "Order <i>“%(name)s”</i>"
+
+msgid "и подарок"
+msgstr "and a gift"
+
+msgid "Все ароматы MONA за полцены — и к каждому флакону подарок."
+msgstr "All MONA scents at half price — and a gift with every bottle."
+
+msgid "Как получить подарок"
+msgstr "How to get your gift"
+
+msgid "Три <i>простых шага</i>"
+msgstr "Three <i>simple steps</i>"
+
+msgid "30, 50 или 100 мл — от объёма зависит подарок."
+msgstr "30, 50 or 100 ml — the gift depends on the volume."
+
+msgid "Выберите подарок"
+msgstr "Choose your gift"
+
+msgid "Французский парфюм — или Dyson Airwrap с вашим именем и цветом."
+msgstr "A French perfume — or a Dyson Airwrap with your name and colour."
+
+msgid "Подарок приедет вместе с ароматом в одной посылке."
+msgstr "The gift arrives together with your scent in one parcel."
+
+msgid "Подарок к 100 мл"
+msgstr "Gift with 100 ml"
+
+msgid "6 насадок, бесплатная гравировка имени, фирменная упаковка и гарантия 1 год."
+msgstr "6 attachments, free name engraving, signature packaging and a 1-year warranty."
+
+msgid "Тест за 1 минуту"
+msgstr "A 1-minute quiz"
+
+msgid "Какой аромат <i>ваш?</i>"
+msgstr "Which scent <i>is yours?</i>"
+
+msgid "Ответьте на 4 вопроса — и мы подскажем аромат MONA, который подойдёт именно вам."
+msgstr "Answer 4 questions and we will suggest the MONA scent that suits you best."
+
+msgid "Какое у вас любимое время дня?"
+msgstr "What is your favourite time of day?"
+
+msgid "Утро — нежное и солнечное"
+msgstr "Morning — soft and sunny"
+
+msgid "День — активный и свежий"
+msgstr "Daytime — active and fresh"
+
+msgid "Вечер — уютный и загадочный"
+msgstr "Evening — cosy and mysterious"
+
+msgid "Какой десерт вы выберете?"
+msgstr "Which dessert would you choose?"
+
+msgid "Фруктовый сорбет"
+msgstr "Fruit sorbet"
+
+msgid "Лимонный тарт"
+msgstr "Lemon tart"
+
+msgid "Ванильный чизкейк с карамелью"
+msgstr "Vanilla cheesecake with caramel"
+
+msgid "Ваш идеальный образ?"
+msgstr "Your ideal look?"
+
+msgid "Романтичное платье и мягкие локоны"
+msgstr "A romantic dress and soft curls"
+
+msgid "Белая рубашка и минимализм"
+msgstr "A white shirt and minimalism"
+
+msgid "Вечерний образ и красная помада"
+msgstr "An evening look and red lipstick"
+
+msgid "Каким должен быть шлейф?"
+msgstr "What should the trail be like?"
+
+msgid "Нежным, «облаком» вокруг меня"
+msgstr "Soft, like a “cloud” around me"
+
+msgid "Чистым и лёгким, как после душа"
+msgstr "Clean and light, like after a shower"
+
+msgid "Заметным — чтобы оборачивались"
+msgstr "Noticeable — so people turn around"
+
+msgid "Ваш аромат"
+msgstr "Your scent"
+
+msgid "Подробнее об аромате"
+msgstr "More about the scent"
+
+msgid "Пройти ещё раз"
+msgstr "Take it again"
+
+msgid "Гарантия <i>и возврат</i>"
+msgstr "Warranty <i>& returns</i>"
+
+msgid "Мы отвечаем за каждый флакон и каждый подарок."
+msgstr "We stand behind every bottle and every gift."
+
+msgid "Гарантия"
+msgstr "Warranty"
+
+msgid "Если флакон пришёл повреждённым"
+msgstr "If the bottle arrived damaged"
+
+msgid "Сфотографируйте посылку и флакон и напишите нам в течение 3 дней после получения — мы заменим товар или вернём деньги."
+msgstr "Take photos of the parcel and bottle and write to us within 3 days of receipt — we will replace the item or refund your money."
+
+msgid "Если перепутали аромат или подарок"
+msgstr "If the scent or gift was mixed up"
+
+msgid "Если мы отправили не то, что вы заказывали, — заменим за наш счёт."
+msgstr "If we sent something you did not order, we will replace it at our expense."
+
+msgid "Гарантия на Dyson Airwrap"
+msgstr "Dyson Airwrap warranty"
+
+msgid "Стайлер Dyson идёт с официальным чеком и гарантией 1 год. Если в течение гарантийного срока обнаружится заводской дефект — свяжитесь с нами, поможем с ремонтом или заменой."
+msgstr "The Dyson styler comes with an official receipt and a 1-year warranty. If a manufacturing defect appears during the warranty period, contact us and we will help with repair or replacement."
+
+msgid "Возврат"
+msgstr "Returns"
+
+msgid "Можно ли вернуть парфюм?"
+msgstr "Can I return a perfume?"
+
+msgid "Парфюмерия надлежащего качества по законодательству Казахстана не подлежит обмену и возврату. Поэтому перед заказом мы с радостью поможем выбрать аромат — напишите нам или пройдите тест."
+msgstr "Under Kazakhstan law, perfumes of proper quality cannot be exchanged or returned. That is why we are happy to help you choose before ordering — write to us or take the quiz."
+
+msgid "Как оформить обращение"
+msgstr "How to submit a request"
+
+msgid "Напишите нам в WhatsApp или Instagram: номер заказа, фото и описание проблемы. Мы ответим в течение рабочего дня."
+msgstr "Write to us on WhatsApp or Instagram with your order number, photos and a description of the problem. We reply within one business day."
+
+msgid "Как вернуть деньги"
+msgstr "How to get a refund"
+
+msgid "Если возврат согласован, деньги вернутся тем же способом, которым вы платили, — обычно на Kaspi."
+msgstr "If a refund is agreed, the money is returned the same way you paid — usually to Kaspi."
+
+msgid "Что говорят покупательницы о MONA — и расскажите о своих впечатлениях."
+msgstr "What customers say about MONA — and share your own impressions."
+
+msgid "Всего отзывов"
+msgstr "Reviews"
+
+msgid "Ответить"
+msgstr "Reply"
+
+msgid "Ваше имя"
+msgstr "Your name"
+
+msgid "Ваш ответ"
+msgstr "Your reply"
+
+msgid "Отправить ответ"
+msgstr "Send reply"
+
+msgid "С такой оценкой отзывов пока нет."
+msgstr "No reviews with this rating yet."
+
+msgid "Отзывов пока нет — будьте первой!"
+msgstr "No reviews yet — be the first!"
+
+msgid "Оставить отзыв"
+msgstr "Leave a review"
+
+msgid "Ваша оценка"
+msgstr "Your rating"
+
+msgid "Отправить отзыв"
+msgstr "Send review"
+
+msgid "Отзыв сразу появится на сайте. На любой отзыв можно ответить."
+msgstr "Your review appears on the site right away. You can reply to any review."
+
+msgid "Спасибо за заказ"
+msgstr "Thank you for your order"
+
+msgid "Менеджер позвонит вам в ближайшее время, подтвердит заказ и пришлёт реквизиты Kaspi."
+msgstr "Our manager will call you shortly, confirm the order and send the Kaspi payment details."
+
+msgid "Отдел заказов MONA"
+msgstr "MONA order desk"
+
+msgid "Отправьте заказ в WhatsApp — менеджер сразу его увидит и подтвердит."
+msgstr "Send your order on WhatsApp — the manager will see it right away and confirm it."
+
+msgid "Отправить заказ в WhatsApp"
+msgstr "Send order on WhatsApp"
+
+msgid "Ваш менеджер"
+msgstr "Your manager"
+
+msgid "Заказ №%(n)s принят"
+msgstr "Order No. %(n)s received"
+
+msgid "Спасибо, %(name)s!"
+msgstr "Thank you, %(name)s!"
+
+msgid "Светлый бежево-розовый с медным"
+msgstr "Light blush pink with copper"
+
+msgid "Нежный светлый корпус с тёплыми медными деталями."
+msgstr "A soft light body with warm copper details."
+
+msgid "Тёмно-синий с медным"
+msgstr "Prussian blue with copper"
+
+msgid "Глубокий синий оттенок корпуса с выразительными медными элементами."
+msgstr "A deep blue body with striking copper elements."
+
+msgid "Бархатно-красный с золотом"
+msgstr "Red velvet with gold"
+
+msgid "Насыщенный тёмно-красный корпус с золотистыми деталями."
+msgstr "A rich dark red body with golden details."
+
+msgid "Розовый с розовым золотом"
+msgstr "Ceramic pink with rose gold"
+
+msgid "Розовый корпус с металлическими деталями в оттенке розового золота."
+msgstr "A pink body with metallic details in a rose gold tone."
+
+msgid "Цилиндрическая насадка 30 мм"
+msgstr "30 mm barrel"
+
+msgid "Для более мелких локонов"
+msgstr "For smaller curls"
+
+msgid "Создаёт упругие, заметные локоны."
+msgstr "Creates bouncy, defined curls."
+
+msgid "Подходит для тонких и средней длины волос, а также для более выраженного объёма."
+msgstr "Suits fine and medium-length hair, and gives more pronounced volume."
+
+msgid "Помогает сделать причёску с эффектом салонной укладки."
+msgstr "Helps create a salon-style finish."
+
+msgid "Более мелкие, очерченные кудри."
+msgstr "Smaller, defined curls."
+
+msgid "Цилиндрическая насадка 40 мм"
+msgstr "40 mm barrel"
+
+msgid "Для крупных локонов"
+msgstr "For big curls"
+
+msgid "Создаёт крупные, свободные локоны."
+msgstr "Creates big, loose curls."
+
+msgid "Подходит для объёмной укладки и эффекта голливудских волн."
+msgstr "Great for voluminous styles and Hollywood waves."
+
+msgid "Помогает придать волосам более мягкий, естественный вид."
+msgstr "Gives hair a softer, more natural look."
+
+msgid "Крупные локоны или лёгкие волны."
+msgstr "Big curls or soft waves."
+
+msgid "Мягкая щётка для разглаживания"
+msgstr "Soft smoothing brush"
+
+msgid "Деликатное разглаживание"
+msgstr "Gentle smoothing"
+
+msgid "Разглаживает волосы и помогает сделать их визуально более прямыми."
+msgstr "Smooths hair and helps it look straighter."
+
+msgid "Убирает часть пушистости и непослушных прядей."
+msgstr "Reduces frizz and flyaway strands."
+
+msgid "Хорошо подходит для тонких волос и аккуратной повседневной укладки."
+msgstr "Ideal for fine hair and neat everyday styling."
+
+msgid "Гладкие, ровные волосы без лишнего объёма."
+msgstr "Smooth, even hair without extra volume."
+
+msgid "Жёсткая щётка для разглаживания"
+msgstr "Firm smoothing brush"
+
+msgid "Контроль непослушных волос"
+msgstr "Control for unruly hair"
+
+msgid "Лучше контролирует густые и непослушные волосы."
+msgstr "Better control of thick, unruly hair."
+
+msgid "Помогает вытянуть пряди и сделать укладку ровнее."
+msgstr "Helps straighten strands for a smoother style."
+
+msgid "Подходит волосам, которые сильно пушатся."
+msgstr "Suits very frizzy hair."
+
+msgid "Более прямые, гладкие волосы с меньшим количеством торчащих волосков."
+msgstr "Straighter, smoother hair with fewer flyaways."
+
+msgid "Круглая щётка для объёма"
+msgstr "Round volumising brush"
+
+msgid "Объём у корней"
+msgstr "Root volume"
+
+msgid "Приподнимает волосы у корней."
+msgstr "Lifts hair at the roots."
+
+msgid "Помогает создать объёмную укладку, как после салонного фена."
+msgstr "Helps create a voluminous blow-dry like in a salon."
+
+msgid "Подкручивает кончики внутрь или наружу."
+msgstr "Curls the ends inwards or outwards."
+
+msgid "Подходит для укладки чёлки и оформления прядей у лица."
+msgstr "Great for styling fringes and face-framing strands."
+
+msgid "Пышная причёска, объём у корней и красиво уложенные кончики."
+msgstr "A full hairstyle, root volume and beautifully styled ends."
+
+msgid "Насадка-фен 2-в-1"
+msgstr "2-in-1 dryer attachment"
+
+msgid "Сушка и сглаживание"
+msgstr "Drying and smoothing"
+
+msgid "Быстро подсушивает влажные волосы перед укладкой."
+msgstr "Quickly dries damp hair before styling."
+
+msgid "Помогает подготовить волосы к завивке или разглаживанию."
+msgstr "Helps prepare hair for curling or smoothing."
+
+msgid "В режиме сглаживания приглаживает мелкие выбивающиеся волоски на сухой укладке."
+msgstr "In smoothing mode it tames small flyaways on dry hair."
+
+msgid "Подготовленные к укладке волосы и более аккуратный финиш."
+msgstr "Hair ready for styling and a neater finish."
+
+msgid "Имя на корпусе (бесплатно)"
+msgstr "Name on the body (free)"
+
+msgid "Выберите цвет Dyson"
+msgstr "Choose the Dyson colour"
+
+msgid "Выберите 1 парфюм в подарок"
+msgstr "Choose 1 gift perfume"
+
+msgid "Выберите %(n)s парфюма в подарок"
+msgstr "Choose %(n)s gift perfumes"
+
+msgid "Город: Алматы, Астана, Шымкент…"
+msgstr "City: Almaty, Astana, Shymkent…"
+
+msgid "Адрес, удобное время (необязательно)"
+msgstr "Address, convenient time (optional)"
+
+msgid "Введите казахстанский номер, например +7 701 123 45 67"
+msgstr "Enter a Kazakhstan phone number, e.g. +7 701 123 45 67"
+
+msgid "Аромат (необязательно)"
+msgstr "Scent (optional)"
+
+msgid "Ваш отзыв — можно со смайликами 😊"
+msgstr "Your review — emoji welcome 😊"
+
+msgid "Ваш отзыв"
+msgstr "Your review"
+
+msgid "Напишите хотя бы пару слов"
+msgstr "Please write at least a few words"
+
+msgid "Напишите ответ"
+msgstr "Please write a reply"
+
+msgid "Верхние ноты"
+msgstr "Top notes"
+
+msgid "Средние ноты"
+msgstr "Heart notes"
+
+msgid "Базовые ноты"
+msgstr "Base notes"
+
+msgid "Женский"
+msgstr "Women"
+
+msgid "Мужской"
+msgstr "Men"
+
+msgid "Унисекс"
+msgstr "Unisex"
+
+msgid "Казпочта по Казахстану"
+msgstr "Kazpost across Kazakhstan"
+
+msgid "Kaspi QR"
+msgstr "Kaspi QR"
+
+msgid "Наличными при получении"
+msgstr "Cash on delivery"
+
+msgid "Первые 15 минут"
+msgstr "First 15 minutes"
+
+msgid "От 30 минут до 4 часов"
+msgstr "From 30 minutes to 4 hours"
+
+msgid "Шлейф до 12 часов"
+msgstr "Trail up to 12 hours"
+
+msgid "Добавлено в корзину: %(item)s"
+msgstr "Added to cart: %(item)s"
+
+msgid "Слишком много сообщений подряд — попробуйте через несколько минут."
+msgstr "Too many messages in a row — please try again in a few minutes."
+
+msgid "Спасибо! Ответ опубликован."
+msgstr "Thank you! Your reply is published."
+
+msgid "Спасибо за отзыв! Он уже на сайте."
+msgstr "Thank you for your review! It is already on the site."
+
+msgid "Здравствуйте! Меня интересует феромон MONA «%(name)s» %(vol)s с подарком Dyson Airwrap, цвет: %(color)s. Подскажите, пожалуйста, подробнее 🌸"
+msgstr "Hello! I am interested in MONA «%(name)s» %(vol)s pheromone perfume with the Dyson Airwrap gift, colour: %(color)s. Could you tell me more, please? 🌸"
+
+msgid "Здравствуйте! Меня интересует феромон MONA «%(name)s» %(vol)s с подарком Dyson Airwrap. Подскажите, пожалуйста, подробнее 🌸"
+msgstr "Hello! I am interested in MONA «%(name)s» %(vol)s pheromone perfume with the Dyson Airwrap gift. Could you tell me more, please? 🌸"
+
+msgid "Имя на корпусе: %(name)s."
+msgstr "Name on the body: %(name)s."
+
+msgid "Здравствуйте! Хочу заказать MONA «%(name)s» %(vol)s. В подарок выбираю: %(gifts)s 🌸"
+msgstr "Hello! I would like to order MONA «%(name)s» %(vol)s. As my gift I choose: %(gifts)s 🌸"
+
+msgid "Здравствуйте! Хочу заказать MONA «%(name)s» %(vol)s и выбрать французский парфюм в подарок 🌸"
+msgstr "Hello! I would like to order MONA «%(name)s» %(vol)s and choose a French perfume as a gift 🌸"
+
+msgid "Здравствуйте! Хочу заказать MONA «%(name)s» %(vol)s и выбрать %(n)s французских парфюма в подарок 🌸"
+msgstr "Hello! I would like to order MONA «%(name)s» %(vol)s and choose %(n)s French perfumes as a gift 🌸"
+
+msgid "Здравствуйте! Меня интересует феромон MONA «%(name)s». Какой объём посоветуете и какой подарок к нему идёт?"
+msgstr "Hello! I am interested in MONA «%(name)s» pheromone perfume. Which volume would you recommend and which gift comes with it?"
+
+msgid "Здравствуйте! Меня интересует феромон MONA 100 мл с подарком Dyson Airwrap. Подскажите, пожалуйста, подробнее 🌸"
+msgstr "Hello! I am interested in MONA 100 ml pheromone perfume with the Dyson Airwrap gift. Could you tell me more, please? 🌸"
+
+msgid "Здравствуйте! Хочу заказать MONA и выбрать французский парфюм в подарок. Расскажите подробнее 🌸"
+msgstr "Hello! I would like to order MONA and choose a French perfume as a gift. Please tell me more 🌸"
+
+msgid "Здравствуйте! У меня вопрос по заказу MONA на сайте."
+msgstr "Hello! I have a question about my MONA order on the website."
+
+msgid "Здравствуйте! Меня интересуют феромоны MONA и акция −50% с подарком."
+msgstr "Hello! I am interested in MONA pheromone perfumes and the −50% offer with a gift."
+
+msgid "Здравствуйте! Я оформил(а) заказ №%(n)s на сайте MONA."
+msgstr "Hello! I have placed order No. %(n)s on the MONA website."
+
+msgid "имя: %(name)s"
+msgstr "name: %(name)s"
+
+msgid "Итого: %(sum)s"
+msgstr "Total: %(sum)s"
+
+msgid "Имя: %(v)s"
+msgstr "Name: %(v)s"
+
+msgid "Телефон: %(v)s"
+msgstr "Phone: %(v)s"
+
+msgid "Город: %(v)s"
+msgstr "City: %(v)s"
+
+msgid "Доставка: %(v)s"
+msgstr "Delivery: %(v)s"
+
+msgid "Оплата: %(v)s"
+msgstr "Payment: %(v)s"
+
+msgid "Комментарий: %(v)s"
+msgstr "Comment: %(v)s"

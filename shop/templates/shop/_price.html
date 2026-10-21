@@ -1,0 +1,1 @@
+{% load i18n tenge %}<span class="price{% if big %} big{% endif %}"><b>{{ v.price|tenge }}</b>{% if v.discount %}<s>{{ v.old_price|tenge }}</s><em>−{{ v.discount }}%</em>{% endif %}</span>

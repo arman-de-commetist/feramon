@@ -1,0 +1,48 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Корзина" %} | MONA Perfume{% endblock %}
+{% block body_class %}order-page{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+{% block content %}
+<div class="order-top">
+  <div class="container">
+    <div class="crumbs"><a href="{% url 'index' %}">{% translate "Главная" %}</a> / <span>{% translate "Корзина" %}</span></div>
+    <h1>{% translate "Ваша <i>корзина</i>" %}</h1>
+    {% include "shop/_steps.html" with step=2 %}
+  </div>
+</div>
+
+<section class="cart-sec">
+  <div class="container">
+    {% for m in messages %}<div class="flash">{{ m }}</div>{% endfor %}
+    {% if items %}
+    <div class="cart-grid">
+      <div class="cart-lines">
+        {% for i in items %}{% include "shop/_line.html" with removable=1 %}{% endfor %}
+        <a href="{% url 'order' %}" class="add-more">＋ {% translate "Добавить ещё аромат" %}</a>
+      </div>
+      <aside class="summary">
+        <h3>{% translate "Итого" %}</h3>
+        <div class="sum-row"><span>{% translate "Товары" %} ({{ items|length }})</span><s>{{ old_total|tenge }}</s></div>
+        <div class="sum-row save"><span>{% translate "Скидка" %}</span><b>−{{ saving|tenge }}</b></div>
+        <div class="sum-row"><span>{% translate "Подарки" %}</span><b>🎁 {% translate "бесплатно" %}</b></div>
+        <div class="sum-total"><span>{% translate "К оплате" %}</span><b>{{ total|tenge }}</b></div>
+        <a href="{% url 'checkout' %}" class="btn gold wide">{% translate "Оформить заказ" %} →</a>
+        <p class="sum-note">💳 {% translate "Оплата Kaspi после подтверждения заказа менеджером." %}</p>
+        <a href="{% url 'write' %}?topic=cart" target="_blank" rel="noopener" class="ask-mgr">{% include "shop/icons/whatsapp.html" %} {% translate "Есть вопрос? Напишите менеджеру" %}</a>
+      </aside>
+    </div>
+    {% else %}
+    <div class="empty-cart reveal">
+      <div class="ec-ic">{% include "shop/icons/bag.html" %}</div>
+      <h2>{% translate "Корзина пока пуста" %}</h2>
+      <p>{% translate "Выберите аромат — и получите подарок: французский парфюм или Dyson Airwrap." %}</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="{% url 'order' %}" class="btn">{% translate "Выбрать аромат" %} →</a>
+        <a href="{% url 'quiz' %}" class="btn ghost">✨ {% translate "Пройти тест" %}</a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

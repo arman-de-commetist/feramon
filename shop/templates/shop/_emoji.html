@@ -1,0 +1,2 @@
+{% load i18n %}<button type="button" class="emoji-toggle" aria-label="{% translate "Смайлики" %}" aria-expanded="false">😊</button>
+<div class="emoji-panel" hidden>{% for e in emojis %}<button type="button" class="emoji">{{ e }}</button>{% endfor %}</div>

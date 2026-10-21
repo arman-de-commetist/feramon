@@ -1,0 +1,25 @@
+{
+  "name": "MONA Perfume",
+  "short_name": "MONA",
+  "description": "MONA Perfume — парфюм с феромонами. Скидка −50% и подарок к каждому флакону.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#3d0814",
+  "theme_color": "#5e0f22",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

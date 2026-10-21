@@ -1,0 +1,78 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Тест: какой аромат ваш?" %} | MONA Perfume{% endblock %}
+{% block content %}
+<header class="page-hero compact">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">✨ {% translate "Тест за 1 минуту" %}</div>
+    <h1>{% translate "Какой аромат <i>ваш?</i>" %}</h1>
+    <p class="lead">{% translate "Ответьте на 4 вопроса — и мы подскажем аромат MONA, который подойдёт именно вам." %}</p>
+  </div>
+</header>
+
+<section class="quiz-sec">
+  <div class="container">
+    <div class="quiz-card reveal" id="quiz">
+      <div class="quiz-progress"><span id="quizBar"></span></div>
+
+      <div class="q-step on" data-step="1">
+        <div class="q-num">1 / 4</div>
+        <h3>{% translate "Какое у вас любимое время дня?" %}</h3>
+        <div class="q-opts">
+          <button data-vote="rose">☀️ {% translate "Утро — нежное и солнечное" %}</button>
+          <button data-vote="ice">🌤 {% translate "День — активный и свежий" %}</button>
+          <button data-vote="caramel">🌙 {% translate "Вечер — уютный и загадочный" %}</button>
+        </div>
+      </div>
+      <div class="q-step" data-step="2">
+        <div class="q-num">2 / 4</div>
+        <h3>{% translate "Какой десерт вы выберете?" %}</h3>
+        <div class="q-opts">
+          <button data-vote="rose">🍑 {% translate "Фруктовый сорбет" %}</button>
+          <button data-vote="ice">🍋 {% translate "Лимонный тарт" %}</button>
+          <button data-vote="caramel">🍰 {% translate "Ванильный чизкейк с карамелью" %}</button>
+        </div>
+      </div>
+      <div class="q-step" data-step="3">
+        <div class="q-num">3 / 4</div>
+        <h3>{% translate "Ваш идеальный образ?" %}</h3>
+        <div class="q-opts">
+          <button data-vote="rose">🌸 {% translate "Романтичное платье и мягкие локоны" %}</button>
+          <button data-vote="ice">🤍 {% translate "Белая рубашка и минимализм" %}</button>
+          <button data-vote="caramel">💄 {% translate "Вечерний образ и красная помада" %}</button>
+        </div>
+      </div>
+      <div class="q-step" data-step="4">
+        <div class="q-num">4 / 4</div>
+        <h3>{% translate "Каким должен быть шлейф?" %}</h3>
+        <div class="q-opts">
+          <button data-vote="rose">💗 {% translate "Нежным, «облаком» вокруг меня" %}</button>
+          <button data-vote="ice">💧 {% translate "Чистым и лёгким, как после душа" %}</button>
+          <button data-vote="caramel">🔥 {% translate "Заметным — чтобы оборачивались" %}</button>
+        </div>
+      </div>
+
+      <div class="q-result" id="quizResult" hidden>
+        <div class="kicker">{% translate "Ваш аромат" %}</div>
+        {% for p in products %}{% with v=p.main_variant %}
+        <div class="qr-item theme-{{ p.theme }}" data-theme="{{ p.theme }}" hidden>
+          {% if p.image %}<img src="{{ p.image.url }}" alt="MONA {{ p|tr:'name' }}">{% endif %}
+          <div>
+            <h2>MONA {{ p|tr:"name" }}</h2>
+            <div class="tl">{{ p|tr:"tagline" }}</div>
+            <p>{{ p|tr:"lead" }}</p>
+            {% if v %}<span class="from-price"><small class="from">{% translate "от" %}</small> {% include "shop/_price.html" with v=v %}</span>{% endif %}
+            <div class="hero-actions">
+              <a href="{{ p.get_absolute_url }}" class="btn">{% translate "Подробнее об аромате" %}</a>
+              {% if v %}<a href="{% url 'order' %}?v={{ v.pk }}" class="btn gold">{% translate "Заказать" %}</a>{% endif %}
+            </div>
+          </div>
+        </div>
+        {% endwith %}{% endfor %}
+        <button class="q-restart" id="quizRestart">↺ {% translate "Пройти ещё раз" %}</button>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

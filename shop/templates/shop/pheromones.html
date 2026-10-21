@@ -1,0 +1,70 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Что такое феромоны в парфюме" %} | MONA Perfume{% endblock %}
+{% block content %}
+<header class="page-hero">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Феромоны" %}</div>
+    <h1>{% translate "Что такое <i>35% феромонов</i>?" %}</h1>
+    <p class="lead">{% translate "Разбираемся, как работают парфюмы с феромонами — без мифов." %}</p>
+  </div>
+</header>
+
+<section class="split">
+  <div class="container split-grid">
+    <div class="ph-orb reveal"><span>35%</span><small>{% translate "феромонового комплекса" %}</small></div>
+    <div class="reveal">
+      <div class="kicker">{% translate "Простыми словами" %}</div>
+      <h2>{% translate "Аромат <i>притяжения</i>" %}</h2>
+      <p class="ph-lead">{% translate "Феромон-парфюм — это аромат, который ассоциируется с чувственностью, привлекательностью и притяжением между мужчиной и женщиной." %}</p>
+      <p>{% translate "Феромоны — это химические сигналы, которые у некоторых живых организмов участвуют во взаимодействии между особями. В парфюмерии их часто связывают с идеей усиления привлекательности и создания особого впечатления." %}</p>
+      <div class="ph-quote">
+        <b>MONA PHEROMONE</b>
+        <p>{% translate "Для женщин, которые хотят чувствовать себя привлекательными, желанными и уверенными в себе." %}</p>
+      </div>
+      <p class="ph-final">{% translate "Ведь притяжение — это не только внешность. Это твой аромат, взгляд, улыбка и то особенное впечатление, которое ты оставляешь." %}</p>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Мифы и факты" %}</div>
+      <h2>{% translate "Честно о <i>феромонах</i>" %}</h2>
+    </div>
+    <div class="myth-grid">
+      <div class="myth reveal"><span class="m-tag no">{% translate "Миф" %}</span><h5>{% translate "«Феромоны действуют как магия»" %}</h5><p>{% translate "Феромоны не заставляют никого влюбиться. Они делают ваш аромат более тёплым и запоминающимся — а остальное делаете вы." %}</p></div>
+      <div class="myth reveal"><span class="m-tag no">{% translate "Миф" %}</span><h5>{% translate "«Чем больше нанести, тем лучше»" %}</h5><p>{% translate "Достаточно 2–4 нажатий на точки пульса. Избыток делает аромат резким и навязчивым." %}</p></div>
+      <div class="myth reveal"><span class="m-tag yes">{% translate "Факт" %}</span><h5>{% translate "На каждой коже звучит по-своему" %}</h5><p>{% translate "Аромат смешивается с естественным запахом кожи, поэтому MONA на вас будет звучать по-особенному." %}</p></div>
+      <div class="myth reveal"><span class="m-tag yes">{% translate "Факт" %}</span><h5>{% translate "Extrait держится дольше" %}</h5><p>{% translate "Высокая концентрация масел — до 8–12 часов на коже и ещё дольше на одежде." %}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="howto">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Ритуал" %}</div>
+      <h2>{% translate "Как наносить, <i>чтобы держался весь день</i>" %}</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h5>{% translate "На чистую кожу" %}</h5><p>{% translate "После душа, на увлажнённую кожу — так аромат раскроется ярче и продержится дольше." %}</p></div>
+      <div class="step reveal"><div class="n">2</div><h5>{% translate "Точки пульса" %}</h5><p>{% translate "Запястья, шея, за ушами и сгибы локтей — там кожа теплее, и шлейф звучит сильнее." %}</p></div>
+      <div class="step reveal"><div class="n">3</div><h5>{% translate "Не растирайте" %}</h5><p>{% translate "Дайте аромату высохнуть самому: трение разрушает верхние ноты." %}</p></div>
+      <div class="step reveal"><div class="n">4</div><h5>{% translate "Немного на волосы" %}</h5><p>{% translate "Один пшик на расчёску — и аромат будет мягко звучать при каждом движении." %}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container reveal">
+    <h2>{% translate "Готовы выбрать <i>свой аромат</i>?" %}</h2>
+    <div class="hero-actions" style="justify-content:center">
+      <a href="{% url 'quiz' %}" class="btn ghost">✨ {% translate "Пройти тест" %}</a>
+      <a href="{% url 'catalog' %}" class="btn">{% translate "Все ароматы" %} →</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,2 @@
+{% load i18n tenge %}
+{% for x in p.variants.all %}{{ x.label|cut:" мл" }}{% if not forloop.last %} · {% endif %}{% endfor %} {% translate "мл" %}

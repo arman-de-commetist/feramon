@@ -1,0 +1,48 @@
+{% extends "shop/base.html" %}
+{% load static i18n tenge %}
+{% block title %}{{ perfume }} {% translate "в подарок" %} | MONA Perfume{% endblock %}
+{% block description %}{{ perfume|tr:"description" }}{% endblock %}
+{% block og_title %}{{ perfume }} {% translate "в подарок" %} — MONA Perfume{% endblock %}
+{% block og_description %}{{ perfume|tr:"description" }}{% endblock %}
+{% block og_image %}{% if perfume.image %}{% absolute perfume.image.url %}{% else %}{% static 'shop/img/logo.webp' as logo %}{% absolute logo %}{% endif %}{% endblock %}
+{% block content %}
+<header class="gp-hero">
+  <div class="container gp-grid">
+    <div class="gp-img reveal in">{% if perfume.image %}<img src="{{ perfume.image.url }}" alt="{{ perfume }}">{% endif %}</div>
+    <div class="gp-text">
+      <div class="crumbs"><a href="{% url 'index' %}">{% translate "Главная" %}</a> / <a href="{% url 'gifts' %}">{% translate "Французские парфюмы" %}</a> / <span>{{ perfume.name }}</span></div>
+      <div class="gt-brand">{{ perfume.brand }}</div>
+      <h1>{{ perfume.name }}</h1>
+      <div class="chips"><span>{{ perfume.get_gender_display }}</span><span>100 {% translate "мл" %}</span><span>🎁 {% translate "в подарок" %}</span></div>
+      <p class="gp-desc">{{ perfume|tr:"description" }}</p>
+      <div class="gp-notes"><small>{% translate "Ноты" %}</small><b>{{ perfume|tr:"notes" }}</b></div>
+      <a href="{% url 'write' %}?topic=gifts" target="_blank" rel="noopener" class="ask-mgr">{% include "shop/icons/whatsapp.html" %} {% translate "Спросить менеджера о подарке" %}</a>
+      <div class="gp-how">
+        <h5>{% translate "Как получить бесплатно" %}</h5>
+        {% for v in volumes %}{% if v.gift_type == 'perfume' %}
+        <a href="{% url 'order' %}?v={{ v.pk }}" class="gp-opt">
+          <span><b>MONA {{ v.label|vol }}</b> — {{ v|tr:"gift" }}</span>
+          {% include "shop/_price.html" with v=v %}
+        </a>
+        {% endif %}{% endfor %}
+      </div>
+    </div>
+  </div>
+</header>
+
+{% if others %}
+<section class="gift-teaser">
+  <div class="container">
+    <div class="sec-head reveal"><h2>{% translate "Другие <i>подарки</i>" %}</h2></div>
+    <div class="gift-row">
+      {% for g in others %}
+      <a href="{{ g.get_absolute_url }}" class="gift-tile reveal">
+        {% if g.image %}<img src="{{ g.image.url }}" alt="{{ g }}" loading="lazy">{% endif %}
+        <span class="gt-brand">{{ g.brand }}</span><b>{{ g.name }}</b>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

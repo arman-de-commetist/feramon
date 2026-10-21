@@ -1,0 +1,23 @@
+{% load i18n %}
+<div class="kp-card reveal">
+  <div class="kp-head">
+    <span class="kp-logo">kaspi<i>.kz</i></span>
+    <h2>{% translate "Оплата через Kaspi" %}</h2>
+    <p>{{ lead }}</p>
+  </div>
+  <div class="kp-options">
+    <div class="kp-opt">
+      <span class="kp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M10.5 18.5h3"/><path d="M9 9.5h6M12.6 7.2 15 9.5l-2.4 2.3"/></svg></span>
+      <div><h5>{% translate "Kaspi перевод" %}</h5><p>{% translate "Переведите сумму заказа по номеру телефона, который пришлёт менеджер." %}</p></div>
+    </div>
+    <div class="kp-opt">
+      <span class="kp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3h-3zM20 14v.01M20 20h-3M14 20v.01M17 17h3v3"/></svg></span>
+      <div><h5>Kaspi QR</h5><p>{% translate "Отсканируйте QR-код в приложении Kaspi.kz — и заказ оплачен." %}</p></div>
+    </div>
+    <div class="kp-opt">
+      <span class="kp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v.01M18 14.5v.01"/></svg></span>
+      <div><h5>{% translate "При получении" %}</h5><p>{% translate "Наличными курьеру — для доставки по городу." %}</p></div>
+    </div>
+  </div>
+  {% if note %}<div class="kp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6z"/><path d="m9 12 2 2 4-4"/></svg>{{ note }}</div>{% endif %}
+</div>

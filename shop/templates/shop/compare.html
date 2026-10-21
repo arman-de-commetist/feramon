@@ -1,0 +1,50 @@
+{% extends "shop/base.html" %}
+{% load i18n static tenge %}
+{% block title %}{% translate "Сравнить объёмы" %} 30 / 50 / 100 | MONA Perfume{% endblock %}
+{% block content %}
+<header class="page-hero compact">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Сравнение" %}</div>
+    <h1>30 · 50 · 100 <i>{% translate "мл" %}</i></h1>
+    <p class="lead">{% translate "Какой объём выбрать — и что вы получите в подарок." %}</p>
+  </div>
+</header>
+
+<section class="compare-sec">
+  <div class="container">
+    <div class="cmp-grid">
+      {% for v in volumes %}
+      <div class="cmp-card reveal{% if v.gift_type == 'dyson' %} best{% endif %}">
+        {% if v.gift_type == 'dyson' %}<div class="offer-ribbon">🔥 {% translate "Выгоднее всего" %}</div>{% endif %}
+        <div class="cmp-bottle b{{ forloop.counter }}">{% with n=forloop.counter|stringformat:"d" %}{% if n == "1" %}{% static "shop/img/bottles/mona-30.webp" as src %}{% elif n == "2" %}{% static "shop/img/bottles/mona-50.webp" as src %}{% else %}{% static "shop/img/bottles/mona-100.webp" as src %}{% endif %}<img src="{{ src }}" alt="MONA Pheromone {{ v.label|vol }}" loading="lazy">{% endwith %}</div>
+        <div class="offer-vol">{{ v.label|vol }}</div>
+        {% include "shop/_price.html" with v=v big=1 %}
+        <ul class="cmp-list">
+          <li><span>{% translate "Скидка" %}</span><b>−{{ v.discount }}%</b></li>
+          <li><span>{% translate "Экономия" %}</span><b>{{ v.saving|tenge }}</b></li>
+          <li><span>{% translate "Хватит примерно на" %}</span><b>{% if forloop.counter == 1 %}{% translate "3–4 месяца" %}{% elif forloop.counter == 2 %}{% translate "5–6 месяцев" %}{% else %}{% translate "10–12 месяцев" %}{% endif %}</b></li>
+          <li><span>{% translate "Подарок" %}</span><b>{{ v|tr:"gift" }}</b></li>
+        </ul>
+        <a href="{% url 'order' %}?v={{ v.pk }}" class="btn{% if v.gift_type == 'dyson' %} gold{% endif %} wide">{% translate "Выбрать" %} {{ v.label|vol }}</a>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="cmp-note reveal">{% translate "Срок использования примерный — при 2–3 нанесениях в день. Цены и подарки одинаковые для всех трёх ароматов." %}</p>
+  </div>
+</section>
+
+<section class="collection others">
+  <div class="container">
+    <div class="sec-head reveal"><h2>{% translate "Выберите <i>аромат</i>" %}</h2></div>
+    <div class="coll-grid">
+      {% for p in products %}{% with v=p.main_variant %}
+      <a href="{{ p.get_absolute_url }}" class="coll-card mini theme-{{ p.theme }} reveal">
+        <span class="pic">{% if p.image %}<img src="{{ p.image.url }}" alt="MONA {{ p|tr:'name' }}" loading="lazy">{% endif %}</span>
+        <span class="body"><h3>{{ p|tr:"name" }}</h3><span class="tl">{{ p|tr:"tagline" }}</span></span>
+      </a>
+      {% endwith %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

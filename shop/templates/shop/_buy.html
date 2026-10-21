@@ -1,0 +1,112 @@
+{% load static i18n tenge %}
+<section class="buy" id="buy">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Заказ" %}</div>
+      <h2>{% if buy_title %}{{ buy_title|safe }}{% else %}{% translate "Подарите себе <i>MONA</i>" %}{% endif %}</h2>
+      <p>{% translate "Выберите аромат, объём и подарок — и добавьте в корзину." %}</p>
+    </div>
+    {% for m in messages %}<div class="flash">{{ m }}</div>{% endfor %}
+    <div class="buy-card reveal">
+      <div class="buy-visual theme-{{ selected.product.theme }}" id="buyVisual">
+        {% if selected.product.image %}<img id="buyImg" src="{{ selected.product.image.url }}" alt="MONA {{ selected.product|tr:'name' }}">{% endif %}
+      </div>
+      <div class="buy-info">
+        <span class="stars">★★★★★</span> <small style="color:var(--muted)">{% translate "отзывы" %}: {{ review_count }}</small>
+        <h3 style="margin-top:14px">MONA Pheromone</h3>
+        <div class="meta">{% translate "Extrait de parfum · 35% феромонов" %}</div>
+
+        <form method="post" action="{% url 'cart_add' %}" class="order-form" id="cartForm" novalidate>
+          {% csrf_token %}
+          {{ cart_form.variant }}
+          {% regroup variants by product as groups %}
+
+          <div class="step-title"{% if groups|length < 2 %} hidden{% endif %}><span>1</span>{% translate "Аромат" %}</div>
+          <div class="picker" id="aroma"{% if groups|length < 2 %} hidden{% endif %}>
+            {% for g in groups %}{% with p=g.grouper %}
+            <button type="button" data-product="{{ p.pk }}" data-theme="{{ p.theme }}" data-emoji="{% with n=p.notes.first %}{{ n.emoji|default:'🌸' }}{% endwith %}"{% if p.image %} data-img="{{ p.image.url }}"{% endif %}{% if p.pk == selected.product_id %} class="active"{% endif %}>
+              {% if p.image %}<img src="{{ p.image.url }}" alt="">{% endif %}
+              <span class="t"><b>{{ p|tr:"name" }}</b><small>{{ p|tr:"tagline" }}</small></span>
+              <span class="tick">✓</span>
+            </button>
+            {% endwith %}{% endfor %}
+          </div>
+
+          <div class="step-title"><span>{% if groups|length < 2 %}1{% else %}2{% endif %}</span>{% translate "Объём" %}</div>
+          {% for g in groups %}
+          <div class="volumes" data-product="{{ g.grouper.pk }}"{% if g.grouper.pk != selected.product_id %} hidden{% endif %}>
+            {% for v in g.list %}
+            <button type="button" class="vol-btn{% if v.pk == selected.pk %} active{% endif %}" data-id="{{ v.pk }}" data-label="{{ v.label }}" data-price="{{ v.price }}" data-old="{{ v.old_price|default:'' }}" data-gift-type="{{ v.gift_type }}" data-gift-count="{{ v.gift_count }}" data-gift="{{ v|tr:'gift' }}">
+              {% if v.gift_type == 'dyson' %}<em class="vol-gift">🎁 Dyson</em>{% elif v.gift_type == 'perfume' %}<em class="vol-gift">🎁 {{ v.gift_count }} × 100 {% translate "мл" %}</em>{% endif %}
+              <b>{{ v.label|vol }}</b>
+              <small>{{ v.price|tenge }}</small>
+              {% if v.discount %}<s>{{ v.old_price|tenge }}</s>{% endif %}
+            </button>
+            {% endfor %}
+          </div>
+          {% endfor %}
+          {% if cart_form.variant.errors %}<div class="err">{% translate "Выберите аромат и объём" %}</div>{% endif %}
+
+          <div class="step-title"><span>{% if groups|length < 2 %}2{% else %}3{% endif %}</span>{% translate "Подарок" %}</div>
+
+          <!-- 30 / 50 ml: French perfumes -->
+          <div class="gift-pick" id="giftPerfumes"{% if selected.gift_type != 'perfume' %} hidden{% endif %}>
+            <div class="gift-pick-head">
+              <span class="gift-ic">🎁</span>
+              <div><b id="giftPerfumeTitle">{{ selected|tr:"gift" }}</b>
+                <small>{% translate "Выберите" %}: <span id="giftNeed">{{ selected.gift_count|default:1 }}</span> · {% translate "выбрано" %}: <span id="giftGot">0</span></small></div>
+            </div>
+            <div class="gift-grid">
+              {% for g in gift_perfumes %}
+              <label class="gift-card">
+                <input type="checkbox" name="gift_perfumes" value="{{ g.pk }}"{% if g.pk|stringformat:"s" in chosen_perfumes %} checked{% endif %}>
+                {% if g.image %}<img src="{{ g.image.url }}" alt="{{ g }}" loading="lazy">{% endif %}
+                <span class="gc-brand">{{ g.brand }}</span>
+                <span class="gc-name">{{ g.name }}</span>
+                <span class="gc-gender">{{ g.get_gender_display }}</span>
+                <i class="gc-tick">✓</i>
+              </label>
+              {% endfor %}
+            </div>
+            {% for e in cart_form.gift_perfumes.errors %}<div class="err">{{ e }}</div>{% endfor %}
+            <a href="{% url 'gifts' %}" class="gift-more" target="_blank">{% translate "Подробнее о подарочных парфюмах" %} →</a>
+          </div>
+
+          <!-- 100 ml: Dyson Airwrap -->
+          <div class="gift-box" id="giftBox"{% if selected.gift_type != 'dyson' %} hidden{% endif %}>
+            <div class="gift-head"><span class="gift-ic">🎁</span><div><b>Dyson Airwrap Styler</b><small>{% translate "6 насадок · имя на корпусе бесплатно · гарантия 1 год" %}</small></div></div>
+            <div class="opt-title gold-t">{% translate "Цвет" %}</div>
+            <div class="swatches">
+              {% for r in cart_form.gift_color %}{% with 'shop/img/dyson/tile-'|add:r.data.value|add:'.webp' as img %}<label class="swatch photo sw-{{ r.data.value }}">{{ r.tag }}<img src="{% static img %}" alt="" loading="lazy"><button type="button" class="sw-zoom" data-value="{{ r.data.value }}" data-full="{% static img %}" aria-label="{% translate "Увеличить" %}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></svg></button><span>{{ r.choice_label }}</span></label>{% endwith %}{% endfor %}
+            </div>
+            <div class="dz" id="dysonZoom" hidden role="dialog" aria-modal="true">
+              <figure class="dz-card"><img alt=""><figcaption></figcaption>
+                <button type="button" class="btn dz-pick">{% translate "Выбрать этот цвет" %}</button></figure>
+              <button type="button" class="dz-close" aria-label="{% translate "Закрыть" %}">×</button>
+            </div>
+            {% for e in cart_form.gift_color.errors %}<div class="err">{{ e }}</div>{% endfor %}
+            <div class="opt-title gold-t" style="margin-top:12px">💎 {% translate "Персонализация" %}</div>
+            {{ cart_form.engraving }}
+            <a href="{% url 'dyson' %}" class="gift-more light" target="_blank">{% translate "Всё о Dyson Airwrap" %} →</a>
+          </div>
+
+          <div class="buy-price">
+            <div class="price-old"><s id="priceOld">{% if selected.discount %}{{ selected.old_price|tenge }}{% endif %}</s> <em id="priceOff"{% if not selected.discount %} hidden{% endif %}>−{{ selected.discount }}%</em></div>
+            <b id="price">{{ selected.price|tenge }}</b>
+          </div>
+          <div class="buy-actions">
+            <button class="btn" type="submit">🛍 {% translate "В корзину" %}</button>
+            <button class="btn gold" type="submit" name="buy_now" value="1">{% translate "Купить сейчас" %}</button>
+          </div>
+        </form>
+
+        <a href="{% url 'write' %}?v={{ selected.pk }}" target="_blank" rel="noopener" class="ask-mgr" id="cfgWa" data-base="{% url 'write' %}?v=">{% include "shop/icons/whatsapp.html" %} {% translate "Задать вопрос менеджеру в WhatsApp" %}</a>
+        <div class="perks">
+          <a href="{% url 'delivery' %}">🚚 {% translate "Доставка по Казахстану" %}</a>
+          <a href="{% url 'payment' %}">💳 {% translate "Kaspi перевод / Kaspi QR" %}</a>
+          <span>🎁 {% translate "Подарочная упаковка" %}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

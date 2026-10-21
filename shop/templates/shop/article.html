@@ -1,0 +1,48 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{{ article|tr:"title" }} | MONA Perfume{% endblock %}
+{% block description %}{{ article|tr:"excerpt" }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ article|tr:"title" }}{% endblock %}
+{% block og_description %}{{ article|tr:"excerpt" }}{% endblock %}
+{% block content %}
+<header class="page-hero compact">
+  <div id="petals"></div>
+  <div class="container" style="max-width:860px">
+    <div class="crumbs"><a href="{% url 'index' %}">{% translate "Главная" %}</a> / <a href="{% url 'blog' %}">{% translate "Блог" %}</a></div>
+    <div class="art-emoji">{{ article.emoji }}</div>
+    <h1 class="art-title">{{ article|tr:"title" }}</h1>
+    <p class="lead">{{ article|tr:"excerpt" }}</p>
+  </div>
+</header>
+
+<section class="article-sec">
+  <div class="container article">
+    {% if article.image %}<img src="{{ article.image.url }}" alt="" class="art-img">{% endif %}
+    {% for p in article.paragraphs %}<p>{{ p }}</p>{% endfor %}
+    <div class="art-cta">
+      <b>{% translate "Готовы выбрать свой аромат?" %}</b>
+      <div class="hero-actions">
+        <a href="{% url 'quiz' %}" class="btn ghost">✨ {% translate "Пройти тест" %}</a>
+        <a href="{% url 'order' %}" class="btn">{% translate "Выбрать аромат" %} →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if more %}
+<section class="blog-sec more">
+  <div class="container">
+    <div class="sec-head reveal"><h2>{% translate "Читайте <i>также</i>" %}</h2></div>
+    <div class="blog-grid">
+      {% for a in more %}
+      <a href="{{ a.get_absolute_url }}" class="post reveal">
+        <div class="post-cover"><span>{{ a.emoji }}</span></div>
+        <div class="post-body"><h3>{{ a|tr:"title" }}</h3><p>{{ a|tr:"excerpt" }}</p></div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

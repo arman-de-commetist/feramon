@@ -1,0 +1,25 @@
+{% load i18n tenge %}
+{% if site.kaspi_url %}
+<div class="kaspi-qr reveal in">
+  <div class="kq-side">
+    <div class="kq-frame">
+      <div class="kq-code">{% qr_svg site.kaspi_url %}<span class="kq-logo">kaspi<i>.kz</i></span></div>
+    </div>
+    <div class="kq-scan">{% translate "Наведите камеру" %}</div>
+  </div>
+  <div class="kq-text">
+    <span class="kq-kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3h-3zM20 20h-3"/></svg>Kaspi QR</span>
+    <h3>{% translate "Оплатить через Kaspi" %}</h3>
+    {% if amount %}
+    <div class="kq-sum"><small>{% translate "Сумма к оплате" %}</small><b>{{ amount|tenge }}</b></div>
+    {% endif %}
+    <ol class="kq-steps">
+      <li>{% translate "Отсканируйте QR-код камерой телефона или в приложении Kaspi.kz" %}</li>
+      <li>{% if amount %}{% translate "Введите сумму заказа, указанную выше" %}{% else %}{% translate "Введите сумму вашего заказа" %}{% endif %}</li>
+      <li>{% if order_no %}{% blocktranslate with n=order_no %}В комментарии укажите номер заказа №{{ n }}{% endblocktranslate %}{% else %}{% translate "В комментарии укажите номер заказа" %}{% endif %}</li>
+    </ol>
+    <a href="{{ site.kaspi_url }}" target="_blank" rel="noopener" class="btn kaspi-btn">{% translate "Оплатить в Kaspi" %} <span aria-hidden="true">→</span></a>
+    <p class="kq-note">{% include "shop/icons/whatsapp.html" %}<span>{% translate "После оплаты отправьте заказ в WhatsApp — менеджер проверит оплату и подтвердит заказ." %}</span></p>
+  </div>
+</div>
+{% endif %}

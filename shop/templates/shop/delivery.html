@@ -1,0 +1,63 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Доставка и оплата Kaspi" %} | MONA Perfume{% endblock %}
+{% block description %}{% translate "Оплата Kaspi переводом или Kaspi QR, доставка курьером, Казпочтой и СДЭК по всему Казахстану." %}{% endblock %}
+
+{% block content %}
+<header class="page-hero">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Покупателям" %}</div>
+    <h1>{% translate "Доставка <i>и оплата</i>" %}</h1>
+    <p class="lead">{% translate "Оплата через Kaspi и доставка в любой город Казахстана." %}</p>
+  </div>
+</header>
+
+<section class="how-order">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Как заказать" %}</div>
+      <h2>{% translate "Четыре <i>простых шага</i>" %}</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-step reveal"><div class="dot">1</div><h5>{% translate "Оставьте заявку" %}</h5><p>{% translate "Выберите аромат на сайте и заполните форму — это займёт минуту." %}</p></div>
+      <div class="tl-step reveal"><div class="dot">2</div><h5>{% translate "Мы перезвоним" %}</h5><p>{% translate "Менеджер подтвердит заказ, адрес и способ доставки." %}</p></div>
+      <div class="tl-step reveal"><div class="dot">3</div><h5>{% translate "Оплата Kaspi" %}</h5><p>{% translate "Пришлём реквизиты для перевода или Kaspi QR." %}</p></div>
+      <div class="tl-step reveal"><div class="dot">4</div><h5>{% translate "Получите аромат" %}</h5><p>{% translate "Отправляем в подарочной упаковке и присылаем трек-номер." %}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="kaspi-sec" id="payment">
+  <div class="container">
+    {% translate "Оплата производится только после подтверждения заказа менеджером." as note %}{% translate "Самый удобный способ для Казахстана — без комиссии и за пару секунд." as lead %}
+    {% include "shop/_pay_options.html" %}
+  </div>
+</section>
+
+<section class="ship">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Доставка" %}</div>
+      <h2>{% translate "Привезём <i>в любой город</i>" %}</h2>
+      <p>{% translate "Стоимость и точный срок доставки менеджер сообщит при подтверждении заказа." %}</p>
+    </div>
+    <div class="ship-grid">
+      <div class="ship-card express reveal"><span class="ship-flag">⚡ {% translate "Экспресс" %}</span><div class="ic">🛵</div><h5>{% translate "Курьер по городу" %}</h5><p>{% translate "Привезём прямо до двери — без долгого ожидания." %}</p><span class="when fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9.5 2.5h5"/></svg>{% translate "1–2 часа" %}</span></div>
+      <div class="ship-card reveal"><div class="ic">📦</div><h5>{% translate "Казпочта" %}</h5><p>{% translate "В любой населённый пункт Казахстана." %}</p><span class="when fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9.5 2.5h5"/></svg>{% translate "3–7 дней" %}</span></div>
+      <div class="ship-card reveal"><div class="ic">🚚</div><h5>{% translate "СДЭК" %}</h5><p>{% translate "До пункта выдачи или курьером до двери." %}</p><span class="when fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9.5 2.5h5"/></svg>{% translate "2–5 дней" %}</span></div>
+      <div class="ship-card reveal"><div class="ic">🏬</div><h5>{% translate "Самовывоз" %}</h5><p>{% if site.address %}{{ site|tr:"address" }}{% else %}{% translate "Заберите заказ сами — адрес сообщим при подтверждении." %}{% endif %}</p>{% if site.map_url %}<a href="{{ site.map_url }}" class="map-link" target="_blank" rel="noopener">{% include "shop/icons/2gis.html" %} {% translate "Открыть в 2GIS" %} →</a>{% endif %}<span class="when fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9.5 2.5h5"/></svg>{% translate "в день заказа" %}</span></div>
+    </div>
+    <div class="cities reveal">
+      <span>{% translate "Алматы" %}</span><span>{% translate "Астана" %}</span><span>{% translate "Шымкент" %}</span><span>{% translate "Караганда" %}</span><span>{% translate "Актобе" %}</span><span>{% translate "Тараз" %}</span><span>{% translate "Павлодар" %}</span><span>{% translate "Усть-Каменогорск" %}</span><span>{% translate "Семей" %}</span><span>{% translate "Атырау" %}</span><span>{% translate "Костанай" %}</span><span>{% translate "Кызылорда" %}</span><span>{% translate "Уральск" %}</span><span>{% translate "Петропавловск" %}</span><span>{% translate "Актау" %}</span><span>{% translate "Туркестан" %}</span><span>{% translate "Талдыкорган" %}</span><span>{% translate "Кокшетау" %}</span><span>{% translate "и другие города" %}</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container reveal">
+    <h2>{% translate "Готовы выбрать <i>свой аромат</i>?" %}</h2>
+    <a href="{% url 'index' %}#buy" class="btn">{% translate "Оформить заказ" %} →</a>
+  </div>
+</section>
+{% endblock %}

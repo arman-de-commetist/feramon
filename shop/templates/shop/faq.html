@@ -1,0 +1,50 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Вопросы и ответы" %} | MONA Perfume{% endblock %}
+
+{% block content %}
+<header class="page-hero">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Покупателям" %}</div>
+    <h1>{% translate "Вопросы <i>и ответы</i>" %}</h1>
+    <p class="lead">{% translate "Всё, что нужно знать об ароматах MONA, оплате и доставке." %}</p>
+  </div>
+</header>
+
+<section class="faq">
+  <div class="container faq-wrap">
+    <div class="faq-group reveal">
+      <h3>{% translate "Об ароматах" %}</h3>
+      <details open><summary>{% translate "Какой аромат выбрать?" %}</summary><p>{% translate "<b>Нежный</b> — цветочно-фруктовый, на каждый день. <b>Холодный</b> — свежий и чистый, для тех, кто любит лёгкость. <b>Сладкий</b> — десертный и шлейфовый, для вечера и особых моментов. Если сомневаетесь — напишите нам, поможем выбрать." %}</p></details>
+      <details><summary>{% translate "Сколько держится аромат?" %}</summary><p>{% translate "MONA — это extrait de parfum, самая концентрированная форма парфюма. На коже аромат держится до 8–12 часов, на одежде и волосах — ещё дольше. Стойкость зависит от типа кожи." %}</p></details>
+      <details><summary>{% translate "Что значит «35% феромонов»?" %}</summary><p>{% translate "Это доля феромонового комплекса в композиции. Он делает аромат более тёплым, чувственным и близким к запаху кожи, а шлейф — глубже. Каждый человек воспринимает аромат по-своему." %}</p></details>
+      <details><summary>{% translate "Как правильно наносить?" %}</summary><p>{% translate "На чистую увлажнённую кожу: запястья, шея, за ушами. Не растирайте — дайте аромату высохнуть самому. Для мягкого шлейфа можно нанести немного на расчёску." %}</p></details>
+      <details><summary>{% translate "Как хранить парфюм?" %}</summary><p>{% translate "В тёмном прохладном месте, подальше от солнца и ванной комнаты. Так аромат сохранит свою красоту надолго." %}</p></details>
+    </div>
+    <div class="faq-group reveal">
+      <h3>{% translate "Оплата и доставка" %}</h3>
+      <details><summary>{% translate "Как оплатить заказ?" %}</summary><p>{% translate "Kaspi переводом или Kaspi QR после подтверждения заказа менеджером. При доставке курьером по городу можно оплатить наличными при получении." %} <a href="{% url 'delivery' %}#payment">{% translate "Подробнее об оплате" %} →</a></p></details>
+      <details><summary>{% translate "Доставляете ли вы в мой город?" %}</summary><p>{% translate "Да, мы отправляем по всему Казахстану: курьером, Казпочтой или СДЭК." %} <a href="{% url 'delivery' %}">{% translate "Все способы доставки" %} →</a></p></details>
+      <details><summary>{% translate "Сколько стоит доставка?" %}</summary><p>{% translate "Стоимость зависит от города и способа доставки — менеджер сообщит её при подтверждении заказа." %}</p></details>
+      <details><summary>{% translate "Можно ли заказать в подарок?" %}</summary><p>{% translate "Конечно! Каждый аромат приходит в подарочной упаковке. Напишите в комментарии к заказу, если нужна открытка или доставка получателю." %}</p></details>
+      <details><summary>{% translate "Как отследить заказ?" %}</summary><p>{% translate "После отправки мы пришлём трек-номер в WhatsApp или по SMS." %}</p></details>
+    </div>
+    <div class="faq-group reveal">
+      <h3>{% translate "Подарки и акции" %}</h3>
+      <details><summary>{% translate "Какой подарок я получу?" %}</summary><p>{% translate "К флакону 30 мл — один французский парфюм 100 мл на выбор, к 50 мл — два парфюма, к 100 мл — стайлер Dyson Airwrap." %}</p></details>
+      <details><summary>{% translate "Какие парфюмы можно выбрать в подарок?" %}</summary><p>{% translate "Bleu de Chanel, Dior Sauvage, Armani Stronger With You Absolutely, Tom Ford Lost Cherry, YSL Libre и Miss Dior." %} <a href="{% url 'gifts' %}">{% translate "Все подарочные парфюмы" %} →</a></p></details>
+      <details><summary>{% translate "Можно ли нанести имя на Dyson?" %}</summary><p>{% translate "Да, бесплатно. Впишите имя при выборе подарка — мы нанесём его на корпус." %} <a href="{% url 'dyson' %}">{% translate "Всё о Dyson Airwrap" %} →</a></p></details>
+      <details><summary>{% translate "Если купить несколько флаконов?" %}</summary><p>{% translate "Подарок положен к каждому флакону. Добавьте несколько ароматов в корзину — и выберите подарок для каждого." %}</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container reveal">
+    <h2>{% translate "Остались <i>вопросы</i>?" %}</h2>
+    <p>{% translate "Напишите нам — ответим быстро и поможем выбрать аромат." %}</p>
+    <a href="{% url 'contacts' %}" class="btn">{% translate "Связаться с нами" %} →</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "shop/base.html" %}
+{% load static i18n tenge %}
+{% block title %}{% translate "Акции" %} −50% | MONA Perfume{% endblock %}
+{% block content %}
+<header class="page-hero promo-hero">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Акции" %}</div>
+    <h1>−50% <i>{% translate "и подарок" %}</i></h1>
+    <p class="lead">{% translate "Все ароматы MONA за полцены — и к каждому флакону подарок." %}</p>
+    <div class="hero-actions" style="justify-content:center;margin-top:26px">
+      <a href="{% url 'order' %}" class="btn gold">{% translate "Выбрать аромат" %} →</a>
+    </div>
+  </div>
+</header>
+
+{% include "shop/_promo.html" %}
+
+<section class="how-gift">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Как получить подарок" %}</div>
+      <h2>{% translate "Три <i>простых шага</i>" %}</h2>
+    </div>
+    <div class="timeline three">
+      <div class="tl-step reveal"><div class="dot">1</div><h5>{% translate "Выберите аромат и объём" %}</h5><p>{% translate "30, 50 или 100 мл — от объёма зависит подарок." %}</p></div>
+      <div class="tl-step reveal"><div class="dot">2</div><h5>{% translate "Выберите подарок" %}</h5><p>{% translate "Французский парфюм — или Dyson Airwrap с вашим именем и цветом." %}</p></div>
+      <div class="tl-step reveal"><div class="dot">3</div><h5>{% translate "Оформите заказ" %}</h5><p>{% translate "Подарок приедет вместе с ароматом в одной посылке." %}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gift-teaser">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Подарки к 30 и 50 мл" %}</div>
+      <h2>{% translate "Французские <i>парфюмы</i>" %}</h2>
+    </div>
+    <div class="gift-row">
+      {% for g in gift_perfumes %}
+      <a href="{{ g.get_absolute_url }}" class="gift-tile reveal">
+        {% if g.image %}<img src="{{ g.image.url }}" alt="{{ g }}" loading="lazy">{% endif %}
+        <span class="gt-brand">{{ g.brand }}</span><b>{{ g.name }}</b>
+      </a>
+      {% endfor %}
+    </div>
+    <div class="offer-links reveal"><a href="{% url 'gifts' %}">{% translate "Все подарочные парфюмы" %} →</a></div>
+  </div>
+</section>
+
+<section class="dyson-teaser">
+  <div class="container dt-grid">
+    <div class="reveal"><img src="{% static 'shop/img/promo-dyson.webp' %}" alt="Dyson Airwrap" loading="lazy"></div>
+    <div class="reveal">
+      <div class="promo-kicker">{% translate "Подарок к 100 мл" %}</div>
+      <h2>Dyson Airwrap Styler</h2>
+      <p>{% translate "6 насадок, бесплатная гравировка имени, фирменная упаковка и гарантия 1 год." %}</p>
+      <a href="{% url 'dyson' %}" class="btn gold">{% translate "Подробнее" %} →</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

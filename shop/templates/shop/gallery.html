@@ -1,0 +1,36 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Галерея" %} | MONA Perfume{% endblock %}
+{% block content %}
+<header class="page-hero compact">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Галерея" %}</div>
+    <h1>MONA <i>{% translate "в кадре" %}</i></h1>
+    <p class="lead">{% translate "Ароматы, подарки и настроение MONA." %}</p>
+  </div>
+</header>
+
+<section class="gallery-sec">
+  <div class="container">
+    <div class="masonry">
+      {% for ph in photos %}
+      <figure class="m-item reveal" data-full="{{ ph.image.url }}">
+        <img src="{{ ph.image.url }}" alt="{{ ph|tr:'caption' }}" loading="lazy">
+        {% if ph.caption %}<figcaption>{{ ph|tr:"caption" }}</figcaption>{% endif %}
+      </figure>
+      {% endfor %}
+      {% for g in gift_perfumes %}
+      <figure class="m-item reveal white" data-full="{{ g.image.url }}">
+        <img src="{{ g.image.url }}" alt="{{ g }}" loading="lazy">
+        <figcaption>🎁 {{ g }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    {% if site.instagram %}
+    <div class="offer-links reveal"><a href="{{ site.instagram_url }}" target="_blank" rel="noopener">📸 {% translate "Больше фото в Instagram" %} @{{ site.instagram }} →</a></div>
+    {% endif %}
+  </div>
+</section>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button aria-label="{% translate "Закрыть" %}">×</button></div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Выберите аромат и подарок" %} | MONA Perfume{% endblock %}
+{% block order_link %}#buy{% endblock %}
+{% block body_class %}order-page{% endblock %}
+{% block content %}
+<div class="order-top">
+  <div class="container">
+    <div class="crumbs"><a href="{% url 'index' %}">{% translate "Главная" %}</a> / <span>{% translate "Заказ" %}</span></div>
+    <h1>{% translate "Выберите <i>аромат и подарок</i>" %}</h1>
+    {% include "shop/_steps.html" with step=1 %}
+  </div>
+</div>
+{% translate "Ваш <i>аромат</i>" as bt %}{% include "shop/_buy.html" with buy_title=bt %}
+{% endblock %}

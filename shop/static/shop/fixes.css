@@ -1,0 +1,493 @@
+/* ======================================================
+   Click-reliability fixes (loaded last)
+
+   Cards used to jump up on :hover. On a phone the first tap applies :hover,
+   the card moves ~10px, and the tap then lands *below* the button inside it —
+   so buttons like «Ноты» only worked on the second tap. On desktop the bottom
+   edge of those buttons was dead for the same reason.
+   ====================================================== */
+
+/* 1) Cards that contain their own buttons: never move them, only glow */
+.coll-card:hover,.offer-card:hover,.color-card:hover,.att:hover,.why:hover,.step:hover,
+.ship-card:hover,.pay:hover,.feat:hover,.myth:hover,.rev:hover{transform:none}
+
+/* 2) Cards that are a single big link may still lift with a mouse, but the hit area
+      is extended downward so the pointer never "falls off" the bottom edge */
+.gift-big,.help-card,.take-card,.post,.gift-tile,.gv-card,.c-card,.trio-item,.promo-opt,.gp-opt{position:relative}
+.gift-big:hover::after,.help-card:hover::after,.take-card:hover::after,.post:hover::after,.gift-tile:hover::after,
+.gv-card:hover::after,.c-card:hover::after{content:"";position:absolute;left:0;right:0;top:100%;height:14px}
+
+/* 3) Touch screens have no real hover: switch every hover movement off,
+      so a tap always hits exactly what is under the finger */
+@media (hover:none){
+  .btn:hover,.picker button:hover,.vol-btn:hover,.p-vol:hover,.q-opts button:hover,.gift-card:hover img,
+  .gift-big:hover,.help-card:hover,.take-card:hover,.post:hover,.gift-tile:hover,.gv-card:hover,.c-card:hover,
+  .promo-opt:hover,.gp-opt:hover,.hero-gift:hover,.dh-thumbs a:hover,.cart-link:hover,.ig-link:hover,
+  .wa-float:hover,.ig-float:hover,.menu a:hover,.offer-card:hover,.trio-item:hover,.coll-card:hover .pic img,
+  .color-card:hover .cc-img img,.att:hover .att-img img,.gift-big:hover .gb-img img{transform:none}
+  .trio-item:nth-child(2):hover{transform:translateY(-24px)}
+  .picker button:active,.vol-btn:active,.btn:active{transform:scale(.98)}
+}
+
+/* Floating Instagram / WhatsApp buttons covered card buttons (e.g. «Ноты») on phones and
+   narrow laptops. Instagram is already in the header and WhatsApp in the bottom tab bar,
+   so the floats are shown only where the side gutter is wide enough to hold them. */
+@media (max-width:1359px){.ig-float{display:none!important}}
+
+/* WhatsApp bubble on phones: one round button above the bottom tab bar (Instagram stays in the header) */
+@media (max-width:1359px){
+  .wa-float{right:14px;bottom:calc(92px + env(safe-area-inset-bottom));width:56px;height:56px;z-index:65}
+  .wa-float .ico-svg{width:30px;height:30px;color:#fff}
+  body:has(.m-cta) .wa-float{bottom:calc(164px + env(safe-area-inset-bottom))}
+  body.menu-open .wa-float,body.scroll-locked .wa-float{display:none}
+}
+@media (min-width:981px) and (max-width:1359px){.wa-float{bottom:24px;right:20px}}
+
+/* outline buttons inside cards were painted with the filled wine gradient -> wine text on wine (invisible) */
+.coll-card .btn.ghost,.cmp-card .btn.ghost{background:#fff;color:var(--wine);border:1px solid rgba(142,31,53,.35);box-shadow:none}
+.coll-card .btn.ghost:hover{background:#fff0f3}
+
+/* ---------- phone menu: solid panel, scrolls on its own, page behind stays still ---------- */
+@media (max-width:980px){
+  /* backdrop-filter on <nav> turned the fixed menu into a child of the nav box (wrong size, see-through) */
+  nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,242,245,.97)}
+  .menu{top:92px;bottom:0;max-height:none;background:#fff8f9;overflow-y:auto;overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;padding:8px 18px 110px;box-shadow:none;border-top:1px solid rgba(142,31,53,.08)}
+  body.menu-open .lang{top:100px;right:18px}
+  body.menu-open .menu{padding-top:58px}
+  body.scroll-locked{position:fixed;left:0;right:0;width:100%;overflow:hidden}
+}
+
+/* ---------- iPhone: the «O» of MONA vanished ----------
+   Safari doesn't paint the parent's background-clip:text gradient into an inline-block child,
+   so the O (a separate span for the golden arc) became transparent. Give it its own gradient. */
+.mona-logo .o,.hero h1 .o,.page-hero h1 .o{background:inherit;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent}
+
+/* official 2GIS app icon instead of the generic pin */
+.gis-badge{background:#fff;color:#1b1b1b;box-shadow:0 4px 12px rgba(0,0,0,.12);gap:6px;padding:4px 10px 4px 4px}
+.gis-badge img{width:20px;height:20px;border-radius:6px;display:block;flex:none}
+.map-art .gis-badge{background:#fff;color:#1b1b1b;padding:8px 16px 8px 8px;box-shadow:0 10px 26px rgba(0,0,0,.15)}
+.map-art .gis-badge img{width:34px;height:34px;border-radius:10px}
+.btn-2gis .gis-badge{background:#fff;color:#168a33;box-shadow:none;padding:3px 8px 3px 3px}
+.btn-2gis .gis-badge img{width:18px;height:18px;border-radius:5px}
+.map-link .gis-badge{padding:2px 7px 2px 2px;box-shadow:none;border:1px solid #e6efe8}
+.map-link .gis-badge img{width:14px;height:14px;border-radius:4px}
+
+/* ---------- managers: cards were wider than half a phone screen and got clipped ---------- */
+.mgr-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.mgr-card{min-width:0}
+.mgr-phone{white-space:nowrap}
+@media (max-width:980px){.mgr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){
+  .mgr-grid{grid-template-columns:minmax(0,1fr);gap:12px;max-width:460px;margin:0 auto}
+  .mgr-card{display:grid;grid-template-columns:78px minmax(0,1fr);column-gap:16px;align-items:center;text-align:left;padding:16px 16px 16px 14px}
+  .mgr-card .mgr-ava{grid-row:1 / span 5;width:78px;height:78px;align-self:start}
+  .mgr-card .mgr-ava span{font-size:34px}
+  .mgr-card h3{margin-top:0;font-size:26px}
+  .mgr-title{margin-top:2px;letter-spacing:1.5px}
+  .mgr-meta{justify-content:flex-start}
+  .mgr-phone{margin:6px 0 10px;font-size:15px}
+  .mgr-actions .wa-btn{font-size:12px;padding:11px 12px}
+}
+@media (max-width:380px){.mgr-actions .wa-btn{font-size:11px}.mgr-actions .wa-btn .ico-svg{width:18px;height:18px}}
+
+/* ---------- order form: grids must be allowed to shrink below their content width ---------- */
+.buy-card>*,.order-form,.order-form>*{min-width:0}
+.volumes{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gift-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.swatches:has(.photo){grid-template-columns:repeat(2,minmax(0,1fr))}
+.swatch,.gift-card,.vol-btn{min-width:0}
+.swatch.photo span{overflow-wrap:anywhere}
+@media (max-width:560px){.gift-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){
+  .swatch.photo{flex-direction:column;text-align:center;padding:8px 6px;gap:6px}
+  .swatch.photo img{width:64px;height:64px}
+  .swatch.photo span{font-size:11px}
+}
+
+
+/* ---------- Kaspi QR payment ---------- */
+.kaspi-pay-sec{background:#fff5f7;padding:30px 0 0}
+.kaspi-qr{display:grid;grid-template-columns:260px 1fr;gap:30px;align-items:center;padding:28px;border-radius:30px;background:#fff;
+  border:2px solid #f14635;box-shadow:0 20px 50px rgba(241,70,53,.18)}
+.kq-code{position:relative;background:#fff;border-radius:22px;padding:10px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.kq-code .qr-svg{width:100%;height:auto;display:block}
+.kq-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;color:#f14635;font-weight:800;font-size:17px;
+  letter-spacing:-.5px;padding:5px 10px;border-radius:10px;box-shadow:0 0 0 4px #fff}
+.kq-logo i{font-style:normal;color:#999;font-weight:500}
+.kq-kicker{display:inline-block;font-size:11px;letter-spacing:2px;font-weight:800;color:#fff;background:#f14635;padding:5px 12px;border-radius:12px}
+.kaspi-qr h3{font-family:"Cormorant Garamond",serif;font-size:34px;color:var(--wine-deep);margin:10px 0 8px;line-height:1}
+.kq-sum{display:flex;align-items:baseline;gap:10px;margin:6px 0 12px}
+.kq-sum small{color:var(--muted)}
+.kq-sum b{font-family:"Cormorant Garamond",serif;font-size:40px;color:#d8331f}
+.kq-steps{margin:0 0 18px 18px;display:grid;gap:6px;color:var(--ink);font-size:14px;line-height:1.5}
+.btn.kaspi-btn{background:linear-gradient(135deg,#ff5b4a,#e0301f);box-shadow:0 12px 28px rgba(224,48,31,.35)}
+.kq-note{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6}
+@media (max-width:700px){
+  .kaspi-qr{grid-template-columns:1fr;text-align:center;padding:22px 18px}
+  .kq-code{max-width:240px;margin:0 auto}
+  .kq-sum{justify-content:center}
+  .kq-steps{text-align:left;max-width:320px;margin-left:auto;margin-right:auto}
+  .btn.kaspi-btn{width:100%;justify-content:center}
+}
+
+/* hero price: keep «от 39 500 ₸» on one line on narrow phones */
+.price-tag{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:inherit;gap:4px 10px}
+.price-tag b,.price-tag s,.price b,.price s{white-space:nowrap}
+@media (max-width:420px){.price-tag b{font-size:34px}.price-tag s{margin-left:0}}
+
+
+/* ---------- cart icon: a real shopping bag on a wine circle, gold counter ---------- */
+.cart-link{width:42px;height:42px;border:none;color:#fff;
+  background:radial-gradient(circle at 30% 25%,#d0566f,#8e1f35 58%,#5e0f22);
+  box-shadow:0 6px 16px rgba(142,31,53,.35),inset 0 1px 0 rgba(255,255,255,.25)}
+.cart-link:hover,.cart-link.on{background:radial-gradient(circle at 30% 25%,#e06a82,#9c2840 58%,#5e0f22);transform:translateY(-1px) scale(1.04)}
+.cart-link .bag-ico{width:22px;height:22px}
+.cart-link .bag-body{fill:rgba(255,255,255,.14)}
+.cart-badge{top:-5px;right:-5px;min-width:20px;height:20px;border:2px solid #fff;font-size:11px;font-weight:800;color:#3d0814;
+  background:linear-gradient(135deg,#f6dc95,#c9a050)}
+@media (max-width:980px){.cart-link{width:38px;height:38px}.cart-link .bag-ico{width:20px;height:20px}}
+
+.tabbar .tab-order span .bag-ico{width:22px;height:22px;color:#fff}
+.tabbar .tab-order .bag-body{fill:rgba(255,255,255,.14)}
+.ec-ic{width:96px;height:96px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;color:#fff;
+  background:radial-gradient(circle at 30% 25%,#d0566f,#8e1f35 58%,#5e0f22);box-shadow:0 16px 40px rgba(142,31,53,.3)}
+.ec-ic .bag-ico{width:48px;height:48px}
+.ec-ic .bag-body{fill:rgba(255,255,255,.14)}
+
+
+/* checkout steps: keep the three pills on one line on phones */
+.checkout-steps{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.checkout-steps::-webkit-scrollbar{display:none}
+.checkout-steps li{flex:none}
+
+/* WhatsApp bubble tucks to the screen edge while a button is underneath it */
+.wa-float{transition:transform .35s cubic-bezier(.2,.8,.3,1),opacity .35s}
+.wa-float.tucked{transform:translateX(64%) scale(.86);opacity:.75}
+
+/* ---------- reviews: rating summary, star filter, answers, emoji picker ---------- */
+.reviews .center-cta{background:none;padding:30px 0 0}
+.flash-err{background:#fdeef1;color:#a3122f;border-color:#f5c6d0}
+.rate-summary{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;margin-bottom:18px;padding:22px 26px;border-radius:24px;
+  background:rgba(255,255,255,.85);border:1px solid #fff;box-shadow:0 10px 40px rgba(142,31,53,.08)}
+.rs-big{text-align:center;min-width:110px}
+.rs-big b{display:block;font-family:'Cormorant Garamond',serif;font-size:58px;line-height:1;color:var(--wine)}
+.rs-big .stars{font-size:18px}
+.rs-big small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+.rs-bars{display:grid;gap:6px;min-width:0}
+.rs-row{display:grid;grid-template-columns:38px minmax(0,1fr) 28px;gap:10px;align-items:center;font-size:13px;color:var(--ink);text-decoration:none;border-radius:8px;padding:2px 4px}
+.rs-row span:first-child{color:#c98a1f;font-weight:700;white-space:nowrap}
+.rs-row span:last-child{text-align:right;color:var(--muted)}
+.rs-row i{height:8px;border-radius:8px;background:#f3e3e7;overflow:hidden}
+.rs-row em{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,#f6c96b,#e8a33d)}
+.rs-row.on,.rs-row:hover{background:#fff0f3}
+.rev-filter{display:flex;gap:8px;margin:0 0 18px;overflow-x:auto;scrollbar-width:none;padding:2px}
+.rev-filter::-webkit-scrollbar{display:none}
+.rev-filter a{flex:none;padding:9px 16px;border-radius:30px;font-size:13px;font-weight:700;text-decoration:none;color:var(--wine);background:#fff;border:1px solid rgba(142,31,53,.18)}
+.rev-filter a.on{color:#fff;background:linear-gradient(135deg,#c2405c,var(--wine));border-color:transparent}
+.reviews-page .rev-list{grid-template-columns:1fr}
+.reviews-page .rev{padding:24px 26px}
+.reviews-page .rev p{margin:12px 0 16px;font-size:20px;word-wrap:break-word;overflow-wrap:anywhere}
+.rev-top{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.rev-top .rev-product{margin-left:0}
+.replies{margin:16px 0 0 22px;padding-left:16px;border-left:2px solid #f3dbe1;display:grid;gap:14px}
+.reply{display:flex;gap:10px;align-items:flex-start}
+.ava.sm{width:32px;height:32px;font-size:13px;flex:none}
+.reply-body{min-width:0;flex:1;background:#fff7f9;border-radius:4px 16px 16px 16px;padding:10px 14px}
+.reply-body b{font-size:14px;color:var(--ink)}
+.reply-body small{margin-left:8px;color:var(--muted);font-size:11px}
+.reviews-page .reply-body p{margin:4px 0 2px;font-family:inherit;font-style:normal;font-size:14.5px;line-height:1.55}
+.reply.staff .reply-body{background:linear-gradient(135deg,#fff3dc,#fff8ec);border:1px solid #f1dcae}
+.reply.staff .ava{background:linear-gradient(135deg,#f6dc95,#c9a050);color:#3d0814}
+.staff-tag{margin-left:6px;font-size:10px;font-weight:800;letter-spacing:.08em;color:#3d0814;background:linear-gradient(135deg,#f6dc95,#c9a050);padding:2px 7px;border-radius:8px}
+.reply-btn{background:none;border:0;padding:6px 0;font:inherit;font-size:12.5px;font-weight:700;color:var(--wine);cursor:pointer}
+.reply-btn.main{margin-top:14px;padding:9px 16px;border-radius:30px;background:#fff0f3;font-size:13px}
+.reply-btn.main:hover{background:#ffe3ea}
+.reply-form{margin-top:12px;display:grid;gap:10px}
+.reply-form .btn{justify-self:start}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.rate-label{font-size:13px;color:var(--muted);margin-bottom:2px}
+.rate-label b{color:#c98a1f;font-size:16px}
+.emoji-wrap{position:relative}
+.emoji-wrap textarea{width:100%;padding-right:52px!important}
+.emoji-toggle{position:absolute;right:8px;top:8px;width:38px;height:38px;border-radius:50%;border:0;background:#fff0f3;font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.emoji-toggle[aria-expanded="true"]{background:#ffd9e2}
+.emoji-panel{display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:2px;margin-top:8px;padding:8px;border-radius:16px;background:#fff;
+  border:1px solid rgba(142,31,53,.15);box-shadow:0 12px 30px rgba(142,31,53,.12);max-height:190px;overflow-y:auto}
+.emoji-panel[hidden]{display:none}
+.emoji{height:40px;border:0;background:none;border-radius:10px;font-size:23px;cursor:pointer;line-height:1}
+.emoji:hover,.emoji:active{background:#fff0f3}
+@media (max-width:760px){
+  .rate-summary{grid-template-columns:1fr;gap:14px;padding:18px}
+  .rs-big b{font-size:48px}
+  .reviews-page .rev{padding:20px 18px}
+  .reviews-page .rev p{font-size:18px}
+  .replies{margin-left:4px;padding-left:12px}
+  .rate{font-size:36px;padding:0 2px}
+}
+.rp-grid>*{min-width:0}
+@media (max-width:980px){.rp-grid{grid-template-columns:minmax(0,1fr)}}
+.rev-filter{max-width:100%}
+.reply-form[hidden]{display:none}
+
+/* Dyson colour choice: every photo big (not only the chosen one) so the styler is clearly visible */
+.swatches:has(.photo){grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.swatch.photo,.swatch.photo:has(input:checked){flex-direction:column;align-items:stretch;text-align:center;gap:8px;padding:8px 8px 10px}
+.swatch.photo img,.swatch.photo:has(input:checked) img{width:100%;height:auto;aspect-ratio:4/5;object-fit:contain;padding:4px;border-radius:14px;transform:none;background:#fff}
+.swatch.photo:has(input:checked) img{box-shadow:0 0 0 3px #f3d58a}
+.swatch.photo span{font-size:13px;line-height:1.3}
+@media (hover:hover){.swatch.photo:hover img{transform:scale(1.04)}}
+@media (max-width:760px){
+  .swatch.photo,.swatch.photo:has(input:checked){padding:6px 6px 8px}
+  .swatch.photo img,.swatch.photo:has(input:checked) img{width:100%;height:auto;padding:4px}
+  .swatch.photo span{font-size:12px}
+}
+
+/* Dyson photos: no jump on hover/tap; a magnifier opens the photo big */
+@media (hover:hover){.swatch.photo:hover img{transform:none}}
+.swatch.photo{position:relative}
+.sw-zoom{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;border:0;padding:0;display:grid;place-items:center;cursor:pointer;
+  color:#fff;background:rgba(61,8,20,.72);box-shadow:0 4px 12px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+.sw-zoom svg{width:18px;height:18px}
+.sw-zoom:hover{background:#8e1f35}
+@media (max-width:760px){.sw-zoom{top:9px;right:9px;width:30px;height:30px}.sw-zoom svg{width:16px;height:16px}}
+.dz{position:fixed;inset:0;z-index:130;display:grid;place-items:center;padding:18px;background:rgba(20,4,8,.88);animation:giftIn .25s}
+.dz[hidden]{display:none}
+.dz-card{margin:0;width:min(520px,100%);max-height:calc(100vh - 36px);display:flex;flex-direction:column;align-items:center;gap:12px;
+  background:#fff;border-radius:24px;padding:16px 16px 18px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.dz-card img{width:100%;min-height:0;flex:1 1 auto;max-height:70vh;object-fit:contain}
+.dz-card figcaption{font-weight:700;color:var(--ink);text-align:center;font-size:16px}
+.dz-card .dz-pick{width:100%}
+.dz-close{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--wine);font-size:26px;line-height:1;cursor:pointer}
+
+/* ---------- Kaspi: light card in the site's style, line icons, QR in a scan frame ---------- */
+.kaspi-sec{background:linear-gradient(180deg,#fff5f7,#fff0f3)}
+.kp-card{max-width:980px;margin:0 auto;border-radius:32px;padding:44px 40px 36px;background:#fff;border:1px solid #fbe3e0;
+  box-shadow:0 24px 60px rgba(142,31,53,.10);position:relative;overflow:hidden}
+.kp-card::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:linear-gradient(90deg,#ff6a55,#f14635,#d22f1e)}
+.kp-head{text-align:center;max-width:560px;margin:0 auto}
+.kp-logo,.kq-logo{font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:-.5px;color:#f14635}
+.kp-logo i,.kq-logo i{font-style:normal;font-weight:500;color:#8b8b8b}
+.kp-logo{display:inline-block;font-size:26px;padding:8px 20px;border-radius:14px;background:#fff4f2;border:1px solid #fde0db}
+.kp-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.6vw,52px);font-weight:600;color:var(--wine-deep);margin:16px 0 6px;line-height:1.05}
+.kp-head p{color:var(--muted);font-size:15px;line-height:1.6}
+.kp-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:30px}
+.kp-opt{display:flex;flex-direction:column;gap:12px;padding:22px;border-radius:22px;background:#fffafa;border:1px solid #f8e4e1;text-align:left}
+.kp-ic{width:52px;height:52px;flex:none;border-radius:16px;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(135deg,#ff6a55,#e0301f);box-shadow:0 10px 22px rgba(224,48,31,.28)}
+.kp-ic svg{width:26px;height:26px}
+.kp-opt:last-child .kp-ic{background:linear-gradient(135deg,#c2405c,var(--wine));box-shadow:0 10px 22px rgba(142,31,53,.25)}
+.kp-opt h5{font-size:14px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--ink)}
+.kp-opt p{font-size:14px;line-height:1.6;color:var(--muted);margin-top:4px}
+.kp-note{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:22px;font-size:13px;color:var(--muted);text-align:center}
+.kp-note svg{width:18px;height:18px;flex:none;color:#2f9e5b}
+
+.kaspi-pay-sec{background:#fff0f3;padding:26px 0 10px}
+.kaspi-qr{display:grid;grid-template-columns:270px minmax(0,1fr);gap:36px;align-items:center;padding:32px;border-radius:32px;background:#fff;
+  border:1px solid #fbe3e0;box-shadow:0 24px 60px rgba(142,31,53,.10)}
+.kq-side{display:flex;flex-direction:column;align-items:center;gap:12px}
+.kq-frame{position:relative;padding:14px;border-radius:26px;background:linear-gradient(135deg,#ff6a55,#d22f1e);box-shadow:0 18px 40px rgba(224,48,31,.3)}
+.kq-code{position:relative;background:#fff;border-radius:16px;padding:12px;box-shadow:none}
+.kq-code .qr-svg{width:100%;height:auto;display:block}
+.kq-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;font-size:15px;padding:5px 10px;border-radius:10px;
+  box-shadow:0 0 0 4px #fff,0 4px 12px rgba(0,0,0,.12);white-space:nowrap;line-height:1.2}
+.kq-scan{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#e0301f}
+.kq-kicker{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:1.5px;font-weight:800;text-transform:uppercase;color:#e0301f;
+  background:#fff1ef;border:1px solid #fdd9d3;padding:6px 12px;border-radius:20px}
+.kq-kicker svg{width:14px;height:14px}
+.kaspi-qr h3{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:var(--wine-deep);margin:12px 0 10px;line-height:1.05}
+.kq-sum{display:flex;align-items:baseline;gap:10px;margin:0 0 14px;padding:12px 16px;border-radius:16px;background:#fff6f4}
+.kq-sum b{font-size:34px;color:#d8331f}
+.kq-steps{list-style:none;counter-reset:kq;margin:0 0 20px;padding:0;display:grid;gap:10px;font-size:14.5px;line-height:1.45;color:var(--ink)}
+.kq-steps li{counter-increment:kq;display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start}
+.kq-steps li::before{content:counter(kq);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,#ff6a55,#e0301f)}
+.btn.kaspi-btn{border:0;outline:0;color:#fff;background:linear-gradient(135deg,#ff6a55,#e0301f);box-shadow:0 14px 30px rgba(224,48,31,.32)}
+.btn.kaspi-btn:hover{background:linear-gradient(135deg,#ff7a66,#ea3a28)}
+.btn.kaspi-btn:focus-visible{box-shadow:0 0 0 3px #fff,0 0 0 5px #f14635}
+.kq-note{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.55;text-align:left}
+.kq-note .ico-svg{width:18px;height:18px;flex:none;color:#25d366;margin-top:1px}
+@media (max-width:860px){
+  .kp-card{padding:34px 18px 24px;border-radius:26px}
+  .kp-options{grid-template-columns:minmax(0,1fr);gap:10px;margin-top:22px}
+  .kp-opt{flex-direction:row;align-items:flex-start;gap:14px;padding:16px}
+  .kp-ic{width:44px;height:44px;border-radius:14px}
+  .kp-ic svg{width:22px;height:22px}
+  .kp-opt h5{font-size:13px}
+  .kp-opt p{font-size:13.5px}
+  .kaspi-qr{grid-template-columns:minmax(0,1fr);gap:20px;padding:24px 18px;border-radius:26px;text-align:left}
+  .kq-frame{width:min(250px,100%)}
+  .kq-text{text-align:left}
+  .kq-text .kq-kicker{display:flex;width:max-content;margin:0 auto}
+  .kaspi-qr h3{font-size:32px;text-align:center}
+  .kq-sum{justify-content:center}
+  .kq-steps{max-width:none}
+  .btn.kaspi-btn{width:100%;justify-content:center}
+}
+
+/* compare page: real bottle photos, sized like the real volumes; readable volume title */
+.cmp-bottle{height:250px;margin-bottom:10px;align-items:flex-end}
+.cmp-bottle img{display:block;width:auto;max-width:100%;object-fit:contain;mix-blend-mode:multiply}
+.cmp-bottle.b1 img{height:68%}.cmp-bottle.b2 img{height:84%}.cmp-bottle.b3 img{height:100%}
+.cmp-card .offer-vol{color:var(--wine);background:linear-gradient(135deg,#c2405c,var(--wine-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cmp-card.best .offer-vol{background:linear-gradient(135deg,#d9a94a,#a8782a);-webkit-background-clip:text;background-clip:text}
+@media (max-width:760px){.cmp-bottle{height:210px}}
+.og-dyson.og-set{width:150px;height:225px;object-fit:cover;object-position:center;background:#efe6df}
+.offer-gift:has(.og-set){height:auto}
+
+/* delivery: the city courier is the fast option — highlight it */
+.ship-card{position:relative}
+.ship-card.express{border:2px solid #e9c46a;background:linear-gradient(180deg,#fffaf0,#fff);box-shadow:0 18px 44px rgba(201,160,80,.25)}
+.ship-flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+  color:#3d0814;background:linear-gradient(135deg,#f6dc95,#c9a050);padding:6px 14px;border-radius:20px;box-shadow:0 6px 16px rgba(201,160,80,.4)}
+.ship-card .when.fast{display:inline-flex;align-items:center;gap:7px;font-size:16px;font-weight:800;color:#fff;padding:9px 16px;border-radius:24px;
+  background:linear-gradient(135deg,#c2405c,var(--wine));box-shadow:0 10px 22px rgba(142,31,53,.3)}
+.ship-card .when.fast svg{width:18px;height:18px}
+@media (max-width:760px){.ship-grid{row-gap:26px}}
+
+/* pheromones page: «Аромат притяжения» text */
+.split .ph-lead{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.45;font-style:italic;color:var(--wine-deep)}
+.ph-quote{margin:22px 0;padding:20px 24px;border-radius:20px;border-left:4px solid #c9a050;
+  background:linear-gradient(135deg,#fff7ec,#fff0f3);box-shadow:0 12px 30px rgba(142,31,53,.08)}
+.ph-quote b{display:block;font-size:12px;letter-spacing:3px;color:#a8782a;margin-bottom:6px}
+.ph-quote p{margin:0!important;font-size:16px;line-height:1.6;color:var(--ink);font-weight:500}
+.split .ph-final{font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.5;color:var(--wine)}
+@media (max-width:760px){.split .ph-lead{font-size:21px}.split .ph-final{font-size:20px}.ph-quote{padding:16px 18px}}
+
+/* ---------- floating buttons: TikTok + Instagram above WhatsApp (phone and PC) ---------- */
+.float-stack{position:fixed;right:22px;bottom:22px;z-index:65;display:flex;flex-direction:column;align-items:center;gap:10px;
+  transition:transform .35s cubic-bezier(.2,.8,.3,1),opacity .35s}
+.float-stack.tucked{transform:translateX(62%) scale(.88);opacity:.75}
+.float-stack .wa-float,.float-stack .wa-float.tucked{position:relative;right:auto;bottom:auto;transform:none;opacity:1;display:grid;width:60px;height:60px}
+.fs-btn{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;text-decoration:none;
+  box-shadow:0 10px 24px rgba(0,0,0,.22);transition:transform .25s}
+.fs-btn .ico-svg{width:24px;height:24px}
+.fs-ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
+.fs-tt{background:#111;box-shadow:0 10px 24px rgba(0,0,0,.3),inset 0 0 0 2px rgba(255,255,255,.08)}
+.fs-tt .ico-svg{filter:drop-shadow(-1.5px -1px 0 #25f4ee) drop-shadow(1.5px 1px 0 #fe2c55)}
+@media (hover:hover){.fs-btn:hover,.float-stack .wa-float:hover{transform:scale(1.08)}}
+@media (max-width:1359px){
+  .float-stack{right:14px;bottom:calc(92px + env(safe-area-inset-bottom));gap:9px}
+  .float-stack .wa-float{width:56px;height:56px}
+  .fs-btn{width:44px;height:44px}
+  .fs-btn .ico-svg{width:22px;height:22px}
+  body:has(.m-cta) .float-stack{bottom:calc(164px + env(safe-area-inset-bottom))}
+  body.menu-open .float-stack,body.scroll-locked .float-stack{display:none}
+  body:has(.m-cta) .float-stack .wa-float{bottom:auto}
+}
+@media (min-width:981px) and (max-width:1359px){.float-stack{bottom:24px;right:20px}}
+.c-card.tt{background:linear-gradient(135deg,#111 0%,#2b2b2b 60%,#fe2c55 140%)}
+.c-card.tt .ic .ico-svg{filter:drop-shadow(-1.5px -1px 0 #25f4ee) drop-shadow(1.5px 1px 0 #fe2c55)}
+
+/* floating buttons, v2: one neat white capsule, three equal circles, no glow */
+.float-stack{gap:8px;padding:7px;border-radius:40px;background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 14px 36px rgba(61,8,20,.22),0 2px 6px rgba(61,8,20,.08);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.float-stack .fs-btn,.float-stack .wa-float,.float-stack .wa-float.tucked{width:46px;height:46px;border-radius:50%;box-shadow:none;animation:none}
+.float-stack .wa-float{background:#25d366}
+.float-stack .wa-float .ico-svg{width:24px;height:24px;color:#fff}
+.float-stack .fs-btn .ico-svg{width:22px;height:22px}
+.fs-ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
+.fs-tt{background:#111}
+.fs-tt .ico-svg{width:21px!important;height:21px!important}
+@media (hover:hover){.float-stack a:hover{transform:scale(1.08)}}
+@media (max-width:1359px){
+  .float-stack{right:12px;padding:6px;gap:7px}
+  .float-stack .fs-btn,.float-stack .wa-float,.float-stack .wa-float.tucked{width:42px;height:42px}
+  .float-stack .wa-float .ico-svg{width:22px;height:22px}
+  .float-stack .fs-btn .ico-svg{width:20px;height:20px}
+}
+.fs-tt .ico-svg,.c-card.tt .ic .ico-svg{filter:none!important}
+.fs-tt{color:#fff}
+
+/* floating buttons on phones: one compact button; tap → WhatsApp / Instagram / TikTok with labels */
+.fs-toggle,.fs-label{display:none}
+@media (max-width:980px){
+  .float-stack{background:none;border:0;box-shadow:none;padding:0;-webkit-backdrop-filter:none;backdrop-filter:none;gap:10px;align-items:flex-end;right:14px}
+  .float-stack>a{display:none!important}
+  .float-stack.open>a{display:flex!important;align-items:center;gap:9px;width:auto!important;height:44px!important;padding:0 18px 0 11px;border-radius:24px!important;
+    color:#fff;text-decoration:none;box-shadow:0 10px 24px rgba(61,8,20,.25)!important;animation:fsIn .22s ease both}
+  .float-stack.open>a:nth-child(2){animation-delay:.03s}.float-stack.open>a:nth-child(3){animation-delay:.06s}
+  .float-stack.open .fs-label{display:inline;font-size:14px;font-weight:700;letter-spacing:.2px}
+  .float-stack.open>a .ico-svg{width:22px!important;height:22px!important;color:#fff}
+  .fs-toggle{display:grid;place-items:center;width:52px;height:52px;border:0;border-radius:50%;cursor:pointer;color:#fff;padding:0;
+    background:linear-gradient(135deg,#c2405c,var(--wine));box-shadow:0 12px 28px rgba(142,31,53,.38);-webkit-tap-highlight-color:transparent;position:relative}
+  .fs-toggle::after{content:"";position:absolute;top:3px;right:3px;width:12px;height:12px;border-radius:50%;background:#25d366;border:2px solid #fff}
+  .fs-toggle svg{width:25px;height:25px;grid-area:1/1}
+  .fs-toggle .fs-close,.float-stack.open .fs-toggle .fs-open,.float-stack.open .fs-toggle::after{display:none}
+  .float-stack.open .fs-toggle .fs-close{display:block}
+}
+@keyframes fsIn{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:none}}
+
+/* about page: honest note + production card */
+.honest-note{display:flex;gap:12px;align-items:flex-start;margin:16px 0;padding:16px 18px;border-radius:18px;background:#f3fbf6;border:1px solid #cdebd8}
+.honest-note p{margin:0!important;font-size:14.5px;line-height:1.6;color:var(--ink)}
+.hn-ic{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#2f9e5b;color:#fff;font-weight:800;font-size:14px}
+.origin-sec{background:#fff5f7;padding:10px 0 70px}
+.origin-card{max-width:900px;margin:0 auto;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;padding:32px 36px;border-radius:30px;
+  background:#fff;border:1px solid #f3dfe4;box-shadow:0 20px 50px rgba(142,31,53,.08)}
+.origin-flag{width:84px;height:60px;border-radius:12px;overflow:hidden;display:flex;box-shadow:0 10px 24px rgba(0,0,0,.12)}
+.origin-flag i{flex:1}.origin-flag i:nth-child(1){background:#0055a4}.origin-flag i:nth-child(2){background:#fff}.origin-flag i:nth-child(3){background:#ef4135}
+.origin-card h3{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:var(--wine-deep);margin:6px 0 8px;line-height:1.1}
+.origin-card p{color:var(--ink);line-height:1.65;font-size:15px}
+.origin-card .origin-small{color:var(--muted);font-size:13.5px;margin-top:8px}
+@media (max-width:760px){.origin-card{grid-template-columns:minmax(0,1fr);text-align:center;padding:26px 20px;gap:16px}.origin-flag{margin:0 auto}.origin-card h3{font-size:28px}}
+.origin-card .kicker{font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--wine);font-weight:600}
+
+/* offer cards 30/50 ml: all six gift perfumes (women on top, men below) */
+.offer-gift:has(.og-grid){height:auto}
+.og-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;width:100%;max-width:300px;margin:0 auto}
+.og-tile{aspect-ratio:1/1;border-radius:16px;background:#fff;display:grid;place-items:center;padding:6px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.og-tile img{width:100%;height:100%;object-fit:contain}
+.offer-card h3,.offer-card .offer-note{max-width:100%;overflow-wrap:anywhere}
+@media (max-width:760px){.og-grid{gap:8px;max-width:260px}.og-tile{border-radius:14px;padding:5px}}
+.og-tile{overflow:hidden;min-height:0;min-width:0}.og-tile img{min-height:0;max-height:100%;display:block}
+
+/* ---------- certificates page ---------- */
+.certs-sec{background:linear-gradient(180deg,#fff5f7,#fff);padding:40px 0 80px}
+.cert-intro{max-width:760px;margin:0 auto 40px;display:flex;gap:14px;align-items:center;padding:18px 22px;border-radius:20px;background:#fff;border:1px solid #f3dfe4;box-shadow:0 12px 30px rgba(142,31,53,.07)}
+.cert-intro p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink)}
+.ci-ic{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#c2405c,var(--wine))}
+.ci-ic svg{width:24px;height:24px}
+.cert-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;perspective:1200px}
+.cert-card{display:flex;flex-direction:column;border-radius:28px;background:#fff;border:1px solid #f3dfe4;box-shadow:0 22px 50px rgba(142,31,53,.10);overflow:hidden}
+.cert-card.reveal:nth-child(2){transition-delay:.12s}.cert-card.reveal:nth-child(3){transition-delay:.24s}
+.cert-doc{position:relative;display:block;width:100%;padding:26px 26px 0;border:0;cursor:zoom-in;overflow:hidden;
+  background:radial-gradient(circle at 50% 0%,#fff 0%,#fbeef1 70%)}
+.cert-doc img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:10px 10px 0 0;
+  box-shadow:0 -4px 30px rgba(61,8,20,.18);transform:translateY(8px) rotate(-1.2deg);transition:transform .5s cubic-bezier(.2,.8,.3,1)}
+.cert-card:nth-child(2) .cert-doc img{transform:translateY(8px) rotate(1deg)}
+.cert-shine{position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);
+  transform:translateX(-120%);animation:certShine 5s ease-in-out infinite}
+.cert-card:nth-child(2) .cert-shine{animation-delay:1.6s}.cert-card:nth-child(3) .cert-shine{animation-delay:3.2s}
+@keyframes certShine{0%,60%{transform:translateX(-120%)}85%,100%{transform:translateX(120%)}}
+.cert-zoom{position:absolute;right:18px;bottom:16px;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;
+  background:rgba(61,8,20,.78);padding:8px 14px;border-radius:20px;box-shadow:0 8px 18px rgba(0,0,0,.2)}
+.cert-zoom::before{content:"⤢ "}
+@media (hover:hover){.cert-card:hover .cert-doc img{transform:translateY(0) rotate(0) scale(1.02)}}
+.cert-body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cert-tag{align-self:flex-start;font-size:10.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#a8782a;background:#fff6e6;border:1px solid #f1dcae;padding:5px 10px;border-radius:14px}
+.cert-body h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--wine-deep);line-height:1.1;margin:4px 0 4px}
+.cert-body ul{list-style:none;margin:0;padding:0;display:grid}
+.cert-body li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed #f0dde2;font-size:13.5px}
+.cert-body li span{color:var(--muted)}
+.cert-body li b{color:var(--ink);text-align:right;font-weight:600}
+.cert-check{margin:8px 0 0;font-size:12.5px;line-height:1.55;color:var(--muted)}
+.cert-box{position:fixed;inset:0;z-index:140;display:flex;flex-direction:column;background:rgba(20,4,8,.92);animation:giftIn .25s}
+.cert-box[hidden]{display:none}
+.cb-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;color:#fff}
+.cb-title{font-size:15px;font-weight:700}
+.cb-close{width:44px;height:44px;flex:none;border-radius:50%;border:0;background:#fff;color:var(--wine);font-size:26px;line-height:1;cursor:pointer}
+.cb-scroll{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;display:flex;justify-content:center;align-items:flex-start;padding:0 14px 14px}
+.cb-scroll img{max-width:min(900px,100%);height:auto;border-radius:8px;background:#fff;cursor:zoom-in;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.cert-box.zoomed .cb-scroll{justify-content:flex-start}
+.cert-box.zoomed .cb-scroll img{max-width:none;width:200%;cursor:zoom-out}
+.cb-hint{text-align:center;color:rgba(255,255,255,.6);font-size:12px;padding:0 0 calc(12px + env(safe-area-inset-bottom))}
+@media (max-width:980px){.cert-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){
+  .cert-grid{grid-template-columns:minmax(0,1fr);gap:22px}
+  .cert-intro{align-items:flex-start;padding:16px}
+  .cert-doc{padding:20px 22px 0}
+  .cert-doc img{aspect-ratio:4/3.4}
+  .cert-body{padding:18px 18px 22px}
+}

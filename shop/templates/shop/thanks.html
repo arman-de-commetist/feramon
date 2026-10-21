@@ -1,0 +1,92 @@
+{% extends "shop/base.html" %}
+{% load static i18n tenge %}
+{% block title %}{% translate "Спасибо за заказ" %} | MONA Perfume{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+{% block content %}
+<header class="page-hero compact thanks-hero">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="thanks-ic">✓</div>
+    <div class="kicker">{% blocktranslate with n=order.pk %}Заказ №{{ n }} принят{% endblocktranslate %}</div>
+    <h1>{% blocktranslate with name=order.name %}Спасибо, {{ name }}!{% endblocktranslate %}</h1>
+    <p class="lead">{% translate "Менеджер позвонит вам в ближайшее время, подтвердит заказ и пришлёт реквизиты Kaspi." %}</p>
+  </div>
+</header>
+
+{% if order_desk %}
+<section class="assigned">
+  <div class="container">
+    <div class="assigned-card reveal in">
+      <div class="mgr-ava tone-wine"><span>M</span><i class="mgr-online"></i></div>
+      <div class="as-text">
+        <small>{% translate "Отдел заказов MONA" %}</small>
+        <h2>{{ order_desk.order_phone_display }}</h2>
+        <p>{% translate "Отправьте заказ в WhatsApp — менеджер сразу его увидит и подтвердит." %}</p>
+        <div class="hero-actions">
+          <a href="{{ order_wa }}" target="_blank" rel="noopener" class="btn wa-btn big">{% include "shop/icons/whatsapp.html" %} {% translate "Отправить заказ в WhatsApp" %}</a>
+          <a href="tel:+{{ order_desk.order_digits }}" class="btn ghost">{% include "shop/icons/phone.html" %} {% translate "Позвонить" %}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% elif manager %}
+<section class="assigned">
+  <div class="container">
+    <div class="assigned-card reveal in">
+      <div class="mgr-ava tone-{{ manager.tone }}">{% if manager.photo %}<img src="{{ manager.photo.url }}" alt="">{% else %}<span>{{ manager.initial }}</span>{% endif %}<i class="mgr-online"></i></div>
+      <div class="as-text">
+        <small>{% translate "Ваш менеджер" %}</small>
+        <h2>{{ manager.name }}</h2>
+        <p>{% translate "Отправьте заказ в WhatsApp — менеджер сразу его увидит и подтвердит." %}</p>
+        <div class="hero-actions">
+          <a href="{{ order_wa }}" target="_blank" rel="noopener" class="btn wa-btn big">{% include "shop/icons/whatsapp.html" %} {% translate "Отправить заказ в WhatsApp" %}</a>
+          <a href="tel:{{ manager.tel }}" class="btn ghost">{% include "shop/icons/phone.html" %} {{ manager.phone_display }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if site.kaspi_url and order.payment != 'cash' %}
+<section class="kaspi-pay-sec">
+  <div class="container" style="max-width:820px">
+    {% include "shop/_kaspi_qr.html" with amount=order.total order_no=order.pk %}
+  </div>
+</section>
+{% endif %}
+
+<section class="cart-sec">
+  <div class="container" style="max-width:820px">
+    <div class="summary">
+      <h3>{% translate "Ваш заказ" %}</h3>
+      {% for item in order.items.all %}
+      <div class="line theme-{{ item.variant.product.theme }}">
+        {% if item.variant.product.image %}<img src="{{ item.variant.product.image.url }}" alt="" class="line-img">{% endif %}
+        <div class="line-body">
+          <b>MONA {{ item.variant.product|tr:"name" }}</b> <span class="line-vol">{{ item.variant.label|vol }}</span>
+          {% if item.gift %}<div class="line-gift">🎁 {{ item.variant|tr:"gift" }}
+            {% if item.gift_color %}{% with 'shop/img/dyson/color-'|add:item.gift_color|add:'.webp' as img %}<span class="lg-chip lg-photo"><img src="{% static img %}" alt="">{{ item.get_gift_color_display }}</span>{% endwith %}{% endif %}
+            {% if item.engraving %}<span class="lg-chip">💎 «{{ item.engraving }}»</span>{% endif %}
+            {% for g in item.gift_perfumes.all %}<span class="lg-chip">{{ g }}</span>{% endfor %}
+          </div>{% endif %}
+        </div>
+        <div class="line-price"><span class="price"><b>{{ item.price|tenge }}</b></span></div>
+      </div>
+      {% endfor %}
+      <div class="sum-total"><span>{% translate "К оплате" %}</span><b>{{ order.total|tenge }}</b></div>
+      <div class="thanks-info">
+        <div><small>{% translate "Телефон" %}</small><b>{{ order.phone }}</b></div>
+        <div><small>{% translate "Город" %}</small><b>{{ order.city }}</b></div>
+        <div><small>{% translate "Доставка" %}</small><b>{{ order.get_delivery_display }}</b></div>
+        <div><small>{% translate "Оплата" %}</small><b>{{ order.get_payment_display }}</b></div>
+      </div>
+    </div>
+    <div class="hero-actions" style="justify-content:center;margin-top:30px">
+      <a href="{% url 'index' %}" class="btn">{% translate "На главную" %}</a>
+      {% if site.instagram %}<a href="{{ site.instagram_url }}" class="btn ghost" target="_blank" rel="noopener">Instagram @{{ site.instagram }}</a>{% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

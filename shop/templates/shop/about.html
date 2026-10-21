@@ -1,0 +1,77 @@
+{% extends "shop/base.html" %}
+{% load i18n static tenge %}
+{% block title %}{% translate "О бренде" %} | MONA Perfume{% endblock %}
+
+{% block content %}
+<header class="page-hero">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "О бренде" %}</div>
+    <h1>M<span class="o">O</span>NA</h1>
+    <p class="lead">{% translate "Парфюмерный бренд для женщин, которые ценят женственность, нежность, элегантность и уверенность в себе." %}</p>
+  </div>
+</header>
+
+<section class="split">
+  <div class="container split-grid">
+    <div class="split-img reveal"><img src="{% static 'shop/img/logo.webp' %}" alt="MONA Perfume"></div>
+    <div class="reveal">
+      <div class="kicker">{% translate "Наша история" %}</div>
+      <h2>{% translate "Аромат — <i>это не просто запах</i>" %}</h2>
+      <p class="ph-lead">{% translate "Мы верим, что аромат — это часть образа, настроение и способ выразить свою индивидуальность." %}</p>
+      <p>{% translate "Название MONA символизирует нежность и женственность. Наша идея — помочь каждой женщине найти аромат, который соответствует её характеру, подчёркивает её стиль и позволяет чувствовать себя увереннее." %}</p>
+      <div class="ph-quote">
+        <b>{% translate "Наша философия" %}</b>
+        <p>{% translate "Аромат должен нравиться прежде всего вам." %}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Что для нас важно" %}</div>
+      <h2>{% translate "Три <i>принципа</i> MONA" %}</h2>
+    </div>
+    <div class="feat-grid three">
+      <div class="feat reveal"><div class="num">❀</div><h5>{% translate "Женственность" %}</h5><p>{% translate "Аромат, который соответствует вашему характеру и подчёркивает ваш стиль." %}</p></div>
+      <div class="feat reveal"><div class="num">♡</div><h5>{% translate "Для себя" %}</h5><p>{% translate "Мы хотим, чтобы женщины выбирали аромат для себя: ради хорошего настроения, собственного стиля и уверенности." %}</p></div>
+      <div class="feat reveal"><div class="num">✦</div><h5>{% translate "Приятно и выгодно" %}</h5><p>{% translate "Мы уделяем внимание упаковке, сервису, условиям покупки, акциям и подаркам." %}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pheromones">
+  <div class="container split-grid">
+    <div class="reveal">
+      <div class="kicker">MONA PHEROMONE</div>
+      <h2>{% translate "Что такое <i>MONA PHEROMONE</i>?" %}</h2>
+      <p>{% translate "MONA PHEROMONE — наш парфюмерный продукт, позиционируемый как парфюм с феромонами." %}</p>
+      <div class="honest-note">
+        <span class="hn-ic">✓</span>
+        <p>{% translate "Мы не обещаем, что парфюм гарантированно заставит другого человека испытывать влечение или влюбиться. Мы считаем, что индивидуальность, поведение и уверенность важнее любых обещаний." %}</p>
+      </div>
+      <p>{% translate "Информацию о составе и свойствах продукта мы предоставляем на основании подтверждённых данных о парфюме." %}</p>
+      <div class="hero-actions" style="margin-top:10px;gap:10px;flex-wrap:wrap"><a href="{% url 'certificates' %}" class="btn">📜 {% translate "Сертификаты" %} →</a><a href="{% url 'faq' %}" class="btn ghost">{% translate "Вопросы и ответы" %} →</a></div>
+    </div>
+    <div class="trio reveal">
+      {% for p in products %}<a href="{{ p.get_absolute_url }}" class="trio-item theme-{{ p.theme }}">{% if p.image %}<img src="{{ p.image.url }}" alt="MONA {{ p|tr:"name" }}">{% endif %}<span>{{ p|tr:"name" }}</span></a>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="origin-sec">
+  <div class="container">
+    <div class="origin-card reveal">
+      <div class="origin-flag" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div>
+        <div class="kicker">{% translate "Производство" %}</div>
+        <h3>{% translate "Парфюм производится <i>во Франции</i>" %}</h3>
+        <p>{% translate "Согласно документации, предоставленной нашим поставщиком, парфюм производится во Франции." %}</p>
+        <p class="origin-small">{% translate "MONA PHEROMONE закупает готовый парфюм у поставщика. Мы не заявляем о собственном производстве." %}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

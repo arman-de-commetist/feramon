@@ -1,0 +1,33 @@
+{% load i18n tenge %}
+{% if managers %}
+<section class="managers-sec{% if compact %} compact{% endif %}" id="managers">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="promo-kicker">💬 {% translate "Личный консультант" %}</div>
+      <h2>{% translate "Ваш <i>личный консультант</i>" %}</h2>
+      <p>{% translate "Напишите в WhatsApp — поможем выбрать аромат, объём и подарок." %}</p>
+      <a href="{% url 'write' %}?{{ wa_query }}" target="_blank" rel="noopener" class="btn wa-btn big">
+        {% include "shop/icons/whatsapp.html" %} {% translate "Написать свободному менеджеру" %}
+      </a>
+    </div>
+    <div class="mgr-grid">
+      {% for m in managers %}
+      <div class="mgr-card reveal">
+        <div class="mgr-ava tone-{{ m.tone }}">
+          {% if m.photo %}<img src="{{ m.photo.url }}" alt="{{ m.name }}">{% else %}<span>{{ m.initial }}</span>{% endif %}
+          <i class="mgr-online" title="{% translate "На связи" %}"></i>
+        </div>
+        <h3>{{ m.name }}</h3>
+        <div class="mgr-title">{% if m.title %}{{ m.title }}{% else %}{% translate "Консультант MONA" %}{% endif %}</div>
+        {% if m.languages or m.hours %}<div class="mgr-meta">{% if m.languages %}<span>🗣 {{ m.languages }}</span>{% endif %}{% if m.hours %}<span>🕘 {{ m.hours }}</span>{% endif %}</div>{% endif %}
+        <div class="mgr-phone">{{ m.phone_display }}</div>
+        <div class="mgr-actions">
+          <a href="{% url 'write' %}?m={{ m.pk }}&amp;{{ wa_query }}" target="_blank" rel="noopener" class="btn wa-btn">{% include "shop/icons/whatsapp.html" %} WhatsApp</a>
+          <a href="tel:{{ m.tel }}" class="btn ghost call-btn" aria-label="{% translate "Позвонить" %} {{ m.name }}">{% include "shop/icons/phone.html" %}</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

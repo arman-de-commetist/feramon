@@ -1,0 +1,137 @@
+{% extends "shop/base.html" %}
+{% load static i18n tenge %}
+
+{% block title %}MONA {{ product|tr:"name" }} — {{ product|tr:"tagline" }} | MONA Perfume{% endblock %}
+{% block description %}{{ product|tr:"lead" }}{% endblock %}
+{% block og_type %}product{% endblock %}
+{% block og_title %}MONA {{ product|tr:"name" }} — {{ product|tr:"tagline" }}{% endblock %}
+{% block og_description %}{{ product|tr:"lead" }}{% endblock %}
+{% block og_image %}{% if product.image %}{% absolute product.image.url %}{% else %}{% static 'shop/img/logo.webp' as logo %}{% absolute logo %}{% endif %}{% endblock %}
+{% block extra_head %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product",
+ "name":"MONA {{ product|tr:'name'|escapejs }}",
+ "description":"{{ product|tr:'lead'|escapejs }}",
+ "brand":{"@type":"Brand","name":"MONA"},
+ {% if product.image %}"image":"{% absolute product.image.url %}",{% endif %}
+ "offers":{"@type":"AggregateOffer","priceCurrency":"KZT",
+   "lowPrice":"{% for v in product.variants.all %}{% if forloop.first %}{{ v.price }}{% endif %}{% endfor %}",
+   "highPrice":"{% for v in product.variants.all %}{% if forloop.last %}{{ v.price }}{% endif %}{% endfor %}",
+   "offerCount":"{{ product.variants.all|length }}","availability":"https://schema.org/InStock"}}
+</script>
+{% endblock %}
+{% block order_link %}#buy{% endblock %}
+
+{% block mobile_cta %}
+{% with v=product.main_variant %}{% if v %}
+<div class="m-cta theme-{{ product.theme }}">
+  <div><small>{{ product|tr:"name" }} · {% with p=product %}{% include "shop/_vols.html" %}{% endwith %}</small><b><small class="from">{% translate "от" %}</small> {{ v.price|tenge }}</b></div>
+  <a href="{% url 'order' %}?v={{ v.pk }}" class="btn">{% translate "Заказать" %}</a>
+</div>
+{% endif %}{% endwith %}
+{% endblock %}
+
+{% block content %}
+{% with v=product.main_variant %}
+<header class="p-hero theme-{{ product.theme }}">
+  <div id="petals"></div>
+  <div class="container p-hero-grid">
+    <div class="p-hero-text">
+      <div class="crumbs"><a href="{% url 'index' %}">{% translate "Главная" %}</a> / <a href="{% url 'index' %}#collection">{% translate "Ароматы" %}</a> / <span>{{ product|tr:"name" }}</span></div>
+      <div class="eyebrow"><span></span>MONA Pheromone · 35%</div>
+      <h1>{{ product|tr:"name" }}</h1>
+      <div class="tl">{{ product|tr:"tagline" }}</div>
+      <div class="chips">{% for t in product.trait_list %}<span>{{ t }}</span>{% endfor %}</div>
+      <p class="lead">{{ product|tr:"lead" }}</p>
+      {% if v %}
+      <div class="p-vols">
+        {% for x in product.variants.all %}
+        <a href="{% url 'order' %}?v={{ x.pk }}" class="p-vol"{% if x.gift %} title="{{ x|tr:"gift" }}"{% endif %}>
+          <b>{{ x.label|vol }}</b><small>{{ x.price|tenge }}</small>{% if x.discount %}<s>{{ x.old_price|tenge }}</s>{% endif %}
+          {% if x.gift_type == 'dyson' %}<em>🎁 Dyson</em>{% elif x.gift_type == 'perfume' %}<em>🎁 {{ x.gift_count }} × 100 {% translate "мл" %}</em>{% endif %}
+        </a>
+        {% endfor %}
+      </div>
+      <div class="p-price">
+        <div><small>Extrait de parfum</small><span class="from-price"><small class="from">{% translate "от" %}</small> {% include "shop/_price.html" with v=v big=1 %}</span></div>
+        <a href="#buy" class="btn desktop-only">{% translate "Заказать" %} →</a>
+        <a href="{% url 'order' %}?v={{ v.pk }}" class="btn mobile-only">{% translate "Заказать" %} →</a>
+      </div>
+      {% endif %}
+      <a href="{% url 'write' %}?p={{ product.slug }}" target="_blank" rel="noopener" class="ask-mgr">{% include "shop/icons/whatsapp.html" %} {% translate "Спросить менеджера об этом аромате" %}</a>
+      <div class="p-perks">
+        <span>💳 Kaspi</span><span>🚚 {% translate "По всему Казахстану" %}</span><span>🎁 {% translate "Подарочная упаковка" %}</span>
+      </div>
+    </div>
+    <div class="p-hero-img">
+      <div class="glow"></div>
+      {% if product.image %}<img src="{{ product.image.url }}" alt="MONA {{ product|tr:"name" }}">{% endif %}
+    </div>
+  </div>
+</header>
+
+<section class="perfume theme-{{ product.theme }} p-notes">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Пирамида аромата" %}</div>
+      <h2>{% blocktranslate with name=product|tr:'name' %}Как <i>раскрывается</i> «{{ name }}»{% endblocktranslate %}</h2>
+      <p class="story-text" style="margin:16px auto 0">{{ product|tr:"description" }}</p>
+    </div>
+    {% with p=product %}{% include "shop/_notes.html" %}{% endwith %}
+  </div>
+</section>
+
+<section class="howto">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Ритуал" %}</div>
+      <h2>{% translate "Как наносить, <i>чтобы держался весь день</i>" %}</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h5>{% translate "На чистую кожу" %}</h5><p>{% translate "После душа, на увлажнённую кожу — так аромат раскроется ярче и продержится дольше." %}</p></div>
+      <div class="step reveal"><div class="n">2</div><h5>{% translate "Точки пульса" %}</h5><p>{% translate "Запястья, шея, за ушами и сгибы локтей — там кожа теплее, и шлейф звучит сильнее." %}</p></div>
+      <div class="step reveal"><div class="n">3</div><h5>{% translate "Не растирайте" %}</h5><p>{% translate "Дайте аромату высохнуть самому: трение разрушает верхние ноты." %}</p></div>
+      <div class="step reveal"><div class="n">4</div><h5>{% translate "Немного на волосы" %}</h5><p>{% translate "Один пшик на расчёску — и аромат будет мягко звучать при каждом движении." %}</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="desktop-only">{% blocktranslate asvar bt with name=product|tr:'name' %}Заказать <i>«{{ name }}»</i>{% endblocktranslate %}{% include "shop/_buy.html" with buy_title=bt %}</div>
+
+{% include "shop/_promo.html" %}
+
+{% if others %}
+<section class="collection others">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Коллекция" %}</div>
+      <h2>{% translate "Другие <i>ароматы</i>" %}</h2>
+    </div>
+    <div class="coll-grid two">
+      {% for p in others %}
+      {% with v=p.main_variant %}
+      <div class="coll-card theme-{{ p.theme }} reveal">
+        <a href="{{ p.get_absolute_url }}" class="pic">
+          {% if p.image %}<img src="{{ p.image.url }}" alt="MONA {{ p|tr:"name" }}" loading="lazy">{% endif %}
+          {% if v %}<span class="vol-chip">{% include "shop/_vols.html" %}</span>{% endif %}
+        </a>
+        <div class="body">
+          <h3>{{ p|tr:"name" }}</h3>
+          <div class="tl">{{ p|tr:"tagline" }}</div>
+          <p>{{ p|tr:"lead" }}</p>
+          <div class="foot">
+            {% if v %}<span class="from-price"><small class="from">{% translate "от" %}</small> {% include "shop/_price.html" with v=v %}</span>{% endif %}
+            <a href="{{ p.get_absolute_url }}" class="btn">{% translate "Подробнее" %} →</a>
+          </div>
+        </div>
+      </div>
+      {% endwith %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% include "shop/_reviews.html" %}
+{% endwith %}
+{% endblock %}

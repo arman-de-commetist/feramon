@@ -1,0 +1,51 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Оплата Kaspi" %} | MONA Perfume{% endblock %}
+{% block content %}
+<header class="page-hero compact">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Покупателям" %}</div>
+    <h1>{% translate "Оплата <i>Kaspi</i>" %}</h1>
+    <p class="lead">{% translate "Самый удобный способ для Казахстана — без комиссии и за пару секунд." %}</p>
+  </div>
+</header>
+
+<section class="kaspi-sec" id="payment">
+  <div class="container">
+    {% translate "Оплата производится только после подтверждения заказа менеджером." as lead %}
+    {% include "shop/_pay_options.html" with note="" %}
+  </div>
+</section>
+
+{% if site.kaspi_url %}
+<section class="kaspi-pay-sec">
+  <div class="container" style="max-width:820px">{% include "shop/_kaspi_qr.html" %}</div>
+</section>
+{% endif %}
+
+<section class="how-order">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Как это работает" %}</div>
+      <h2>{% translate "Оплата <i>шаг за шагом</i>" %}</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-step reveal"><div class="dot">1</div><h5>{% translate "Оформите заказ" %}</h5><p>{% translate "Выберите аромат и подарок, заполните форму." %}</p></div>
+      <div class="tl-step reveal"><div class="dot">2</div><h5>{% translate "Мы перезвоним" %}</h5><p>{% translate "Менеджер подтвердит заказ, адрес и способ доставки." %}</p></div>
+      <div class="tl-step reveal"><div class="dot">3</div><h5>{% translate "Оплата Kaspi" %}</h5><p>{% translate "Пришлём реквизиты для перевода или Kaspi QR." %}</p></div>
+      <div class="tl-step reveal"><div class="dot">4</div><h5>{% translate "Получите аромат" %}</h5><p>{% translate "Отправляем в подарочной упаковке и присылаем трек-номер." %}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="container">
+    <div class="feat-grid three">
+      <div class="feat reveal"><div class="num">🔒</div><h5>{% translate "Безопасно" %}</h5><p>{% translate "Мы не просим данные карты на сайте — оплата проходит только в приложении Kaspi." %}</p></div>
+      <div class="feat reveal"><div class="num">🧾</div><h5>{% translate "С чеком" %}</h5><p>{% translate "После оплаты вы получаете подтверждение заказа и трек-номер." %}</p></div>
+      <div class="feat reveal"><div class="num">0%</div><h5>{% translate "Без комиссии" %}</h5><p>{% translate "Переводы Kaspi внутри Казахстана — без доплат." %}</p></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

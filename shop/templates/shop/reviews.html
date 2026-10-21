@@ -1,0 +1,108 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Отзывы" %} | MONA Perfume{% endblock %}
+{% block content %}
+<header class="page-hero compact">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Отзывы" %}</div>
+    <h1>{% translate "Любят <i>с первого вдоха</i>" %}</h1>
+    <p class="lead">{% translate "Что говорят покупательницы о MONA — и расскажите о своих впечатлениях." %}</p>
+  </div>
+</header>
+
+<section class="reviews-page">
+  <div class="container rp-grid">
+    <div>
+      {% for m in messages %}<div class="flash{% if m.level_tag == 'error' %} flash-err{% endif %}">{{ m }}</div>{% endfor %}
+
+      {% if stats.total %}
+      <div class="rate-summary">
+        <div class="rs-big">
+          <b>{{ stats.avg|stringformat:".1f" }}</b>
+          <span class="stars">{% for _ in "12345" %}{% if forloop.counter <= stats.full %}★{% else %}☆{% endif %}{% endfor %}</span>
+          <small>{% translate "Всего отзывов" %}: {{ stats.total }}</small>
+        </div>
+        <div class="rs-bars">
+          {% for row in stats.rows %}
+          <a href="?stars={{ row.stars }}#reviews" class="rs-row{% if stars == row.stars|stringformat:'d' %} on{% endif %}">
+            <span>{{ row.stars }} ★</span><i><em style="width:{{ row.pct }}%"></em></i><span>{{ row.n }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="rev-filter" id="reviews">
+        <a href="?#reviews" class="{% if not stars %}on{% endif %}">{% translate "Все" %}</a>
+        {% for row in stats.rows %}<a href="?stars={{ row.stars }}#reviews" class="{% if stars == row.stars|stringformat:'d' %}on{% endif %}">{{ row.stars }} ★</a>{% endfor %}
+      </div>
+
+      <div class="rev-list">
+        {% for r in items %}
+        <article class="rev" id="rev-{{ r.pk }}">
+          <div class="rev-top">
+            <span class="stars" aria-label="{{ r.rating }}/5">{% for _ in "12345" %}{% if forloop.counter <= r.rating %}★{% else %}☆{% endif %}{% endfor %}</span>
+            {% if r.product %}<span class="rev-product">MONA {{ r.product|tr:"name" }}</span>{% endif %}
+          </div>
+          <p>{{ r.text|linebreaksbr }}</p>
+          <div class="who"><div class="ava">{{ r.name|first|upper }}</div><div><b>{{ r.name }}</b><small>{{ r.created|date:"d.m.Y" }}</small></div></div>
+
+          {% if r.shown_replies %}
+          <div class="replies">
+            {% for c in r.shown_replies %}
+            <div class="reply{% if c.is_staff_reply %} staff{% endif %}" id="rev-{{ c.pk }}">
+              <div class="ava sm">{% if c.is_staff_reply %}M{% else %}{{ c.name|first|upper }}{% endif %}</div>
+              <div class="reply-body">
+                <b>{{ c.name }}</b>{% if c.is_staff_reply %}<span class="staff-tag">MONA</span>{% endif %}<small>{{ c.created|date:"d.m.Y" }}</small>
+                <p>{{ c.text|linebreaksbr }}</p>
+                <button type="button" class="reply-btn" data-reply="{{ c.pk }}" data-root="{{ r.pk }}">{% translate "Ответить" %}</button>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <button type="button" class="reply-btn main" data-reply="{{ r.pk }}" data-root="{{ r.pk }}">💬 {% translate "Ответить" %}{% if r.shown_replies %} · {{ r.shown_replies|length }}{% endif %}</button>
+          <form method="post" class="reply-form order-form" id="reply-{{ r.pk }}" {% if open_reply|stringformat:'s' != r.pk|stringformat:'s' %}hidden{% endif %} novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="parent" value="{{ r.pk }}">
+            <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="text" name="name" maxlength="60" placeholder="{% translate "Ваше имя" %}" required
+                   {% if open_reply|stringformat:'s' == r.pk|stringformat:'s' %}value="{{ reply_form.name.value|default:'' }}"{% endif %}>
+            <div class="emoji-wrap">
+              <textarea name="text" rows="2" maxlength="1000" placeholder="{% translate "Ваш ответ" %}" required>{% if open_reply|stringformat:'s' == r.pk|stringformat:'s' %}{{ reply_form.text.value|default:'' }}{% endif %}</textarea>
+              {% include "shop/_emoji.html" %}
+            </div>
+            {% if open_reply|stringformat:'s' == r.pk|stringformat:'s' %}{% for f in reply_form %}{% for e in f.errors %}<div class="err">{{ e }}</div>{% endfor %}{% endfor %}{% endif %}
+            <button class="btn" type="submit">{% translate "Отправить ответ" %}</button>
+          </form>
+        </article>
+        {% empty %}
+        <p class="empty-note">{% if stars %}{% translate "С такой оценкой отзывов пока нет." %}{% else %}{% translate "Отзывов пока нет — будьте первой!" %}{% endif %}</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <aside class="summary review-form-card" id="write">
+      <h3>{% translate "Оставить отзыв" %}</h3>
+      <form method="post" class="order-form" novalidate>
+        {% csrf_token %}
+        <div class="rate-label">{% translate "Ваша оценка" %}: <b id="rateText">{{ form.rating.value|default:5 }}</b> / 5</div>
+        <div class="rate-pick">{% for r in form.rating %}<label class="rate" title="{{ r.choice_label }}">{{ r.tag }}<span>★</span></label>{% endfor %}</div>
+        {% for e in form.rating.errors %}<div class="err">{{ e }}</div>{% endfor %}
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        {{ form.name }}{% for e in form.name.errors %}<div class="err">{{ e }}</div>{% endfor %}
+        {{ form.product }}
+        <div class="emoji-wrap">
+          {{ form.text }}
+          {% include "shop/_emoji.html" %}
+        </div>
+        {% for e in form.text.errors %}<div class="err">{{ e }}</div>{% endfor %}
+        <button class="btn wide" type="submit">{% translate "Отправить отзыв" %}</button>
+        <p class="sum-note">{% translate "Отзыв сразу появится на сайте. На любой отзыв можно ответить." %}</p>
+      </form>
+    </aside>
+  </div>
+</section>
+{% endblock %}

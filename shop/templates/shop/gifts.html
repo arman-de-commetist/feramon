@@ -1,0 +1,55 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Французские парфюмы в подарок" %} | MONA Perfume{% endblock %}
+{% block content %}
+<header class="page-hero compact">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Подарки к 30 и 50 мл" %}</div>
+    <h1>{% translate "Французские <i>парфюмы</i>" %}</h1>
+    <p class="lead">{% translate "Покупаете MONA 30 мл — выбираете 1 парфюм 100 мл в подарок. Покупаете 50 мл — выбираете 2." %}</p>
+  </div>
+</header>
+
+<section class="gifts-sec">
+  <div class="container">
+    <div class="gift-filter reveal" id="giftFilter">
+      <button class="on" data-g="all">{% translate "Все" %}</button>
+      <button data-g="w">{% translate "Женские" %}</button>
+      <button data-g="m">{% translate "Мужские" %}</button>
+    </div>
+    <div class="gifts-grid">
+      {% for g in gift_perfumes %}
+      <a href="{{ g.get_absolute_url }}" class="gift-big reveal" data-g="{{ g.gender }}">
+        <div class="gb-img">{% if g.image %}<img src="{{ g.image.url }}" alt="{{ g }}" loading="lazy">{% endif %}<span class="gb-gender">{{ g.get_gender_display }}</span></div>
+        <div class="gb-body">
+          <span class="gt-brand">{{ g.brand }}</span>
+          <h3>{{ g.name }}</h3>
+          <p>{{ g|tr:"notes" }}</p>
+          <span class="gb-more">{% translate "Подробнее" %} →</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<div class="center-cta"><a href="{% url 'write' %}?topic=gifts" target="_blank" rel="noopener" class="btn wa-btn">{% include "shop/icons/whatsapp.html" %} {% translate "Помочь выбрать подарок" %}</a></div>
+
+<section class="gift-volumes">
+  <div class="container">
+    <div class="sec-head reveal"><h2>{% translate "Сколько парфюмов <i>в подарок</i>" %}</h2></div>
+    <div class="gv-grid">
+      {% for v in volumes %}{% if v.gift_type == 'perfume' %}
+      <a href="{% url 'order' %}?v={{ v.pk }}" class="gv-card reveal">
+        <div class="gv-vol">MONA {{ v.label|vol }}</div>
+        {% include "shop/_price.html" with v=v %}
+        <div class="gv-gift">🎁 × {{ v.gift_count }}</div>
+        <p>{{ v|tr:"gift" }}</p>
+        <span class="btn">{% translate "Выбрать" %} →</span>
+      </a>
+      {% endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

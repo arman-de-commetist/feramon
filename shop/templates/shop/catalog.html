@@ -1,0 +1,44 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Ароматы MONA — каталог" %} | MONA Perfume{% endblock %}
+{% block content %}
+<header class="page-hero compact">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Коллекция" %}</div>
+    <h1>{% translate "Ароматы" %}</h1>
+    <p class="lead">{% translate "Три характера одной женщины." %}</p>
+  </div>
+</header>
+
+<section class="catalog">
+  <div class="container">
+    <div class="coll-grid">
+      {% for p in products %}
+      {% with v=p.main_variant %}
+      <div class="coll-card theme-{{ p.theme }} reveal">
+        <a href="{{ p.get_absolute_url }}" class="pic">
+          {% if p.image %}<img src="{{ p.image.url }}" alt="MONA {{ p|tr:"name" }}" loading="lazy">{% endif %}
+          {% if v %}<span class="vol-chip">{% include "shop/_vols.html" %}</span>{% endif %}
+          {% if v.discount %}<span class="gift-ribbon">−{{ v.discount }}% · 🎁 {% translate "подарок" %}</span>{% endif %}
+        </a>
+        <div class="body">
+          <h3>{{ p|tr:"name" }}</h3>
+          <div class="tl">{{ p|tr:"tagline" }}</div>
+          <div class="chips">{% for t in p.trait_list %}<span>{{ t }}</span>{% endfor %}</div>
+          <p>{{ p|tr:"lead" }}</p>
+          <div class="foot">
+            {% if v %}<span class="from-price"><small class="from">{% translate "от" %}</small> {% include "shop/_price.html" with v=v %}</span>{% endif %}
+            <a href="{{ p.get_absolute_url }}" class="btn ghost sm">{% translate "Ноты" %}</a>
+            {% if v %}<a href="{% url 'order' %}?v={{ v.pk }}" class="btn sm">{% translate "Заказать" %}</a>{% endif %}
+          </div>
+        </div>
+      </div>
+      {% endwith %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "shop/_promo.html" %}
+{% endblock %}

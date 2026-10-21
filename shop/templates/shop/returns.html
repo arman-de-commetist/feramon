@@ -1,0 +1,38 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Гарантия и возврат" %} | MONA Perfume{% endblock %}
+{% block content %}
+<header class="page-hero compact">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Покупателям" %}</div>
+    <h1>{% translate "Гарантия <i>и возврат</i>" %}</h1>
+    <p class="lead">{% translate "Мы отвечаем за каждый флакон и каждый подарок." %}</p>
+  </div>
+</header>
+
+<section class="faq">
+  <div class="container faq-wrap">
+    <div class="faq-group reveal">
+      <h3>{% translate "Гарантия" %}</h3>
+      <details open><summary>{% translate "Если флакон пришёл повреждённым" %}</summary><p>{% translate "Сфотографируйте посылку и флакон и напишите нам в течение 3 дней после получения — мы заменим товар или вернём деньги." %}</p></details>
+      <details><summary>{% translate "Если перепутали аромат или подарок" %}</summary><p>{% translate "Если мы отправили не то, что вы заказывали, — заменим за наш счёт." %}</p></details>
+      <details><summary>{% translate "Гарантия на Dyson Airwrap" %}</summary><p>{% translate "Стайлер Dyson идёт с официальным чеком и гарантией 1 год. Если в течение гарантийного срока обнаружится заводской дефект — свяжитесь с нами, поможем с ремонтом или заменой." %}</p></details>
+    </div>
+    <div class="faq-group reveal">
+      <h3>{% translate "Возврат" %}</h3>
+      <details open><summary>{% translate "Можно ли вернуть парфюм?" %}</summary><p>{% translate "Парфюмерия надлежащего качества по законодательству Казахстана не подлежит обмену и возврату. Поэтому перед заказом мы с радостью поможем выбрать аромат — напишите нам или пройдите тест." %}</p></details>
+      <details><summary>{% translate "Как оформить обращение" %}</summary><p>{% translate "Напишите нам в WhatsApp или Instagram: номер заказа, фото и описание проблемы. Мы ответим в течение рабочего дня." %}</p></details>
+      <details><summary>{% translate "Как вернуть деньги" %}</summary><p>{% translate "Если возврат согласован, деньги вернутся тем же способом, которым вы платили, — обычно на Kaspi." %}</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container reveal">
+    <h2>{% translate "Остались <i>вопросы</i>?" %}</h2>
+    <p>{% translate "Напишите нам — ответим быстро и поможем выбрать аромат." %}</p>
+    <a href="{% url 'contacts' %}" class="btn">{% translate "Связаться с нами" %} →</a>
+  </div>
+</section>
+{% endblock %}

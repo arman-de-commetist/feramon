@@ -1,0 +1,13 @@
+{% load i18n tenge %}
+<div class="notes-grid">
+  {% for tier in p.tiers %}
+  <div class="note-card reveal">
+    <span class="phase">0{{ forloop.counter }}</span>
+    <div class="badge">{{ tier.title }}</div>
+    {% for n in tier.notes %}
+    <div class="note"><div class="ico" style="--bg:{{ n.color }}">{{ n.emoji }}</div><div><h4>{{ n|tr:"name" }}</h4><p>{{ n|tr:"description" }}</p></div></div>
+    {% endfor %}
+    <div class="time">{{ tier.time }}</div>
+  </div>
+  {% endfor %}
+</div>

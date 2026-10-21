@@ -1,0 +1,49 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Оформление заказа" %} | MONA Perfume{% endblock %}
+{% block body_class %}order-page{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+{% block content %}
+<div class="order-top">
+  <div class="container">
+    <div class="crumbs"><a href="{% url 'index' %}">{% translate "Главная" %}</a> / <a href="{% url 'cart' %}">{% translate "Корзина" %}</a> / <span>{% translate "Оформление" %}</span></div>
+    <h1>{% translate "Оформление <i>заказа</i>" %}</h1>
+    {% include "shop/_steps.html" with step=3 %}
+  </div>
+</div>
+
+<section class="cart-sec">
+  <div class="container cart-grid">
+    <form method="post" class="order-form checkout-form" novalidate>
+      {% csrf_token %}
+      <h3>{% translate "Ваши данные" %}</h3>
+      <div class="row">
+        <div>{{ form.name }}{% for e in form.name.errors %}<div class="err">{{ e }}</div>{% endfor %}</div>
+        <div>{{ form.phone }}{% for e in form.phone.errors %}<div class="err">{{ e }}</div>{% endfor %}</div>
+      </div>
+      <div>{{ form.city }}{% for e in form.city.errors %}<div class="err">{{ e }}</div>{% endfor %}</div>
+      <div class="opt-group">
+        <div class="opt-title">{% translate "Доставка" %}</div>
+        <div class="pills">{% for r in form.delivery %}<label class="pill">{{ r.tag }}<span>{{ r.choice_label }}</span></label>{% endfor %}</div>
+      </div>
+      <div class="opt-group">
+        <div class="opt-title">{% translate "Оплата" %}</div>
+        <div class="pills">{% for r in form.payment %}<label class="pill{% if 'kaspi' in r.data.value %} kaspi{% endif %}">{{ r.tag }}<span>{{ r.choice_label }}</span></label>{% endfor %}</div>
+      </div>
+      <div>{{ form.comment }}</div>
+      <button class="btn gold wide" type="submit">{% translate "Подтвердить заказ" %} · {{ total|tenge }}</button>
+      <p class="sum-note">{% translate "Нажимая кнопку, вы соглашаетесь с условиями оферты и политикой конфиденциальности." %}
+        <a href="{% url 'offer' %}" target="_blank">{% translate "Оферта" %}</a> · <a href="{% url 'privacy' %}" target="_blank">{% translate "Политика конфиденциальности" %}</a></p>
+    </form>
+
+    <aside class="summary">
+      <h3>{% translate "Ваш заказ" %}</h3>
+      {% for i in items %}{% include "shop/_line.html" %}{% endfor %}
+      <div class="sum-row"><span>{% translate "Без скидки" %}</span><s>{{ old_total|tenge }}</s></div>
+      <div class="sum-row save"><span>{% translate "Скидка" %}</span><b>−{{ saving|tenge }}</b></div>
+      <div class="sum-total"><span>{% translate "К оплате" %}</span><b>{{ total|tenge }}</b></div>
+      <a href="{% url 'cart' %}" class="gift-more">← {% translate "Изменить корзину" %}</a>
+    </aside>
+  </div>
+</section>
+{% endblock %}

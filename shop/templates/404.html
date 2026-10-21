@@ -1,0 +1,17 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Страница не найдена" %} | MONA Perfume{% endblock %}
+{% block content %}
+<header class="page-hero nf">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Ошибка 404" %}</div>
+    <h1>{% translate "Аромат <i>ускользнул</i>" %}</h1>
+    <p class="lead">{% translate "Такой страницы нет — но ваш аромат точно ждёт вас в коллекции." %}</p>
+    <div class="hero-actions" style="justify-content:center;margin-top:30px">
+      <a href="{% url 'index' %}#collection" class="btn">{% translate "К ароматам" %} →</a>
+      <a href="{% url 'index' %}" class="btn ghost">{% translate "На главную" %}</a>
+    </div>
+  </div>
+</header>
+{% endblock %}

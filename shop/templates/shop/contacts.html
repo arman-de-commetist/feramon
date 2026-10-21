@@ -1,0 +1,59 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Контакты" %} | MONA Perfume{% endblock %}
+
+{% block content %}
+<header class="page-hero">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Контакты" %}</div>
+    <h1>{% translate "Мы <i>на связи</i>" %}</h1>
+    <p class="lead">{% translate "Поможем выбрать аромат, ответим на вопросы и оформим заказ." %}</p>
+  </div>
+</header>
+
+{% include "shop/_managers.html" %}
+
+<section class="contacts">
+  <div class="container">
+    <div class="contact-grid">
+      {% if site.whatsapp %}<a class="c-card wa reveal" href="{{ site.whatsapp_url }}" target="_blank" rel="noopener"><div class="ic">{% include "shop/icons/whatsapp.html" %}</div><h5>WhatsApp</h5><p>{% translate "Самый быстрый способ связаться" %}</p><span>{% translate "Написать" %} →</span></a>{% endif %}
+      {% if site.telegram %}<a class="c-card tg reveal" href="https://t.me/{{ site.telegram }}" target="_blank" rel="noopener"><div class="ic">{% include "shop/icons/telegram.html" %}</div><h5>Telegram</h5><p>@{{ site.telegram }}</p><span>{% translate "Написать" %} →</span></a>{% endif %}
+      {% if site.instagram %}<a class="c-card ig reveal" href="{{ site.instagram_url }}" target="_blank" rel="noopener"><div class="ic">{% include "shop/icons/instagram.html" %}</div><h5>Instagram</h5><p>@{{ site.instagram }}</p><span>{% translate "Подписаться" %} →</span></a>{% endif %}
+      {% if site.tiktok %}<a class="c-card tt reveal" href="{{ site.tiktok_url }}" target="_blank" rel="noopener"><div class="ic">{% include "shop/icons/tiktok.html" %}</div><h5>TikTok</h5><p>@{{ site.tiktok }}</p><span>{% translate "Подписаться" %} →</span></a>{% endif %}
+      {% if site.phone %}<a class="c-card ph reveal" href="tel:{{ site.phone|cut:' ' }}"><div class="ic">{% include "shop/icons/phone.html" %}</div><h5>{% translate "Телефон" %}</h5><p>{{ site.phone }}</p><span>{% translate "Позвонить" %} →</span></a>{% endif %}
+      {% if site.email %}<a class="c-card em reveal" href="mailto:{{ site.email }}"><div class="ic">{% include "shop/icons/mail.html" %}</div><h5>Email</h5><p>{{ site.email }}</p><span>{% translate "Написать" %} →</span></a>{% endif %}
+    </div>
+    {% if not site.whatsapp and not site.telegram and not site.instagram and not site.phone and not site.email %}
+    <p class="empty-note reveal">{% translate "Контакты скоро появятся. Владелец сайта: заполните их в админке → «Контакты сайта»." %}</p>
+    {% endif %}
+{% if site.address or site.map_url %}
+    <div class="map-card reveal">
+      <div class="map-art" aria-hidden="true">{% include "shop/icons/2gis.html" %}<span class="pin">📍</span></div>
+      <div class="map-text">
+        <div class="kicker">{% translate "Мы на карте" %}</div>
+        <h3>{% if site.address %}{{ site|tr:"address" }}{% else %}MONA Perfume{% endif %}</h3>
+        <p>{% translate "Приходите за ароматом лично или заберите заказ самовывозом." %}</p>
+        {% if site.map_url %}<a href="{{ site.map_url }}" class="btn btn-2gis" target="_blank" rel="noopener">{% include "shop/icons/2gis.html" %} {% translate "Открыть на карте" %} →</a>{% endif %}
+      </div>
+    </div>
+    {% endif %}
+    {% if site.city or site.hours %}
+    <div class="c-info reveal">
+      {% if site.city %}<div><small>{% translate "Город" %}</small><b>📍 {{ site.city }}</b></div>{% endif %}
+      {% if site.hours %}<div><small>{% translate "Часы работы" %}</small><b>🕘 {{ site.hours }}</b></div>{% endif %}
+      <div><small>{% translate "Доставка" %}</small><b>🇰🇿 {% translate "По всему Казахстану" %}</b></div>
+      <div><small>{% translate "Оплата" %}</small><b>💳 Kaspi</b></div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container reveal">
+    <h2>{% translate "Хотите <i>заказать</i>?" %}</h2>
+    <p>{% translate "Оставьте заявку на сайте — мы перезвоним сами." %}</p>
+    <a href="{% url 'index' %}#buy" class="btn">{% translate "Оформить заказ" %} →</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Блог" %} | MONA Perfume{% endblock %}
+{% block content %}
+<header class="page-hero compact">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Блог" %}</div>
+    <h1>{% translate "Всё об <i>ароматах</i>" %}</h1>
+    <p class="lead">{% translate "Советы, секреты стойкости и новости MONA." %}</p>
+  </div>
+</header>
+
+<section class="blog-sec">
+  <div class="container">
+    <div class="blog-grid">
+      {% for a in articles %}
+      <a href="{{ a.get_absolute_url }}" class="post reveal">
+        <div class="post-cover">{% if a.image %}<img src="{{ a.image.url }}" alt="" loading="lazy">{% else %}<span>{{ a.emoji }}</span>{% endif %}</div>
+        <div class="post-body">
+          <small>{{ a.published|date:"d.m.Y" }}</small>
+          <h3>{{ a|tr:"title" }}</h3>
+          <p>{{ a|tr:"excerpt" }}</p>
+          <span class="gb-more">{% translate "Читать" %} →</span>
+        </div>
+      </a>
+      {% empty %}
+      <p class="empty-note">{% translate "Статьи скоро появятся." %}</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

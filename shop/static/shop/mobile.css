@@ -1,0 +1,305 @@
+/* ======================================================
+   PROMO (Dyson gift), gift color, phone layout
+   ====================================================== */
+@media (min-width:981px){.mobile-only,.tabbar,.m-cta{display:none!important}}
+
+.btn.sm{padding:11px 16px;font-size:11px;letter-spacing:1.5px}
+.btn.gold{background:linear-gradient(135deg,#f3d58a,#c9a050 50%,#9c7426);color:#3d0814;box-shadow:0 12px 30px rgba(201,160,80,.45)}
+.btn.gold:hover{box-shadow:0 18px 40px rgba(201,160,80,.6)}
+
+/* ---------- promo ---------- */
+.promo{position:relative;overflow:hidden;color:#fbe9d6;
+  background:radial-gradient(circle at 15% 20%,rgba(201,160,80,.25),transparent 40%),radial-gradient(circle at 90% 90%,rgba(194,64,92,.35),transparent 45%),linear-gradient(135deg,#3d0814,#5e0f22 60%,#2a050d)}
+.promo::before{content:"";position:absolute;inset:0;background:url('img/logo.webp') center/cover;opacity:.12;mix-blend-mode:screen}
+.promo-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.promo-photos{position:relative;height:620px}
+.promo-photos img{position:absolute;border-radius:28px;object-fit:cover;box-shadow:0 40px 80px rgba(0,0,0,.45);border:4px solid rgba(233,200,122,.6)}
+.ph-main{left:0;top:0;width:68%;height:92%}
+.ph-box{right:0;bottom:0;width:46%;height:56%;transform:rotate(4deg);transition:.5s}
+.promo-photos:hover .ph-box{transform:rotate(0) scale(1.03)}
+.promo-sticker{position:absolute;right:6%;top:6%;width:110px;height:110px;border-radius:50%;display:grid;place-items:center;align-content:center;
+  background:linear-gradient(135deg,#f3d58a,#c9a050);color:#3d0814;font-size:34px;box-shadow:0 16px 40px rgba(0,0,0,.4);animation:spinIn 6s ease-in-out infinite}
+.promo-sticker b{font-size:12px;letter-spacing:2px;text-transform:uppercase}
+@keyframes spinIn{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.06)}}
+.promo-kicker{display:inline-block;font-size:12px;letter-spacing:5px;text-transform:uppercase;font-weight:700;color:#3d0814;background:linear-gradient(135deg,#f3d58a,#c9a050);padding:7px 16px;border-radius:30px}
+.promo h2{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5.4vw,74px);line-height:1;font-weight:700;margin:18px 0;
+  background:linear-gradient(180deg,#fff3d6,#e9c87a 55%,#c9a050);-webkit-background-clip:text;background-clip:text;color:transparent}
+.promo-lead{font-size:16px;line-height:1.8;opacity:.9}
+.promo-lead b{color:#f3d58a}
+.promo-list{list-style:none;display:grid;gap:12px;margin:26px 0 30px}
+.promo-list li{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.promo-list li>span{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(233,200,122,.15);border:1px solid rgba(233,200,122,.4);flex:none}
+.dots{display:inline-flex;gap:5px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid rgba(255,255,255,.7)}
+.d-pink{background:#f2a7bb}.d-blue{background:#3a5bbf}.d-caramel{background:#c98a4b}.d-burgundy{background:#7a1730}
+.promo-buy{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.promo-buy small{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.7}
+.promo-buy b{font-family:'Cormorant Garamond',serif;font-size:48px;color:#f3d58a}
+.promo-note{display:block;margin-top:18px;opacity:.6;font-size:12px}
+
+/* ---------- gift badges ---------- */
+.gift-ribbon{position:absolute;left:16px;top:16px;padding:7px 14px;border-radius:20px;font-size:12px;font-weight:700;color:#3d0814;
+  background:linear-gradient(135deg,#f3d58a,#c9a050);box-shadow:0 6px 16px rgba(0,0,0,.2);animation:spinIn 5s ease-in-out infinite}
+.gift-tag{font-style:normal;font-size:10px;font-weight:700;color:#3d0814;background:linear-gradient(135deg,#f3d58a,#c9a050);padding:3px 8px;border-radius:12px;margin-left:6px;vertical-align:middle;white-space:nowrap}
+
+/* ---------- gift color in order form ---------- */
+.gift-box{border-radius:20px;padding:16px 18px;background:linear-gradient(135deg,#3d0814,#6b1428);color:#fbe9d6;box-shadow:0 14px 34px rgba(61,8,20,.3)}
+.gift-box[hidden]{display:none}
+.gift-box.gift-in{animation:giftIn .6s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes giftIn{from{opacity:0;transform:translateY(-10px) scale(.96)}to{opacity:1;transform:none}}
+.gift-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.gift-ic{font-size:30px;animation:spinIn 4s ease-in-out infinite}
+.gift-head b{display:block;color:#f3d58a;font-size:15px}
+.gift-head small{opacity:.75;font-size:12px}
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.swatch{cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 4px;border-radius:14px;border:1px solid rgba(255,255,255,.15);transition:.25s;position:relative}
+.swatch input{position:absolute;opacity:0;pointer-events:none}
+.swatch i{width:34px;height:34px;border-radius:50%;border:3px solid rgba(255,255,255,.85);box-shadow:0 4px 10px rgba(0,0,0,.3);transition:.3s}
+.swatch span{font-size:11px;letter-spacing:.5px}
+.sw-pink i{background:linear-gradient(135deg,#ffd0dc,#e98aa3)}
+.sw-blue i{background:linear-gradient(135deg,#6f8ee6,#2a47a8)}
+.sw-caramel i{background:linear-gradient(135deg,#e7b07a,#a8662d)}
+.sw-burgundy i{background:linear-gradient(135deg,#a8324f,#5e0f22)}
+.swatch:hover{background:rgba(255,255,255,.08)}
+.swatch:has(input:checked){background:rgba(243,213,138,.16);border-color:#f3d58a}
+.swatch input:checked+i{transform:scale(1.15);box-shadow:0 0 0 3px #f3d58a,0 6px 14px rgba(0,0,0,.35)}
+.swatch input:focus-visible+i{outline:2px solid #f3d58a;outline-offset:3px}
+
+/* ---------- order page ---------- */
+.order-top{padding:110px 0 0;background:linear-gradient(180deg,#ffe4ea,#fff5f7)}
+.order-top h1{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,72px);color:var(--wine-deep);font-weight:600;line-height:1}
+.order-top h1 i{color:#c2405c}
+.order-trust{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.order-trust span{background:#fff;border:1px solid rgba(142,31,53,.1);padding:7px 14px;border-radius:20px;font-size:12px}
+.order-page .buy{padding-top:50px}
+.order-page .buy .sec-head{display:none}
+.page-hero.compact{padding:140px 0 70px}
+.catalog{background:#fff5f7}
+
+/* ======================================================
+   PHONE
+   ====================================================== */
+@media (max-width:980px){
+  .desktop-only{display:none!important}
+  body{padding-bottom:76px}
+  nav .container{height:62px}
+  .menu{top:62px}
+  .mona-logo .word{font-size:24px}
+
+  /* bottom tab bar */
+  .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:grid;grid-template-columns:repeat(5,1fr);
+    padding:6px 6px calc(6px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-top:1px solid rgba(142,31,53,.1);box-shadow:0 -10px 30px rgba(94,15,34,.08)}
+  .tabbar a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;font-weight:600;color:var(--muted);padding:6px 0;border-radius:14px;transition:.2s}
+  .tabbar a span{font-size:20px;line-height:1;transition:transform .3s cubic-bezier(.2,.9,.3,1.5)}
+  .tabbar a.on{color:var(--wine);background:#fff0f3}
+  .tabbar a.on span{transform:translateY(-2px) scale(1.12)}
+  .tabbar .tab-order span{width:44px;height:44px;margin-top:-22px;border-radius:50%;display:grid;place-items:center;font-size:20px;
+    background:linear-gradient(135deg,#c2405c,var(--wine-deep));box-shadow:0 8px 20px rgba(142,31,53,.4);border:3px solid #fff}
+  .tabbar .tab-order.on{background:none}
+  .wa-float{bottom:92px}
+
+  /* sticky order bar on a perfume page */
+  .m-cta{position:fixed;left:10px;right:10px;bottom:84px;z-index:65;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:10px 10px 10px 18px;border-radius:20px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);box-shadow:0 14px 40px rgba(94,15,34,.22);
+    animation:ctaIn .5s cubic-bezier(.2,.9,.3,1.3) .6s both}
+  @keyframes ctaIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  .m-cta small{display:block;font-size:11px;color:var(--muted)}
+  .m-cta b{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--wine);line-height:1}
+  .m-cta .btn{padding:13px 22px;background:linear-gradient(135deg,var(--wine),var(--wine-deep))}
+  body:has(.m-cta) .wa-float{bottom:160px}
+  body:has(.m-cta) footer{padding-bottom:110px}
+
+  /* home hero tighter */
+  .hero{min-height:auto;padding:92px 0 30px}
+  .hero h1{font-size:clamp(76px,24vw,120px);margin:14px 0 4px}
+  .hero .tagline{font-size:26px;margin:14px 0 8px}
+  .hero p.lead{font-size:14px;margin-bottom:22px}
+  .hero-actions .btn{flex:1;justify-content:center;padding:14px 18px}
+  .price-tag{margin-top:20px}
+  .fan{height:360px;margin-top:6px}
+  .fan img{width:150px}
+  .eyebrow{font-size:10px;letter-spacing:2px;padding:7px 14px}
+
+  /* collection as a swipe carousel */
+  section{padding:64px 0}
+  .sec-head{margin-bottom:30px}
+  .collection .coll-grid{display:flex;grid-template-columns:none;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;
+    margin:0 -16px;padding:4px 16px 20px;scrollbar-width:none}
+  .collection .coll-grid::-webkit-scrollbar{display:none}
+  .collection .coll-card{flex:0 0 78%;scroll-snap-align:center}
+  .collection .coll-card .pic{height:300px}
+  .collection .coll-card p{display:none}
+  .coll-card .body{padding:18px}
+  .coll-card h3{font-size:28px}
+  .coll-card .chips{margin:10px 0}
+  .coll-card .foot{flex-wrap:wrap}
+  .coll-card .foot b{font-size:24px;flex:1}
+  .catalog .coll-grid{grid-template-columns:1fr;max-width:480px}
+
+  /* promo */
+  .promo-grid{grid-template-columns:1fr;gap:30px}
+  .promo-photos{height:430px}
+  .promo-sticker{width:84px;height:84px;font-size:26px}
+  .promo-text{text-align:center}
+  .promo-list{text-align:left;max-width:380px;margin-left:auto;margin-right:auto}
+  .promo-buy{justify-content:center}
+
+  /* product page */
+  .p-hero{padding:86px 0 40px}
+  .p-hero-grid{gap:26px}
+  .p-hero-img{order:-1}
+  .p-hero-img img{max-width:270px}
+  .p-hero h1{font-size:64px;margin:12px 0 4px}
+  .crumbs{margin-bottom:12px}
+  .p-hero .lead{margin-bottom:20px}
+  .p-price b{font-size:40px}
+  .perfume .notes-grid{grid-template-columns:1fr;gap:12px}
+  .steps{gap:12px}
+  .step{padding:22px 20px}
+
+  /* order form: comfortable on phone */
+  .order-top{padding-top:84px}
+  .order-page .buy{padding-top:20px}
+  .buy-card{border-radius:26px}
+  .order-page .buy-visual{display:none}
+  .buy-visual{min-height:auto;padding:20px}
+  .buy-visual img{max-width:200px}
+  .buy-info{padding:24px 16px}
+  .order-form input,.order-form textarea{font-size:16px} /* stops iOS zoom on focus */
+  .picker button{padding:8px 12px 8px 8px}
+  .picker button img{width:40px;height:54px}
+  .picker button b{font-size:14px}
+  .picker button .pr{font-size:18px}
+  .buy-price b{font-size:40px}
+  .order-form .btn[type=submit]{padding:18px;font-size:14px}
+
+  footer{padding:50px 0 30px}
+  footer .brand-img{width:120px}
+}
+@media (max-width:560px){
+  .swatches{grid-template-columns:repeat(4,1fr);gap:4px}
+  .swatch i{width:30px;height:30px}
+  .swatch span{font-size:10px}
+  .promo-photos{height:380px}
+  .pills{gap:6px}
+  .pill span{padding:9px 13px;font-size:12px}
+}
+
+/* promo: choose one of the 100 ml perfumes */
+.promo-pick-title{font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:.75;margin-bottom:12px}
+.promo-options{display:grid;gap:10px}
+.promo-opt{display:flex;align-items:center;gap:14px;padding:8px 18px 8px 8px;border-radius:18px;background:rgba(255,255,255,.08);
+  border:1px solid rgba(233,200,122,.35);transition:.3s;text-align:left}
+.promo-opt:hover{background:rgba(243,213,138,.16);border-color:#f3d58a;transform:translateX(6px)}
+.promo-opt img{width:46px;height:60px;object-fit:cover;object-position:50% 52%;border-radius:10px}
+.promo-opt span{flex:1}
+.promo-opt b{display:block;color:#fff3d6;font-size:16px}
+.promo-opt small{color:#e9c87a;font-size:13px}
+.promo-opt em{font-style:normal;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#3d0814;
+  background:linear-gradient(135deg,#f3d58a,#c9a050);font-weight:700;transition:.3s}
+.promo-opt:hover em{transform:scale(1.1)}
+@media (max-width:980px){.promo-pick{max-width:420px;margin:0 auto}}
+
+/* ---------- order: step 1 perfume, step 2 volume ---------- */
+.step-title{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--wine-deep);margin:6px 0 2px}
+.step-title[hidden]{display:none}
+.step-title span{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:12px;color:#fff;background:linear-gradient(135deg,#d9798c,var(--wine))}
+.picker[hidden],.volumes[hidden]{display:none}
+.volumes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.volumes.gift-in{animation:giftIn .45s cubic-bezier(.2,.9,.3,1.3)}
+.vol-btn{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;padding:16px 6px 14px;border-radius:18px;cursor:pointer;
+  border:1px solid rgba(142,31,53,.18);background:#fff;font-family:inherit;color:var(--ink);transition:.25s;overflow:hidden}
+.vol-btn b{font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;color:var(--wine-deep)}
+.vol-btn small{font-size:12px;color:var(--muted);font-weight:600}
+.vol-btn:hover{border-color:var(--wine);transform:translateY(-2px)}
+.vol-btn.active{background:linear-gradient(135deg,#c2405c,var(--wine) 60%,var(--wine-deep));border-color:var(--wine);box-shadow:0 10px 24px rgba(142,31,53,.3)}
+.vol-btn.active b,.vol-btn.active small{color:#fff}
+.vol-btn.pop{animation:pop .45s cubic-bezier(.2,.9,.3,1.4)}
+.vol-gift{position:absolute;top:0;left:0;right:0;font-style:normal;font-size:9px;font-weight:700;letter-spacing:.5px;padding:3px 0;
+  color:#3d0814;background:linear-gradient(135deg,#f3d58a,#c9a050)}
+.vol-btn:has(.vol-gift){padding-top:22px}
+
+/* "от" price prefix and product-page volume tiles */
+small.from{font-family:'Montserrat',sans-serif;font-size:.42em;font-weight:500;color:var(--muted);vertical-align:middle;letter-spacing:0;text-transform:none;display:inline}
+.p-vols{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px}
+.p-vol{position:relative;display:flex;flex-direction:column;align-items:center;min-width:96px;padding:12px 14px;border-radius:18px;background:rgba(255,255,255,.75);
+  border:1px solid #fff;box-shadow:0 8px 20px rgba(0,0,0,.06);transition:.25s}
+.p-vol:hover{transform:translateY(-3px);border-color:var(--wine)}
+.p-vol b{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--wine-deep);line-height:1}
+.p-vol small{font-size:12px;color:var(--muted);font-weight:600;margin-top:2px}
+.p-vol em{position:absolute;top:-10px;right:-6px;font-style:normal;font-size:10px;font-weight:700;color:#3d0814;padding:3px 8px;border-radius:10px;
+  background:linear-gradient(135deg,#f3d58a,#c9a050);box-shadow:0 4px 10px rgba(0,0,0,.15)}
+@media (max-width:980px){.p-vols{justify-content:center}.p-vol{min-width:0;flex:1}}
+
+/* ---------- language switcher ---------- */
+.lang{display:inline-flex;gap:2px;padding:3px;border-radius:30px;background:rgba(255,255,255,.7);border:1px solid rgba(142,31,53,.15)}
+.lang a{font-size:11px;font-weight:700;letter-spacing:1px;padding:6px 9px;border-radius:20px;color:var(--muted);transition:.2s;line-height:1}
+.lang a:hover{color:var(--wine)}
+.lang a.on{background:linear-gradient(135deg,#c2405c,var(--wine-deep));color:#fff}
+@media (max-width:980px){
+  .lang{order:1}
+  .burger{order:2}
+  .lang a{padding:6px 7px;font-size:10px}
+}
+
+/* ---------- Instagram ---------- */
+.ig-link{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;color:#fff;flex:none;transition:.3s;
+  background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
+.ig-link:hover{transform:scale(1.1) rotate(-6deg)}
+.ig-float{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;color:#fff;
+  background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285aeb 90%);box-shadow:0 12px 30px rgba(214,36,159,.4);transition:.3s}
+.ig-float:hover{transform:scale(1.08)}
+.ig-float.with-wa{bottom:94px}
+@media (max-width:980px){
+  .ig-link{order:1;width:34px;height:34px}
+  .ig-float{bottom:92px;width:54px;height:54px;right:16px}
+  .ig-float.with-wa{bottom:156px}
+  body:has(.m-cta) .ig-float{bottom:160px}
+  body:has(.m-cta) .ig-float.with-wa{bottom:224px}
+}
+
+/* ---------- address / 2GIS ---------- */
+.map-card{display:grid;grid-template-columns:300px 1fr;gap:0;margin-top:36px;border-radius:30px;overflow:hidden;background:#fff;box-shadow:0 14px 44px rgba(142,31,53,.12)}
+.map-art{position:relative;min-height:230px;display:grid;place-items:center;
+  background:
+    linear-gradient(28deg,transparent 46%,#fff 46% 50%,transparent 50%),
+    linear-gradient(-62deg,transparent 60%,#fff 60% 63%,transparent 63%),
+    linear-gradient(90deg,transparent 30%,#fde3ea 30% 31%,transparent 31% 70%,#fde3ea 70% 71%,transparent 71%),
+    linear-gradient(0deg,transparent 40%,#fde3ea 40% 41%,transparent 41% 75%,#fde3ea 75% 76%,transparent 76%),
+    radial-gradient(circle at 70% 30%,#d9f2df 0 18%,transparent 19%),
+    #f6eef0}
+.map-art .pin{font-size:54px;filter:drop-shadow(0 10px 10px rgba(142,31,53,.35));animation:pinBounce 2.2s ease-in-out infinite}
+.map-art::after{content:"";position:absolute;width:60px;height:14px;border-radius:50%;background:rgba(142,31,53,.18);top:calc(50% + 30px);left:calc(50% - 30px);animation:pinShadow 2.2s ease-in-out infinite}
+@keyframes pinBounce{0%,100%{transform:translateY(-10px)}50%{transform:translateY(0)}}
+@keyframes pinShadow{0%,100%{transform:scale(.7);opacity:.5}50%{transform:scale(1);opacity:1}}
+.map-text{padding:34px 36px;display:flex;flex-direction:column;justify-content:center}
+.map-text .kicker{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--wine);font-weight:600}
+.map-text h3{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,36px);color:var(--wine-deep);margin:8px 0 10px;line-height:1.15}
+.map-text p{color:var(--muted);line-height:1.7;margin-bottom:20px}
+.btn-2gis{align-self:flex-start;background:linear-gradient(135deg,#29b34a,#168a33);box-shadow:0 10px 26px rgba(22,138,51,.35)}
+.btn-2gis b{background:#fff;color:#168a33;border-radius:8px;padding:2px 7px;font-size:12px;letter-spacing:0}
+.btn-2gis:hover{box-shadow:0 16px 34px rgba(22,138,51,.45)}
+.map-link{display:inline-block;margin:-6px 0 14px;font-size:13px;font-weight:600;color:#168a33}
+.map-link:hover{text-decoration:underline}
+@media (max-width:980px){
+  .map-card{grid-template-columns:1fr}
+  .map-art{min-height:170px}
+  .map-text{padding:26px 22px;text-align:center}
+  .btn-2gis{align-self:center}
+}
+
+/* ---------- brand icons ---------- */
+.c-card .ic{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);
+  backdrop-filter:blur(4px);font-size:0;margin-bottom:18px;transition:.35s}
+.c-card:hover .ic{transform:rotate(-8deg) scale(1.08)}
+.c-card .ico-svg{width:30px;height:30px;color:#fff}
+.gis-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 9px 4px 6px;border-radius:10px;background:linear-gradient(135deg,#29b34a,#168a33);
+  color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;line-height:1;letter-spacing:0;text-transform:none;vertical-align:middle}
+.gis-badge svg{width:15px;height:15px}
+.gis-badge b{font-weight:800;background:none;padding:0;color:inherit}
+.map-art .gis-badge{position:absolute;left:18px;top:18px;font-size:20px;padding:9px 16px 9px 11px;border-radius:14px;box-shadow:0 10px 24px rgba(22,138,51,.35)}
+.map-art .gis-badge svg{width:22px;height:22px}
+.btn-2gis .gis-badge{background:#fff;color:#168a33;margin-right:4px}
+.map-link .gis-badge{font-size:11px;padding:3px 7px 3px 5px}
+.map-link .gis-badge svg{width:12px;height:12px}

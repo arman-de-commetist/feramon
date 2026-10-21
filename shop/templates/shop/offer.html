@@ -1,0 +1,17 @@
+{% extends "shop/base.html" %}
+{% load i18n tenge %}
+{% block title %}{% translate "Публичная оферта" %} | MONA Perfume{% endblock %}
+{% block content %}
+{% get_current_language as LANG %}
+<header class="page-hero compact">
+  <div class="container">
+    <div class="kicker">{% translate "Документы" %}</div>
+    <h1 class="legal-h">{% translate "Публичная оферта" %}</h1>
+  </div>
+</header>
+<section class="article-sec">
+  <div class="container article legal">
+    {% if LANG == 'en' %}{% include "shop/legal/offer_en.html" %}{% elif LANG == 'kk' %}{% include "shop/legal/offer_kk.html" %}{% else %}{% include "shop/legal/offer_ru.html" %}{% endif %}
+  </div>
+</section>
+{% endblock %}

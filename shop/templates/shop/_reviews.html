@@ -1,0 +1,21 @@
+{% load i18n tenge %}
+{% if reviews %}
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">{% translate "Отзывы" %}</div>
+      <h2>{% translate "Любят <i>с первого вдоха</i>" %}</h2>
+    </div>
+    <div class="rev-grid">
+      {% for r in reviews|slice:":3" %}
+      <div class="rev reveal">
+        <span class="stars">{% for _ in "12345" %}{% if forloop.counter <= r.rating %}★{% else %}☆{% endif %}{% endfor %}</span>
+        <p>«{{ r.text|truncatechars:260 }}»</p>
+        <div class="who"><div class="ava">{{ r.name|first|upper }}</div><div><b>{{ r.name }}</b><small>{% translate "Покупатель" %}</small></div></div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="center-cta"><a href="{% url 'reviews' %}" class="btn ghost">{% translate "Все отзывы и ответы" %} ({{ review_count }}) →</a></div>
+  </div>
+</section>
+{% endif %}

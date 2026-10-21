@@ -1,0 +1,41 @@
+{% load static i18n tenge %}
+{% if offer_volumes %}
+<section class="offer" id="gift">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="promo-kicker">{% translate "Акция" %} −50%</div>
+      <h2>{% translate "Подарок <i>к каждому</i> флакону" %}</h2>
+      <p>{% translate "Скидка 50% на все ароматы MONA — и подарок, который зависит от объёма." %}</p>
+    </div>
+    <div class="offer-grid">
+      {% for v in offer_volumes %}
+      <div class="offer-card reveal{% if v.gift_type == 'dyson' %} hot{% endif %}">
+        {% if v.gift_type == 'dyson' %}<div class="offer-ribbon">🔥 {% translate "Хит" %}</div>{% endif %}
+        <div class="offer-vol">{{ v.label|vol }}</div>
+        {% include "shop/_price.html" with v=v big=1 %}
+        <div class="offer-plus">+</div>
+        <div class="offer-gift">
+          {% if v.gift_type == 'dyson' %}
+          <img class="og-dyson og-set" src="{% static 'shop/img/dyson-set.webp' %}" alt="Dyson Airwrap" loading="lazy">
+          {% else %}
+          <div class="og-grid">
+            {% for g in offer_gifts %}{% if g.gender != 'm' and g.image %}<span class="og-tile"><img src="{{ g.image.url }}" alt="{{ g }}" loading="lazy"></span>{% endif %}{% endfor %}
+            {% for g in offer_gifts %}{% if g.gender == 'm' and g.image %}<span class="og-tile"><img src="{{ g.image.url }}" alt="{{ g }}" loading="lazy"></span>{% endif %}{% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <h3>{{ v|tr:"gift" }}</h3>
+        <p class="offer-note">{% if v.gift_type == 'dyson' %}{% translate "6 насадок · имя на корпусе бесплатно · 4 цвета" %}{% else %}{% translate "На выбор: Chanel, Dior, Armani, Tom Ford, YSL" %}{% endif %}</p>
+        <a href="{% url 'order' %}?v={{ v.pk }}" class="btn{% if v.gift_type == 'dyson' %} gold{% endif %}">{% translate "Выбрать" %} →</a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="offer-links reveal">
+      <a href="{% url 'dyson' %}">💇‍♀️ {% translate "Всё о Dyson Airwrap" %} →</a>
+      <a href="{% url 'gifts' %}">🎁 {% translate "Все подарочные парфюмы" %} →</a>
+      <a href="{% url 'compare' %}">⚖️ {% translate "Сравнить объёмы" %} →</a>
+    </div>
+    <small class="promo-note">{% translate "Количество подарков ограничено." %}</small>
+  </div>
+</section>
+{% endif %}

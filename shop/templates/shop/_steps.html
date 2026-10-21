@@ -1,0 +1,6 @@
+{% load i18n %}
+<ol class="checkout-steps">
+  <li class="{% if step >= 1 %}done{% endif %}{% if step == 1 %} now{% endif %}"><a href="{% url 'order' %}"><span>1</span>{% translate "Выбор" %}</a></li>
+  <li class="{% if step >= 2 %}done{% endif %}{% if step == 2 %} now{% endif %}"><a href="{% url 'cart' %}"><span>2</span>{% translate "Корзина" %}</a></li>
+  <li class="{% if step >= 3 %}done{% endif %}{% if step == 3 %} now{% endif %}"><span class="step-pill"><span>3</span>{% translate "Оформление" %}</span></li>
+</ol>

@@ -1,0 +1,86 @@
+{% extends "shop/base.html" %}
+{% load i18n static %}
+{% block title %}{% translate "Сертификаты" %} | MONA Perfume{% endblock %}
+{% block description %}{% translate "Документы на парфюмерную основу MONA: сертификат происхождения, сертификат анализа и сертификат ISO производителя." %}{% endblock %}
+
+{% block content %}
+<header class="page-hero compact">
+  <div id="petals"></div>
+  <div class="container">
+    <div class="kicker">{% translate "Документы" %}</div>
+    <h1>{% translate "Сертификаты <i>и качество</i>" %}</h1>
+    <p class="lead">{% translate "Документы на парфюмерную основу, которые предоставил наш поставщик." %}</p>
+  </div>
+</header>
+
+<section class="certs-sec">
+  <div class="container">
+    <div class="cert-intro reveal">
+      <span class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <p>{% translate "Производитель парфюмерной основы — Luzi AG, Швейцария. Нажмите на документ, чтобы открыть его полностью." %}</p>
+    </div>
+
+    <div class="cert-grid">
+      {% translate "Сертификат происхождения" as t1 %}{% translate "Сертификат анализа" as t2 %}{% translate "Сертификат ISO 9001 и ISO 14001" as t3 %}
+      <article class="cert-card reveal">
+        <button type="button" class="cert-doc" data-full="{% static 'shop/img/certs/origin-ch.webp' %}" data-title="{{ t1 }}">
+          <img src="{% static 'shop/img/certs/origin-ch-sm.webp' %}" alt="{{ t1 }}" loading="lazy">
+          <span class="cert-shine"></span><span class="cert-zoom">{% translate "Открыть" %}</span>
+        </button>
+        <div class="cert-body">
+          <span class="cert-tag">Certificate of Origin</span>
+          <h3>{{ t1 }}</h3>
+          <ul>
+            <li><span>{% translate "Выдан" %}</span><b>{% translate "Торговая палата Цюриха" %}</b></li>
+            <li><span>{% translate "Страна происхождения" %}</span><b>{% translate "Швейцария" %}</b></li>
+            <li><span>{% translate "Товар" %}</span><b>{% translate "Парфюмерные композиции без спирта" %}</b></li>
+            <li><span>{% translate "Номер и дата" %}</span><b>№ 24109884 · 07.11.2024</b></li>
+          </ul>
+          <p class="cert-check">{% translate "Подлинность можно проверить на сайте certificates.iccwbo.org по коду безопасности, указанному в документе." %}</p>
+        </div>
+      </article>
+
+      <article class="cert-card reveal">
+        <button type="button" class="cert-doc" data-full="{% static 'shop/img/certs/analysis-luzi.webp' %}" data-title="{{ t2 }}">
+          <img src="{% static 'shop/img/certs/analysis-luzi-sm.webp' %}" alt="{{ t2 }}" loading="lazy">
+          <span class="cert-shine"></span><span class="cert-zoom">{% translate "Открыть" %}</span>
+        </button>
+        <div class="cert-body">
+          <span class="cert-tag">Certificate of Analysis</span>
+          <h3>{{ t2 }}</h3>
+          <ul>
+            <li><span>{% translate "Выдан" %}</span><b>Luzi AG, {% translate "Швейцария" %}</b></li>
+            <li><span>{% translate "Аромат" %}</span><b>{% translate "цветочно-фруктовый" %}</b></li>
+            <li><span>{% translate "Дата производства" %}</span><b>29.10.2024</b></li>
+            <li><span>{% translate "Номер и дата" %}</span><b>№ 103808 · 04.11.2024</b></li>
+          </ul>
+          <p class="cert-check">{% translate "Лабораторные показатели партии: плотность и показатель преломления — в пределах спецификации." %}</p>
+        </div>
+      </article>
+
+      <article class="cert-card reveal">
+        <button type="button" class="cert-doc" data-full="{% static 'shop/img/certs/iso-swiss-safety.webp' %}" data-title="{{ t3 }}">
+          <img src="{% static 'shop/img/certs/iso-swiss-safety-sm.webp' %}" alt="{{ t3 }}" loading="lazy">
+          <span class="cert-shine"></span><span class="cert-zoom">{% translate "Открыть" %}</span>
+        </button>
+        <div class="cert-body">
+          <span class="cert-tag">ISO 9001:2015 · ISO 14001:2015</span>
+          <h3>{{ t3 }}</h3>
+          <ul>
+            <li><span>{% translate "Выдан" %}</span><b>Swiss Safety Center AG</b></li>
+            <li><span>{% translate "Предприятие" %}</span><b>Luzi AG</b></li>
+            <li><span>{% translate "Что подтверждает" %}</span><b>{% translate "Систему менеджмента качества и окружающей среды" %}</b></li>
+            <li><span>{% translate "Действителен до" %}</span><b>11.01.2026</b></li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="cert-box" id="certBox" hidden role="dialog" aria-modal="true">
+  <div class="cb-top"><b class="cb-title"></b><button type="button" class="cb-close" aria-label="{% translate "Закрыть" %}">×</button></div>
+  <div class="cb-scroll"><img alt=""></div>
+  <small class="cb-hint">{% translate "Нажмите на документ, чтобы увеличить" %}</small>
+</div>
+{% endblock %}

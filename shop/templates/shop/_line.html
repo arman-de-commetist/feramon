@@ -1,0 +1,18 @@
+{% load static i18n tenge %}
+<div class="line theme-{{ i.variant.product.theme }}">
+  {% if i.variant.product.image %}<img src="{{ i.variant.product.image.url }}" alt="" class="line-img">{% endif %}
+  <div class="line-body">
+    <b>MONA {{ i.variant.product|tr:"name" }}</b> <span class="line-vol">{{ i.variant.label|vol }}</span>
+    {% if i.variant.gift %}
+    <div class="line-gift">🎁 {{ i.variant|tr:"gift" }}
+      {% if i.gift_color_label %}{% with 'shop/img/dyson/color-'|add:i.gift_color|add:'.webp' as img %}<span class="lg-chip lg-photo"><img src="{% static img %}" alt="">{{ i.gift_color_label }}</span>{% endwith %}{% endif %}
+      {% if i.engraving %}<span class="lg-chip">💎 «{{ i.engraving }}»</span>{% endif %}
+      {% for g in i.perfumes %}<span class="lg-chip">{{ g }}</span>{% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="line-price">{% include "shop/_price.html" with v=i.variant %}</div>
+  {% if removable %}
+  <form method="post" action="{% url 'cart' %}" class="line-remove">{% csrf_token %}<button name="remove" value="{{ i.id }}" aria-label="{% translate "Удалить" %}" title="{% translate "Удалить" %}">×</button></form>
+  {% endif %}
+</div>
